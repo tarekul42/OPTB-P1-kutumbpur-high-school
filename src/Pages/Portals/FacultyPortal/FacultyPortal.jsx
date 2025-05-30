@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Faculty = () => {
+const FacultyPortal = () => {
     const features = [
         {
             title: "Attendance Management",
@@ -145,4 +145,4 @@ const Faculty = () => {
     );
 };
 
-export default Faculty;
+export default FacultyPortal; 

@@ -1,15 +1,14 @@
 import { NavLink } from "react-router-dom";
+
 export const Dropdown = ({ title, items, isOpen, toggle }) => (
-  <div className="relative">
-    {" "}
-    {/* Use a div instead of li */}
+  <div className="relative group">
     <button
       onClick={toggle}
-      className="flex items-center justify-between w-full py-2 px-3 text-[#80ED99] rounded hover:bg-[#0AD1C8] md:hover:bg-transparent md:border-0 md:hover:text-[#45DFB1] md:p-0 md:w-auto dark:text-[#80ED99] dark:hover:text-[#0AD1C8] dark:focus:text-white dark:border-gray-700 dark:hover:bg-[#14919B]"
+      className="flex items-center justify-between w-full py-2 px-3 text-[#80ED99] rounded hover:bg-[#0AD1C8] md:hover:bg-transparent md:border-0 md:hover:text-[#45DFB1] md:p-0 md:w-auto dark:text-[#80ED99] dark:hover:text-[#0AD1C8] dark:focus:text-white dark:border-gray-700 dark:hover:bg-[#14919B] transition-colors duration-200"
     >
       {title}
       <svg
-        className="w-2.5 h-2.5 ms-2.5"
+        className={`w-2.5 h-2.5 ms-2.5 transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}`}
         aria-hidden="true"
         xmlns="http://www.w3.org/2000/svg"
         fill="none"
@@ -25,12 +24,13 @@ export const Dropdown = ({ title, items, isOpen, toggle }) => (
       </svg>
     </button>
     {isOpen && (
-      <ul className="absolute left-0 mt-2 z-10 font-normal bg-[#213A57] divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-[#0B6477] dark:divide-gray-600">
+      <ul className="absolute left-0 mt-2 z-50 font-normal bg-[#213A57] divide-y divide-gray-100 rounded-lg shadow-lg w-56 dark:bg-[#0B6477] dark:divide-gray-600 transform transition-all duration-200 ease-in-out">
         {items.map((item, index) => (
           <li key={index}>
             <NavLink
               to={item.link}
-              className="block px-4 py-2 text-[#80ED99] hover:bg-[#0AD1C8] dark:hover:bg-[#14919B] dark:hover:text-white"
+              className="block px-4 py-3 text-[#80ED99] hover:bg-[#0AD1C8] dark:hover:bg-[#14919B] dark:hover:text-white transition-colors duration-200"
+              onClick={() => toggle(false)}
             >
               {item.label}
             </NavLink>

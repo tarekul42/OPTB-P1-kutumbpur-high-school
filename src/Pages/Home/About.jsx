@@ -1,6 +1,6 @@
 import React from 'react';
 
-const AboutUs = () => {
+const About = () => {
     const features = [
         {
             title: "Excellence in Education",
@@ -128,4 +128,4 @@ const AboutUs = () => {
     );
 };
 
-export default AboutUs;
+export default About; 
