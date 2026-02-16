@@ -5,7 +5,10 @@ const Home = () => {
     const [isVisible, setIsVisible] = useState(false);
 
     useEffect(() => {
-        setIsVisible(true);
+        const timer = setTimeout(() => {
+            setIsVisible(true);
+        }, 100);
+        return () => clearTimeout(timer);
     }, []);
 
     const features = [
@@ -99,12 +102,12 @@ const Home = () => {
             <div className="relative h-screen flex items-center justify-center overflow-hidden">
                 {/* Animated Background Overlay */}
                 <div className="absolute inset-0 bg-gradient-to-r from-blue-900/90 via-blue-800/80 to-blue-900/90 z-10"></div>
-                
+
                 {/* Animated Background Pattern */}
                 <div className="absolute inset-0 bg-grid-white/10 opacity-50 z-10"></div>
-                
+
                 {/* Parallax Background Image */}
-                <div 
+                <div
                     className="absolute inset-0 bg-cover bg-center bg-fixed"
                     style={{
                         backgroundImage: "url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80')",
@@ -144,15 +147,15 @@ const Home = () => {
 
                     {/* Enhanced CTA Buttons */}
                     <div className={`flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-6 transition-all duration-1000 delay-500 transform ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
-                        <Link 
-                            to="/admissions" 
+                        <Link
+                            to="/admissions"
                             className="group relative px-8 py-4 rounded-lg font-semibold overflow-hidden"
                         >
                             <span className="absolute inset-0 bg-white transition-all duration-300 group-hover:bg-blue-50"></span>
                             <span className="relative text-blue-600 group-hover:text-blue-700">Apply Now</span>
                         </Link>
-                        <Link 
-                            to="/about" 
+                        <Link
+                            to="/about"
                             className="group relative px-8 py-4 rounded-lg font-semibold overflow-hidden"
                         >
                             <span className="absolute inset-0 border-2 border-white transition-all duration-300 group-hover:bg-white"></span>
