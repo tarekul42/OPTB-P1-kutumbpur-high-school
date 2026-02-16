@@ -150,6 +150,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## 📞 Contact
 
 For any queries or support, please contact:
-- Email: [your-email@example.com]
-- Website: [school-website.com]
-- Phone: [school-phone-number]
+- Email: [kutumbpurhighschool1996@gmail.com]
+- Website: [kutumbpurhighschool.vercel.app]
+<!-- - Phone: [+8801*********] -->
