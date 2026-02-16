@@ -97,11 +97,11 @@ const Home = () => {
     ];
 
     return (
-        <div className="min-h-screen">
+        <div className="min-h-screen bg-background">
             {/* Enhanced Hero Section */}
             <div className="relative h-screen flex items-center justify-center overflow-hidden">
                 {/* Animated Background Overlay */}
-                <div className="absolute inset-0 bg-gradient-to-r from-blue-900/90 via-blue-800/80 to-blue-900/90 z-10"></div>
+                <div className="absolute inset-0 bg-gradient-to-r from-primary-900/95 via-primary-800/90 to-primary-900/95 z-10"></div>
 
                 {/* Animated Background Pattern */}
                 <div className="absolute inset-0 bg-grid-white/10 opacity-50 z-10"></div>
@@ -117,9 +117,9 @@ const Home = () => {
 
                 {/* Floating Elements */}
                 <div className="absolute inset-0 overflow-hidden z-10">
-                    <div className="absolute top-20 left-10 w-20 h-20 bg-blue-500/20 rounded-full blur-xl animate-pulse"></div>
-                    <div className="absolute bottom-20 right-10 w-32 h-32 bg-blue-400/20 rounded-full blur-xl animate-pulse delay-1000"></div>
-                    <div className="absolute top-1/2 left-1/2 w-40 h-40 bg-blue-300/20 rounded-full blur-xl animate-pulse delay-500"></div>
+                    <div className="absolute top-20 left-10 w-20 h-20 bg-accent-500/20 rounded-full blur-xl animate-pulse"></div>
+                    <div className="absolute bottom-20 right-10 w-32 h-32 bg-accent-400/20 rounded-full blur-xl animate-pulse delay-1000"></div>
+                    <div className="absolute top-1/2 left-1/2 w-40 h-40 bg-accent-300/20 rounded-full blur-xl animate-pulse delay-500"></div>
                 </div>
 
                 {/* Main Content */}
@@ -131,17 +131,17 @@ const Home = () => {
 
                     {/* Main Heading with Gradient Text */}
                     <h1 className={`text-5xl md:text-7xl font-bold mb-6 leading-tight transition-all duration-1000 transform ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
-                        <span className="bg-clip-text text-transparent bg-gradient-to-r from-white to-blue-200">
+                        <span className="bg-clip-text text-transparent bg-gradient-to-r from-white to-accent-200">
                             Nurturing Minds,
                         </span>
                         <br />
-                        <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-200 to-white">
+                        <span className="bg-clip-text text-transparent bg-gradient-to-r from-accent-200 to-white">
                             Building Futures
                         </span>
                     </h1>
 
                     {/* Animated Description */}
-                    <p className={`text-xl md:text-2xl text-blue-100 max-w-3xl mx-auto mb-12 transition-all duration-1000 delay-300 transform ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
+                    <p className={`text-xl md:text-2xl text-accent-100 max-w-3xl mx-auto mb-12 transition-all duration-1000 delay-300 transform ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
                         Empowering students with knowledge, skills, and values for a successful future
                     </p>
 
@@ -149,39 +149,39 @@ const Home = () => {
                     <div className={`flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-6 transition-all duration-1000 delay-500 transform ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
                         <Link
                             to="/admissions"
-                            className="group relative px-8 py-4 rounded-lg font-semibold overflow-hidden"
+                            className="group relative px-8 py-4 rounded-lg font-semibold overflow-hidden cursor-pointer"
                         >
-                            <span className="absolute inset-0 bg-white transition-all duration-300 group-hover:bg-blue-50"></span>
-                            <span className="relative text-blue-600 group-hover:text-blue-700">Apply Now</span>
+                            <span className="absolute inset-0 bg-white transition-all duration-300 group-hover:bg-accent-50"></span>
+                            <span className="relative text-primary-600 group-hover:text-primary-700">Apply Now</span>
                         </Link>
                         <Link
                             to="/about"
-                            className="group relative px-8 py-4 rounded-lg font-semibold overflow-hidden"
+                            className="group relative px-8 py-4 rounded-lg font-semibold overflow-hidden cursor-pointer"
                         >
                             <span className="absolute inset-0 border-2 border-white transition-all duration-300 group-hover:bg-white"></span>
-                            <span className="relative text-white group-hover:text-blue-600">Learn More</span>
+                            <span className="relative text-white group-hover:text-primary-600">Learn More</span>
                         </Link>
                     </div>
                 </div>
             </div>
 
             {/* Features Section with 3D Cards */}
-            <div className="py-20 bg-gray-50">
+            <div className="py-20 bg-neutral-50">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="text-center mb-16">
-                        <h2 className="text-4xl font-bold text-gray-900 mb-4">Why Choose Us</h2>
-                        <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+                        <h2 className="text-4xl font-bold text-neutral-900 mb-4">Why Choose Us</h2>
+                        <p className="text-xl text-neutral-600 max-w-3xl mx-auto">
                             Discover what makes our school the perfect place for your child's education
                         </p>
                     </div>
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                         {features.map((feature, index) => (
-                            <div key={index} className="bg-white rounded-2xl shadow-xl p-8 transform hover:-translate-y-2 transition duration-300 hover:shadow-2xl group">
-                                <div className="text-blue-600 mb-6 transform group-hover:scale-110 transition duration-300">
+                            <div key={index} className="bg-surface rounded-2xl shadow-xl p-8 transform hover:-translate-y-2 transition duration-300 hover:shadow-2xl group border border-neutral-200">
+                                <div className="text-primary-600 mb-6 transform group-hover:scale-110 transition duration-300">
                                     {feature.icon}
                                 </div>
-                                <h3 className="text-2xl font-bold text-gray-900 mb-4 group-hover:text-blue-600 transition duration-300">{feature.title}</h3>
-                                <p className="text-gray-600">{feature.description}</p>
+                                <h3 className="text-2xl font-bold text-neutral-900 mb-4 group-hover:text-primary-600 transition duration-300">{feature.title}</h3>
+                                <p className="text-neutral-600">{feature.description}</p>
                             </div>
                         ))}
                     </div>
@@ -189,11 +189,11 @@ const Home = () => {
             </div>
 
             {/* Programs Section with Hover Effects */}
-            <div className="py-20 bg-white">
+            <div className="py-20 bg-surface">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="text-center mb-16">
-                        <h2 className="text-4xl font-bold text-gray-900 mb-4">Our Programs</h2>
-                        <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+                        <h2 className="text-4xl font-bold text-neutral-900 mb-4">Our Programs</h2>
+                        <p className="text-xl text-neutral-600 max-w-3xl mx-auto">
                             Comprehensive education programs for every stage of learning
                         </p>
                     </div>
@@ -218,14 +218,14 @@ const Home = () => {
             </div>
 
             {/* Stats Section with Counter Animation */}
-            <div className="py-20 bg-gradient-to-r from-blue-600 to-blue-800 text-white relative overflow-hidden">
+            <div className="py-20 bg-gradient-to-r from-primary-600 to-primary-800 text-white relative overflow-hidden">
                 <div className="absolute inset-0 bg-grid-white/10"></div>
                 <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
                         {stats.map((stat, index) => (
                             <div key={index} className="text-center transform hover:scale-105 transition duration-300">
                                 <div className="text-4xl md:text-6xl font-bold mb-2">{stat.number}</div>
-                                <div className="text-blue-100 text-lg">{stat.label}</div>
+                                <div className="text-primary-100 text-lg">{stat.label}</div>
                             </div>
                         ))}
                     </div>
@@ -233,17 +233,17 @@ const Home = () => {
             </div>
 
             {/* News Section with Modern Cards */}
-            <div className="py-20 bg-gray-50">
+            <div className="py-20 bg-neutral-50">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="text-center mb-16">
-                        <h2 className="text-4xl font-bold text-gray-900 mb-4">Latest News</h2>
-                        <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+                        <h2 className="text-4xl font-bold text-neutral-900 mb-4">Latest News</h2>
+                        <p className="text-xl text-neutral-600 max-w-3xl mx-auto">
                             Stay updated with our latest events and achievements
                         </p>
                     </div>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                         {news.map((item, index) => (
-                            <div key={index} className="bg-white rounded-2xl shadow-xl overflow-hidden transform hover:-translate-y-2 transition duration-300 group">
+                            <div key={index} className="bg-surface rounded-2xl shadow-xl overflow-hidden transform hover:-translate-y-2 transition duration-300 group border border-neutral-200">
                                 <div className="relative overflow-hidden">
                                     <img
                                         src={item.image}
@@ -253,9 +253,9 @@ const Home = () => {
                                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition duration-300"></div>
                                 </div>
                                 <div className="p-6">
-                                    <div className="text-blue-600 mb-2 font-semibold">{item.date}</div>
-                                    <h3 className="text-xl font-bold text-gray-900 mb-2 group-hover:text-blue-600 transition duration-300">{item.title}</h3>
-                                    <p className="text-gray-600">{item.excerpt}</p>
+                                    <div className="text-primary-600 mb-2 font-semibold">{item.date}</div>
+                                    <h3 className="text-xl font-bold text-neutral-900 mb-2 group-hover:text-primary-600 transition duration-300">{item.title}</h3>
+                                    <p className="text-neutral-600">{item.excerpt}</p>
                                 </div>
                             </div>
                         ))}
@@ -264,29 +264,29 @@ const Home = () => {
             </div>
 
             {/* Testimonials Section with Modern Design */}
-            <div className="py-20 bg-white">
+            <div className="py-20 bg-surface">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="text-center mb-16">
-                        <h2 className="text-4xl font-bold text-gray-900 mb-4">What Parents Say</h2>
-                        <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+                        <h2 className="text-4xl font-bold text-neutral-900 mb-4">What Parents Say</h2>
+                        <p className="text-xl text-neutral-600 max-w-3xl mx-auto">
                             Hear from our community about their experiences
                         </p>
                     </div>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                         {testimonials.map((testimonial, index) => (
-                            <div key={index} className="bg-gray-50 rounded-2xl p-8 transform hover:-translate-y-2 transition duration-300 hover:shadow-xl group">
+                            <div key={index} className="bg-neutral-50 rounded-2xl p-8 transform hover:-translate-y-2 transition duration-300 hover:shadow-xl group border border-neutral-200">
                                 <div className="flex items-center mb-6">
                                     <img
                                         src={testimonial.image}
                                         alt={testimonial.name}
-                                        className="w-16 h-16 rounded-full object-cover ring-4 ring-blue-100 transform group-hover:scale-110 transition duration-300"
+                                        className="w-16 h-16 rounded-full object-cover ring-4 ring-primary-100 transform group-hover:scale-110 transition duration-300"
                                     />
                                     <div className="ml-4">
-                                        <h4 className="text-xl font-bold text-gray-900 group-hover:text-blue-600 transition duration-300">{testimonial.name}</h4>
-                                        <p className="text-blue-600">{testimonial.role}</p>
+                                        <h4 className="text-xl font-bold text-neutral-900 group-hover:text-primary-600 transition duration-300">{testimonial.name}</h4>
+                                        <p className="text-primary-600">{testimonial.role}</p>
                                     </div>
                                 </div>
-                                <p className="text-gray-600 italic">"{testimonial.quote}"</p>
+                                <p className="text-neutral-600 italic">"{testimonial.quote}"</p>
                             </div>
                         ))}
                     </div>
@@ -294,19 +294,19 @@ const Home = () => {
             </div>
 
             {/* Enhanced CTA Section with Gradient Animation */}
-            <div className="py-20 bg-gradient-to-r from-blue-600 to-blue-800 text-white relative overflow-hidden">
+            <div className="py-20 bg-gradient-to-r from-primary-600 to-primary-800 text-white relative overflow-hidden">
                 <div className="absolute inset-0 bg-grid-white/10"></div>
-                <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-blue-800 animate-gradient"></div>
+                <div className="absolute inset-0 bg-gradient-to-r from-primary-600 to-primary-800 animate-gradient"></div>
                 <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
                     <h2 className="text-4xl font-bold mb-6">Ready to Join Our Community?</h2>
-                    <p className="text-xl text-blue-100 max-w-3xl mx-auto mb-8">
+                    <p className="text-xl text-primary-100 max-w-3xl mx-auto mb-8">
                         Take the first step towards a bright future for your child
                     </p>
                     <div className="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4">
-                        <Link to="/admissions" className="bg-white text-blue-600 px-8 py-4 rounded-lg font-semibold hover:bg-blue-50 transition duration-300 transform hover:scale-105 hover:shadow-xl">
+                        <Link to="/admissions" className="bg-white text-primary-600 px-8 py-4 rounded-lg font-semibold hover:bg-accent-50 transition duration-300 transform hover:scale-105 hover:shadow-xl cursor-pointer">
                             Apply Now
                         </Link>
-                        <Link to="/contact" className="border-2 border-white text-white px-8 py-4 rounded-lg font-semibold hover:bg-white hover:text-blue-600 transition duration-300 transform hover:scale-105 hover:shadow-xl">
+                        <Link to="/contact" className="border-2 border-white text-white px-8 py-4 rounded-lg font-semibold hover:bg-white hover:text-primary-600 transition duration-300 transform hover:scale-105 hover:shadow-xl cursor-pointer">
                             Contact Us
                         </Link>
                     </div>

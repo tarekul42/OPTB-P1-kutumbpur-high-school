@@ -4,7 +4,7 @@ export const Dropdown = ({ title, items, isOpen, toggle }) => (
   <div className="relative group">
     <button
       onClick={toggle}
-      className="flex items-center justify-between w-full py-2 px-3 text-[#80ED99] rounded hover:bg-[#0AD1C8] md:hover:bg-transparent md:border-0 md:hover:text-[#45DFB1] md:p-0 md:w-auto dark:text-[#80ED99] dark:hover:text-[#0AD1C8] dark:focus:text-white dark:border-gray-700 dark:hover:bg-[#14919B] transition-colors duration-200"
+      className="flex items-center justify-between w-full py-2 px-3 text-calm-300 rounded hover:bg-primary-700 md:hover:bg-transparent md:border-0 md:hover:text-calm-200 md:p-0 md:w-auto transition-colors duration-200 font-medium cursor-pointer"
     >
       {title}
       <svg
@@ -24,12 +24,12 @@ export const Dropdown = ({ title, items, isOpen, toggle }) => (
       </svg>
     </button>
     {isOpen && (
-      <ul className="absolute left-0 mt-2 z-50 font-normal bg-[#213A57] divide-y divide-gray-100 rounded-lg shadow-lg w-56 dark:bg-[#0B6477] dark:divide-gray-600 transform transition-all duration-200 ease-in-out">
+      <ul className="absolute left-0 mt-2 z-50 font-normal bg-primary-800 divide-y divide-neutral-700 rounded-lg shadow-xl w-56 border border-neutral-700 transform transition-all duration-200 ease-in-out">
         {items.map((item, index) => (
           <li key={index}>
             <NavLink
               to={item.link}
-              className="block px-4 py-3 text-[#80ED99] hover:bg-[#0AD1C8] dark:hover:bg-[#14919B] dark:hover:text-white transition-colors duration-200"
+              className="block px-4 py-3 text-calm-300 hover:bg-primary-700 hover:text-calm-200 transition-colors duration-200 cursor-pointer"
               onClick={() => toggle(false)}
             >
               {item.label}

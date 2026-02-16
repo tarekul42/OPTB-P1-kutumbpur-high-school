@@ -18,11 +18,11 @@ const Navbar = () => {
 
   return (
     <>
-      <nav className="bg-[#213A57] border-gray-200 dark:bg-[#0B6477] dark:border-gray-700 sticky top-0 z-40">
+      <nav className="bg-primary-800 border-neutral-700 sticky top-0 z-40 shadow-lg">
         <div className="max-w-full flex justify-between items-center mx-auto p-2 md:p-4">
           <NavLink
             to="/"
-            className="flex items-center space-x-3 rtl:space-x-reverse"
+            className="flex items-center space-x-3 rtl:space-x-reverse cursor-pointer"
             onClick={closeAllDropdowns}
           >  
             <img
@@ -30,14 +30,14 @@ const Navbar = () => {
               className="h-8"
               alt="Kutumbpur High Logo"
             />
-            <span className="self-center text-2xl font-semibold text-[#80ED99]">
+            <span className="self-center text-2xl font-semibold text-calm-300">
               KHS
             </span>
           </NavLink>
 
           <button
             type="button"
-            className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-[#80ED99] rounded-lg md:hidden hover:bg-[#0AD1C8] focus:outline-none focus:ring-2 focus:ring-[#14919B]"
+            className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-calm-300 rounded-lg md:hidden hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-calm-400 cursor-pointer transition-colors"
             onClick={() => setDrawerOpen(true)}
           >
             <span className="sr-only">Open main menu</span>
@@ -120,7 +120,7 @@ const Navbar = () => {
             />
             <NavLink
               to="/faq"
-              className="block text-[#80ED99] hover:text-[#45DFB1] transition-colors duration-200"
+              className="block text-calm-300 hover:text-calm-200 transition-colors duration-200 font-medium cursor-pointer"
               onClick={closeAllDropdowns}
             >
               FAQ
@@ -131,15 +131,15 @@ const Navbar = () => {
 
       {/* Left Drawer for Mobile */}
       <div
-        className={`fixed top-0 left-0 h-full w-64 bg-[#213A57] z-50 transform ${
+        className={`fixed top-0 left-0 h-full w-64 bg-primary-800 z-50 transform ${
           isDrawerOpen ? "translate-x-0" : "-translate-x-full"
-        } transition-transform duration-300 ease-in-out md:hidden`}
+        } transition-transform duration-300 ease-in-out md:hidden shadow-2xl`}
       >
         <div className="p-4">
           <div className="flex justify-between items-center mb-6">
             <NavLink
               to="/"
-              className="flex items-center space-x-3"
+              className="flex items-center space-x-3 cursor-pointer"
               onClick={() => {
                 setDrawerOpen(false);
                 closeAllDropdowns();
@@ -150,19 +150,19 @@ const Navbar = () => {
                 className="h-8"
                 alt="Kutumbpur High Logo"
               />
-              <span className="self-center text-2xl font-semibold text-[#80ED99]">
+              <span className="self-center text-2xl font-semibold text-calm-300">
                 KHS
               </span>
             </NavLink>
             <button
               type="button"
-              className="text-[#80ED99] text-2xl p-2 hover:text-[#45DFB1]"
+              className="text-calm-300 text-2xl p-2 hover:text-calm-200 transition-colors cursor-pointer"
               onClick={() => setDrawerOpen(false)}
             >
               &times;
             </button>
           </div>
-          <ul className="space-y-4 text-[#80ED99]">
+          <ul className="space-y-4 text-calm-300">
             <li>
               <Dropdown
                 title="Home"
@@ -232,7 +232,7 @@ const Navbar = () => {
             <li>
               <NavLink
                 to="/faq"
-                className="block text-[#80ED99] hover:text-[#45DFB1] transition-colors duration-200"
+                className="block text-calm-300 hover:text-calm-200 transition-colors duration-200 font-medium cursor-pointer"
                 onClick={() => {
                   setDrawerOpen(false);
                   closeAllDropdowns();
@@ -248,7 +248,7 @@ const Navbar = () => {
       {/* Overlay when the drawer is open */}
       {isDrawerOpen && (
         <div
-          className="fixed inset-0 bg-black bg-opacity-50 z-40 md:hidden"
+          className="fixed inset-0 bg-neutral-900 bg-opacity-60 z-40 md:hidden backdrop-blur-sm cursor-pointer"
           onClick={() => {
             setDrawerOpen(false);
             closeAllDropdowns();
