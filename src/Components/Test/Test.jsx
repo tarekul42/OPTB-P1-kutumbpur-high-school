@@ -8,7 +8,7 @@ export const Dropdown = ({ title, items, isOpen, toggle }) => (
     >
       {title}
       <svg
-        className={`w-2.5 h-2.5 ms-2.5 transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}`}
+        className={`w-2.5 h-2.5 ms-2.5 transition-transform duration-200 ${isOpen ? "rotate-180" : ""}`}
         aria-hidden="true"
         xmlns="http://www.w3.org/2000/svg"
         fill="none"

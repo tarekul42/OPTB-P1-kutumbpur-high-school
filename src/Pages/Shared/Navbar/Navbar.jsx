@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { NavLink } from "react-router-dom";
 import { Dropdown } from "../../../Components/Test/Test";
 
@@ -24,7 +24,7 @@ const Navbar = () => {
             to="/"
             className="flex items-center space-x-3 rtl:space-x-reverse cursor-pointer"
             onClick={closeAllDropdowns}
-          >  
+          >
             <img
               src="https://flowbite.com/docs/images/logo.svg"
               className="h-8"

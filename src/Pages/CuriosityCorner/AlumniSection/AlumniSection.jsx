@@ -1,36 +1,6 @@
-import React from "react";
+import { alumniSectionAlumniStories } from "../../../assets/fakeData";
 
 const AlumniSection = () => {
-  const alumniStories = [
-    {
-      name: "Dr. Sarah Johnson",
-      year: "Class of 2010",
-      role: "Medical Researcher",
-      story:
-        "Our school's science program ignited my passion for medical research. Today, I lead breakthrough studies in neurology.",
-      image:
-        "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80",
-    },
-    {
-      name: "Michael Chen",
-      year: "Class of 2012",
-      role: "Tech Entrepreneur",
-      story:
-        "The entrepreneurial spirit I developed here helped me launch my successful tech startup.",
-      image:
-        "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80",
-    },
-    {
-      name: "Priya Sharma",
-      year: "Class of 2015",
-      role: "Environmental Activist",
-      story:
-        "My journey in environmental conservation began with our school's nature club.",
-      image:
-        "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80",
-    },
-  ];
-
   return (
     <div className="min-h-screen bg-linear-to-b from-gray-50 to-white">
       {/* Hero Section */}
@@ -55,7 +25,7 @@ const AlumniSection = () => {
             Alumni Success Stories
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {alumniStories.map((story, index) => (
+            {alumniSectionAlumniStories.map((story, index) => (
               <div
                 key={index}
                 className="bg-white rounded-xl shadow-lg overflow-hidden"

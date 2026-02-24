@@ -1,38 +1,6 @@
+import { eventsCalendarUpcomingEvents } from "../../../assets/fakeData";
+
 const EventsCalendar = () => {
-  const upcomingEvents = [
-    {
-      title: "Annual Sports Day",
-      date: "March 25, 2024",
-      time: "9:00 AM - 4:00 PM",
-      location: "School Sports Ground",
-      description: "Join us for a day of athletic excellence and team spirit.",
-      category: "Sports",
-    },
-    {
-      title: "Science Exhibition",
-      date: "April 5, 2024",
-      time: "10:00 AM - 2:00 PM",
-      location: "School Auditorium",
-      description: "Showcasing innovative projects by our talented students.",
-      category: "Academic",
-    },
-    {
-      title: "Cultural Festival",
-      date: "April 15, 2024",
-      time: "6:00 PM - 9:00 PM",
-      location: "School Auditorium",
-      description: "Celebrating art, music, and dance performances.",
-      category: "Cultural",
-    },
-  ];
-
-  const eventCategories = [
-    { name: "Academic", color: "bg-blue-500" },
-    { name: "Sports", color: "bg-green-500" },
-    { name: "Cultural", color: "bg-purple-500" },
-    { name: "Other", color: "bg-gray-500" },
-  ];
-
   return (
     <div className="min-h-screen bg-linear-to-b from-gray-50 to-white">
       {/* Hero Section */}
@@ -132,7 +100,7 @@ const EventsCalendar = () => {
               Upcoming Events
             </h2>
             <div className="space-y-6">
-              {upcomingEvents.map((event, index) => (
+              {eventsCalendarUpcomingEvents.map((event, index) => (
                 <div key={index} className="bg-white rounded-xl shadow-lg p-6">
                   <div className="flex items-start justify-between">
                     <div>
@@ -199,7 +167,7 @@ const EventsCalendar = () => {
                 Event Categories
               </h3>
               <div className="space-y-3">
-                {eventCategories.map((category, index) => (
+                {eventsCalendarUpcomingEvents.map((category, index) => (
                   <div key={index} className="flex items-center">
                     <div
                       className={`w-3 h-3 rounded-full ${category.color} mr-2`}
