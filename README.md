@@ -36,7 +36,7 @@ A modern, responsive website for Kutumbpur High School built with React and Tail
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/your-username/OPTB-P1-kutumbpur-high-school.git
+git clone https://github.com/tarekul42/OPTB-P1-kutumbpur-high-school.git
 ```
 
 2. Navigate to the project directory:
@@ -46,12 +46,12 @@ cd OPTB-P1-kutumbpur-high-school
 
 3. Install dependencies:
 ```bash
-npm install
+bun install
 ```
 
 4. Start the development server:
 ```bash
-npm run dev
+bun run dev
 ```
 
 ## 🎨 Project Structure
@@ -153,3 +153,4 @@ For any queries or support, please contact:
 - Email: [kutumbpurhighschool1996@gmail.com]
 - Website: [kutumbpurhighschool.vercel.app]
 <!-- - Phone: [+8801*********] -->
+
