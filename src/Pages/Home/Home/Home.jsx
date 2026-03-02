@@ -1,6 +1,12 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import heroImage from "../../../assets/school_hero_main.png";
+import {
+  homePrograms,
+  homeStats,
+  homeTestimonials,
+  homeNews,
+} from "../../../assets/fakeData";
 
 const Home = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -75,71 +81,7 @@ const Home = () => {
     },
   ];
 
-  const programs = [
-    {
-      title: "Primary School",
-      description:
-        "Foundation years focusing on basic skills and character development",
-      image:
-        "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80",
-    },
-    {
-      title: "Middle School",
-      description: "Developing critical thinking and subject expertise",
-      image:
-        "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80",
-    },
-    {
-      title: "High School",
-      description: "Preparing for higher education and future careers",
-      image:
-        "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80",
-    },
-  ];
-
-  const stats = [
-    { number: "1000+", label: "Students" },
-    { number: "50+", label: "Expert Teachers" },
-    { number: "25+", label: "Years of Excellence" },
-    { number: "95%", label: "Success Rate" },
-  ];
-
-  const testimonials = [
-    {
-      name: "Sarah Johnson",
-      role: "Parent",
-      image:
-        "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80",
-      quote:
-        "The school's commitment to excellence and personalized attention has helped my child thrive academically and personally.",
-    },
-    {
-      name: "Michael Chen",
-      role: "Alumni",
-      image:
-        "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80",
-      quote:
-        "The foundation I received here has been instrumental in my professional success. The teachers truly care about student development.",
-    },
-  ];
-
-  const news = [
-    {
-      title: "Annual Science Fair 2024",
-      date: "March 15, 2024",
-      image:
-        "https://images.unsplash.com/photo-1532094349884-543bc11b234d?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80",
-      excerpt:
-        "Students showcase innovative projects at our annual science fair.",
-    },
-    {
-      title: "Sports Championship",
-      date: "March 10, 2024",
-      image:
-        "https://images.unsplash.com/photo-1461896836934-ffe607ba8211?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80",
-      excerpt: "Our school team wins the regional sports championship.",
-    },
-  ];
+  // Data is now imported from fakeData.jsx
 
   return (
     <div className="min-h-screen bg-slate-50">
@@ -163,9 +105,9 @@ const Home = () => {
 
         {/* Floating Elements */}
         <div className="absolute inset-0 overflow-hidden z-10">
-          <div className="absolute top-20 left-10 w-20 h-20 bg-accent-500/20 rounded-full blur-xl animate-pulse"></div>
-          <div className="absolute bottom-20 right-10 w-32 h-32 bg-accent-400/20 rounded-full blur-xl animate-pulse delay-1000"></div>
-          <div className="absolute top-1/2 left-1/2 w-40 h-40 bg-accent-300/20 rounded-full blur-xl animate-pulse delay-500"></div>
+          <div className="absolute top-20 left-10 w-20 h-20 bg-accent-gold/10 rounded-full blur-xl animate-pulse"></div>
+          <div className="absolute bottom-20 right-10 w-32 h-32 bg-accent-gold/10 rounded-full blur-xl animate-pulse delay-1000"></div>
+          <div className="absolute top-1/2 left-1/2 w-40 h-40 bg-accent-gold/10 rounded-full blur-xl animate-pulse delay-500"></div>
         </div>
 
         {/* Main Content */}
@@ -194,10 +136,9 @@ const Home = () => {
 
           {/* Animated Description */}
           <p
-            className={`text-xl md:text-2xl text-accent-100 max-w-3xl mx-auto mb-12 transition-all duration-1000 delay-300 transform ${isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"}`}
+            className={`text-xl md:text-2xl text-white/90 max-w-3xl mx-auto mb-12 transition-all duration-1000 delay-300 transform ${isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"}`}
           >
-            Empowering students with knowledge, skills, and values for a
-            successful future
+            A prestigious secondary institution in Chandina, Cumilla, providing quality education for Classes 6-10 and fostering excellence since 1996.
           </p>
 
           {/* Enhanced CTA Buttons */}
@@ -209,7 +150,7 @@ const Home = () => {
               className="group relative px-8 py-4 rounded-lg font-semibold overflow-hidden cursor-pointer"
             >
               <span className="absolute inset-0 bg-white transition-all duration-300 group-hover:bg-accent-50"></span>
-              <span className="relative text-primary-600 group-hover:text-primary-700">
+              <span className="relative text-primary-900 group-hover:text-primary-950">
                 Apply Now
               </span>
             </Link>
@@ -218,7 +159,7 @@ const Home = () => {
               className="group relative px-8 py-4 rounded-lg font-semibold overflow-hidden cursor-pointer"
             >
               <span className="absolute inset-0 border-2 border-white transition-all duration-300 group-hover:bg-white"></span>
-              <span className="relative text-white group-hover:text-primary-600">
+              <span className="relative text-white group-hover:text-primary-900">
                 Learn More
               </span>
             </Link>
@@ -242,15 +183,15 @@ const Home = () => {
             {features.map((feature, index) => (
               <div
                 key={index}
-                className="bg-surface rounded-2xl shadow-xl p-8 transform hover:-translate-y-2 transition duration-300 hover:shadow-2xl group border border-neutral-200"
+                className="bg-white rounded-2xl shadow-xl p-8 transform hover:-translate-y-2 transition duration-300 hover:shadow-2xl group border border-slate-200"
               >
-                <div className="text-primary-600 mb-6 transform group-hover:scale-110 transition duration-300">
+                <div className="text-accent-gold mb-6 transform group-hover:scale-110 transition duration-300">
                   {feature.icon}
                 </div>
-                <h3 className="text-2xl font-bold text-neutral-900 mb-4 group-hover:text-primary-600 transition duration-300">
+                <h3 className="text-2xl font-serif font-bold text-primary-900 mb-4 group-hover:text-accent-gold transition duration-300">
                   {feature.title}
                 </h3>
-                <p className="text-neutral-600">{feature.description}</p>
+                <p className="text-slate-600 leading-relaxed">{feature.description}</p>
               </div>
             ))}
           </div>
@@ -269,7 +210,7 @@ const Home = () => {
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {programs.map((program, index) => (
+            {homePrograms.map((program, index) => (
               <div
                 key={index}
                 className="group relative overflow-hidden rounded-2xl shadow-xl transform hover:-translate-y-2 transition duration-300"
@@ -292,19 +233,19 @@ const Home = () => {
       </div>
 
       {/* Stats Section with Counter Animation */}
-      <div className="py-20 bg-linear-to-r from-primary-600 to-primary-800 text-white relative overflow-hidden">
+      <div className="py-20 bg-linear-to-r from-primary-900 to-primary-800 text-white relative overflow-hidden">
         <div className="absolute inset-0 bg-grid-white/10"></div>
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-            {stats.map((stat, index) => (
+            {homeStats.map((stat, index) => (
               <div
                 key={index}
                 className="text-center transform hover:scale-105 transition duration-300"
               >
-                <div className="text-4xl md:text-6xl font-bold mb-2">
+                <div className="text-4xl md:text-6xl font-serif font-bold mb-2 text-accent-gold">
                   {stat.number}
                 </div>
-                <div className="text-primary-100 text-lg">{stat.label}</div>
+                <div className="text-slate-200 text-lg font-medium tracking-wide">{stat.label}</div>
               </div>
             ))}
           </div>
@@ -323,7 +264,7 @@ const Home = () => {
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {news.map((item, index) => (
+            {homeNews.map((item, index) => (
               <div
                 key={index}
                 className="bg-surface rounded-2xl shadow-xl overflow-hidden transform hover:-translate-y-2 transition duration-300 group border border-neutral-200"
@@ -337,13 +278,13 @@ const Home = () => {
                   <div className="absolute inset-0 bg-linear-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition duration-300"></div>
                 </div>
                 <div className="p-6">
-                  <div className="text-primary-600 mb-2 font-semibold">
+                  <div className="text-accent-gold mb-2 font-semibold">
                     {item.date}
                   </div>
-                  <h3 className="text-xl font-bold text-neutral-900 mb-2 group-hover:text-primary-600 transition duration-300">
+                  <h3 className="text-xl font-bold text-neutral-900 mb-2 group-hover:text-primary-900 transition duration-300">
                     {item.title}
                   </h3>
-                  <p className="text-neutral-600">{item.excerpt}</p>
+                  <p className="text-neutral-600">{item.description}</p>
                 </div>
               </div>
             ))}
@@ -363,7 +304,7 @@ const Home = () => {
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {testimonials.map((testimonial, index) => (
+            {homeTestimonials.map((testimonial, index) => (
               <div
                 key={index}
                 className="bg-neutral-50 rounded-2xl p-8 transform hover:-translate-y-2 transition duration-300 hover:shadow-xl group border border-neutral-200"
@@ -375,10 +316,10 @@ const Home = () => {
                     className="w-16 h-16 rounded-full object-cover ring-4 ring-primary-100 transform group-hover:scale-110 transition duration-300"
                   />
                   <div className="ml-4">
-                    <h4 className="text-xl font-bold text-neutral-900 group-hover:text-primary-600 transition duration-300">
+                    <h4 className="text-xl font-serif font-bold text-primary-900 group-hover:text-accent-gold transition duration-300">
                       {testimonial.name}
                     </h4>
-                    <p className="text-primary-600">{testimonial.role}</p>
+                    <p className="text-slate-500 font-medium italic">{testimonial.role}</p>
                   </div>
                 </div>
                 <p className="text-neutral-600 italic">"{testimonial.quote}"</p>
@@ -389,26 +330,26 @@ const Home = () => {
       </div>
 
       {/* Enhanced CTA Section with Gradient Animation */}
-      <div className="py-20 bg-linear-to-r from-primary-600 to-primary-800 text-white relative overflow-hidden">
+      <div className="py-20 bg-linear-to-r from-primary-900 to-primary-800 text-white relative overflow-hidden">
         <div className="absolute inset-0 bg-grid-white/10"></div>
-        <div className="absolute inset-0 bg-linear-to-r from-primary-600 to-primary-800 animate-gradient"></div>
+        <div className="absolute inset-0 bg-linear-to-r from-primary-900 to-primary-800 animate-gradient"></div>
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-4xl font-bold mb-6">
             Ready to Join Our Community?
           </h2>
-          <p className="text-xl text-primary-100 max-w-3xl mx-auto mb-8">
+          <p className="text-xl text-slate-200 max-w-3xl mx-auto mb-8">
             Take the first step towards a bright future for your child
           </p>
           <div className="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4">
             <Link
               to="/admissions"
-              className="bg-white text-primary-600 px-8 py-4 rounded-lg font-semibold hover:bg-accent-50 transition duration-300 transform hover:scale-105 hover:shadow-xl cursor-pointer"
+              className="bg-white text-primary-900 px-8 py-4 rounded-lg font-semibold hover:bg-slate-50 transition duration-300 transform hover:scale-105 hover:shadow-xl cursor-pointer"
             >
               Apply Now
             </Link>
             <Link
               to="/contact"
-              className="border-2 border-white text-white px-8 py-4 rounded-lg font-semibold hover:bg-white hover:text-primary-600 transition duration-300 transform hover:scale-105 hover:shadow-xl cursor-pointer"
+              className="border-2 border-white text-white px-8 py-4 rounded-lg font-semibold hover:bg-white hover:text-primary-900 transition duration-300 transform hover:scale-105 hover:shadow-xl cursor-pointer"
             >
               Contact Us
             </Link>

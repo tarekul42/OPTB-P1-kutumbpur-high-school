@@ -1,14 +1,18 @@
 import { Outlet } from "react-router-dom";
 import Navbar from "../../Pages/Shared/Navbar/Navbar";
 import ScrollToTop from "../../Components/ScrollToTop";
+import Footer from "../../Pages/Shared/Footer/Footer";
 
 const MainUserLayout = () => {
   return (
-    <>
+    <div className="flex flex-col min-h-screen">
       <ScrollToTop />
       <Navbar />
-      <Outlet />
-    </>
+      <main className="flex-grow">
+        <Outlet />
+      </main>
+      <Footer />
+    </div>
   );
 };
 

@@ -7,16 +7,16 @@ const FAQ = () => {
   return (
     <div className="min-h-screen bg-linear-to-b from-neutral-50 to-surface">
       {/* Hero Section */}
-      <div className="relative bg-linear-to-r from-primary-600 to-primary-800 text-white py-20">
-        <div className="absolute inset-0 bg-black opacity-20"></div>
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="relative bg-primary-900 overflow-hidden py-20">
+        <div className="absolute inset-0 bg-linear-to-r from-primary-900 to-primary-800 animate-gradient"></div>
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-white">
           <div className="text-center">
-            <h1 className="text-5xl font-bold mb-6">
+            <h1 className="text-5xl font-serif font-bold mb-6 drop-shadow-lg">
               Frequently Asked Questions
             </h1>
-            <p className="text-xl text-primary-100 max-w-3xl mx-auto">
-              Find answers to common questions about our school, programs, and
-              policies.
+            <p className="text-xl text-slate-100 max-w-3xl mx-auto font-medium drop-shadow-md">
+              Find answers to common questions about admissions, academics, and
+              student life at Kutumbpur High School.
             </p>
           </div>
         </div>
@@ -36,15 +36,14 @@ const FAQ = () => {
               >
                 <div className="flex items-center justify-between">
                   <div className="flex items-center space-x-4">
-                    <div className="shrink-0 text-primary-600">{faq.icon}</div>
+                    <div className="shrink-0 text-accent-gold">{faq.icon}</div>
                     <h3 className="text-lg font-semibold text-neutral-900">
                       {faq.question}
                     </h3>
                   </div>
                   <svg
-                    className={`w-6 h-6 text-neutral-500 transform transition-transform duration-200 ${
-                      openIndex === index ? "rotate-180" : ""
-                    }`}
+                    className={`w-6 h-6 text-neutral-500 transform transition-transform duration-200 ${openIndex === index ? "rotate-180" : ""
+                      }`}
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -78,8 +77,8 @@ const FAQ = () => {
           </p>
           <div className="flex justify-center space-x-4">
             <a
-              href="mailto:admissions@kutumbpurhighschool.edu"
-              className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-primary-600 hover:bg-primary-700 transition-colors"
+              href="mailto:info@kutumbpurhs.edu.bd"
+              className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-primary-900 hover:bg-primary-950 transition-colors"
             >
               <svg
                 className="w-5 h-5 mr-2"
@@ -97,8 +96,8 @@ const FAQ = () => {
               Email Us
             </a>
             <a
-              href="tel:+1234567890"
-              className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-primary-600 bg-primary-100 hover:bg-primary-200 transition-colors"
+              href="tel:+8801234567890"
+              className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-primary-900 bg-white hover:bg-slate-50 border border-slate-200 transition-colors"
             >
               <svg
                 className="w-5 h-5 mr-2"

@@ -1,73 +1,58 @@
 export const academicPrograms = [
   {
-    title: "Primary School (Classes I-V)",
+    title: "Junior Secondary (Class 6-8)",
     description:
-      "Our primary school program focuses on building strong foundations in core subjects while nurturing creativity and curiosity.",
+      "A strong foundation focusing on core subjects like Bangla, English, Mathematics, and General Science, building the base for SSC studies.",
     features: [
-      "Interactive learning methods",
-      "Focus on basic literacy and numeracy",
-      "Introduction to computers and technology",
-      "Art, music, and physical education",
-      "Regular parent-teacher meetings",
+      "Digital classroom integration",
+      "Focused Bangla and English literacy",
+      "Conceptual Mathematics & Science",
+      "Weekly creative and physical education",
+      "Moral and character development",
     ],
-    icon: "🎨",
-    color: "from-blue-500 to-blue-600",
+    icon: "📖",
+    color: "from-primary-700 to-primary-900",
   },
   {
-    title: "Middle School (Classes VI-VIII)",
+    title: "Secondary (Class 9-10)",
     description:
-      "The middle school curriculum is designed to develop critical thinking and prepare students for higher education.",
+      "Specialized education in Science, Humanities, and Commerce streams, preparing students for the National Secondary School Certificate (SSC) board examinations.",
     features: [
-      "Advanced mathematics and science",
-      "Social studies and languages",
-      "Computer science and coding",
-      "Sports and extracurricular activities",
-      "Career counseling sessions",
-    ],
-    icon: "🔬",
-    color: "from-purple-500 to-purple-600",
-  },
-  {
-    title: "High School (Classes IX-XII)",
-    description:
-      "Our high school program prepares students for board examinations and future academic pursuits.",
-    features: [
-      "Specialized subject streams",
-      "Board exam preparation",
-      "Career guidance and counseling",
-      "Advanced laboratory facilities",
-      "Competitive exam preparation",
+      "Stream-based specialized subjects",
+      "Intensive SSC board exam preparation",
+      "Practical Laboratory experiments",
+      "Career counseling for higher studies",
+      "Regular model tests and evaluations",
     ],
     icon: "🎓",
-    color: "from-green-500 to-green-600",
+    color: "from-primary-800 to-primary-950",
+  },
+  {
+    title: "SSC Board Excellence",
+    description:
+      "Dedicated monitoring and extra support for Class 10 students to ensure outstanding results in the Cumilla Board SSC examinations.",
+    features: [
+      "Board question paper analysis",
+      "Subject-wise specialized coaching",
+      "Mock board examinations (Model Tests)",
+      "Evening study sessions for board examinees",
+      "Parent-teacher academic feedback",
+    ],
+    icon: "🏆",
+    color: "from-accent-gold to-primary-900",
   },
 ];
 
 export const faqs = [
   {
     question: "What are the school timings?",
-    answer:
-      "Our school operates from Monday to Friday, 8:00 AM to 3:00 PM. The school gates open at 7:30 AM for students to arrive. Regular attendance is mandatory for all students.",
-    icon: (
-      <svg
-        className="w-6 h-6"
-        fill="none"
-        stroke="currentColor"
-        viewBox="0 0 24 24"
-      >
-        <path
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          strokeWidth="2"
-          d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
-        />
-      </svg>
-    ),
+    answer: "The school is open from Sunday to Thursday, 10:00 AM to 4:00 PM. Friday and Saturday are weekly holidays.",
+    icon: "⏰",
   },
   {
-    question: "What is the admission process?",
+    question: "What is the admission procedure?",
     answer:
-      "Admissions are open for all classes from Nursery to Class 12. The process includes submission of application form, entrance test (for classes 6 and above), and an interview with parents. Required documents include birth certificate, previous school records, and address proof.",
+      "Admissions are open for Classes 6 to 9. The process involves an admission test and an interview. Required documents include the Birth Certificate, previous school Transfer Certificate (TC), and academic transcripts.",
     icon: (
       <svg
         className="w-6 h-6"
@@ -85,9 +70,9 @@ export const faqs = [
     ),
   },
   {
-    question: "What facilities does the school offer?",
+    question: "What facilities are provided?",
     answer:
-      "Our school provides state-of-the-art facilities including smart classrooms, well-equipped science and computer labs, a library, sports facilities, auditorium, and transportation services. We also have a medical room with a trained nurse and regular health check-ups.",
+      "Kutumbpur High School offers modern facilities including multi-media classrooms, computer labs, a science lab, a library, and a large playground for sports and extracurricular activities.",
     icon: (
       <svg
         className="w-6 h-6"
@@ -645,24 +630,24 @@ export const updatesHomeAnnouncements = [
 
 export const testimonials = [
   {
-    name: "Dr. Sarah Johnson",
-    role: "Parent",
+    name: "Dr. Ahmed Ullah",
+    role: "Parent (Guardian)",
     content:
-      "The school's commitment to academic excellence and holistic development has been remarkable. My children have grown not just academically, but as confident individuals.",
+      "Kutumbpur High School has provided my child with an excellent academic environment in Chandina. The focus on both traditional values and modern digital learning is impressive.",
     image:
       "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
   },
   {
-    name: "Rajesh Kumar",
-    role: "Alumni",
+    name: "Mohammad Rakib",
+    role: "Alumni (SSC Batch '12)",
     content:
-      "The foundation I received at Kutumbpur High School has been instrumental in my success. The teachers' dedication and the school's values continue to guide me.",
+      "The foundation I received at Kutumbpur High School defined my career path. The discipline and guidance from our teachers in Cumilla were second to none.",
     image:
       "https://images.unsplash.com/photo-1519244703995-f4e0f30006d5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
   },
   {
-    name: "Priya Sharma",
-    role: "Current Student",
+    name: "Nasrin Akhter",
+    role: "Current Student (Class 10)",
     content:
       "The school provides an amazing learning environment. The teachers are supportive, and there are numerous opportunities to explore our interests.",
     image:
@@ -803,31 +788,30 @@ export const homeFeatures = [
 
 export const homePrograms = [
   {
-    title: "Primary School",
-    description:
-      "Foundation years focusing on basic skills and character development",
+    title: "Junior Secondary",
+    description: "Building strong academic foundations for Classes 6 to 8.",
     image:
       "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80",
   },
   {
-    title: "Middle School",
-    description: "Developing critical thinking and subject expertise",
+    title: "Secondary (SSC)",
+    description: "Intensive prep for Science, Humanities, and Commerce streams.",
     image:
       "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80",
   },
   {
-    title: "High School",
-    description: "Preparing for higher education and future careers",
+    title: "Digital Learning",
+    description: "Modern computer labs and multi-media classroom facilities.",
     image:
-      "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80",
+      "https://images.unsplash.com/photo-1434030216411-0bb7c3f3dfad?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80",
   },
 ];
 
 export const homeStats = [
-  { number: "1000+", label: "Students" },
-  { number: "50+", label: "Expert Teachers" },
-  { number: "25+", label: "Years of Excellence" },
-  { number: "95%", label: "Success Rate" },
+  { number: "1200+", label: "Students" },
+  { number: "45+", label: "Expert Teachers" },
+  { number: "1996", label: "Est. Year" },
+  { number: "100%", label: "SSC Pass Rate" },
 ];
 
 export const homeTestimonials = [
@@ -870,7 +854,7 @@ export const homeNews = [
 export const contactInfo = [
   {
     title: "Address",
-    content: "123 School Street, Kutumbpur, West Bengal, India",
+    content: "Kutumbpur, Chandina, Cumilla, Bangladesh",
     icon: (
       <svg
         className="w-6 h-6"
@@ -894,27 +878,20 @@ export const contactInfo = [
     ),
   },
   {
+    icon: "📞",
     title: "Phone",
-    content: "+91 123 456 7890",
-    icon: (
-      <svg
-        className="w-6 h-6"
-        fill="none"
-        stroke="currentColor"
-        viewBox="0 0 24 24"
-      >
-        <path
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          strokeWidth="2"
-          d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
-        />
-      </svg>
-    ),
+    content: "+880 1234 567890",
+    description: "Sun - Thu, 10:00 AM - 4:00 PM",
+  },
+  {
+    icon: "⏰",
+    title: "Office Hours",
+    content: "10:00 AM - 4:00 PM",
+    description: "Fri & Sat Closed",
   },
   {
     title: "Email",
-    content: "info@kutumbpurschool.edu",
+    content: "info@kutumbpurhs.edu.bd",
     icon: (
       <svg
         className="w-6 h-6"
@@ -934,9 +911,8 @@ export const contactInfo = [
 ];
 
 export const contactOfficeHours = [
-  { day: "Monday - Friday", hours: "8:00 AM - 4:00 PM" },
-  { day: "Saturday", hours: "9:00 AM - 1:00 PM" },
-  { day: "Sunday", hours: "Closed" },
+  { day: "Sunday - Thursday", hours: "10:00 AM - 4:00 PM" },
+  { day: "Friday & Saturday", hours: "Weekly Holiday" },
 ];
 
 export const aboutFeatures = [
@@ -1299,13 +1275,13 @@ export const aboutUsStats = [
 
 export const academicsPrograms = [
   {
-    title: "Primary Education",
+    title: "Junior Secondary (Class 6-8)",
     description:
-      "Foundation years focusing on basic skills and holistic development",
+      "Ensuring a smooth transition from primary education with a focus on core subjects and moral values.",
     features: [
-      "Interactive Learning",
-      "Activity-based Education",
-      "Basic Skills Development",
+      "Interactive Multi-media Learning",
+      "Bangla and English Focus",
+      "Foundation Mathematics",
     ],
     icon: (
       <svg
@@ -1318,16 +1294,20 @@ export const academicsPrograms = [
           strokeLinecap="round"
           strokeLinejoin="round"
           strokeWidth="2"
-          d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"
+          d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.247 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"
         />
       </svg>
     ),
   },
   {
-    title: "Secondary Education",
+    title: "Secondary (Class 9-10/SSC)",
     description:
-      "Comprehensive curriculum preparing students for higher education",
-    features: ["Advanced Mathematics", "Science & Technology", "Language Arts"],
+      "Comprehensive stream-based curriculum (Science, Humanities, Commerce) for the SSC Board Exam.",
+    features: [
+      "Advanced Math & Science",
+      "Commerce & Business Studies",
+      "Humanities & Social Science",
+    ],
     icon: (
       <svg
         className="w-8 h-8"
@@ -1345,10 +1325,10 @@ export const academicsPrograms = [
     ),
   },
   {
-    title: "Higher Secondary",
+    title: "Vocational & Digital Skills",
     description:
-      "Specialized streams preparing students for professional careers",
-    features: ["Science Stream", "Commerce Stream", "Arts Stream"],
+      "Empowering students with practical computing and technical skills for the digital age.",
+    features: ["Basic Computer Literacy", "Digital Art & Design", "SSC ICT Preparation"],
     icon: (
       <svg
         className="w-8 h-8"
@@ -1360,7 +1340,7 @@ export const academicsPrograms = [
           strokeLinecap="round"
           strokeLinejoin="round"
           strokeWidth="2"
-          d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"
+          d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
         />
       </svg>
     ),
@@ -1487,17 +1467,17 @@ export const upcomingEvents = [
 
 export const pastEvents = [
   {
-    title: "Parent-Teacher Meeting",
+    title: "SSC Model Test 2024",
     date: "February 20, 2024",
     description:
-      "Successful meeting with parents to discuss student progress and development.",
+      "Internal evaluations for Class 10 students to prepare them for the board exams.",
     category: "Academic",
   },
   {
-    title: "Republic Day Celebration",
-    date: "January 26, 2024",
+    title: "Independence Day Celebration",
+    date: "March 26, 2024",
     description:
-      "Grand celebration of Republic Day with cultural programs and flag hoisting ceremony.",
+      "National Independence Day observed with cultural programs and flag hoisting ceremony.",
     category: "Cultural",
   },
 ];
@@ -1804,29 +1784,29 @@ export const eventsCalendarEventCategories = [
 
 export const alumniSectionAlumniStories = [
   {
-    name: "Dr. Sarah Johnson",
+    name: "Dr. Ahmed Ullah",
     year: "Class of 2010",
     role: "Medical Researcher",
     story:
-      "Our school's science program ignited my passion for medical research. Today, I lead breakthrough studies in neurology.",
+      "Focusing on SSC preparation at Kutumbpur gave me the discipline needed for medical school. I am proud to be an alumni of this institution.",
     image:
       "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80",
   },
   {
-    name: "Michael Chen",
+    name: "Mohammad Rakib",
     year: "Class of 2012",
     role: "Tech Entrepreneur",
     story:
-      "The entrepreneurial spirit I developed here helped me launch my successful tech startup.",
+      "The information technology foundation I built in the school's computer lab helped me launch my successful tech startup in Dhaka.",
     image:
       "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80",
   },
   {
-    name: "Priya Sharma",
+    name: "Sultana Razia",
     year: "Class of 2015",
-    role: "Environmental Activist",
+    role: "Educationist",
     story:
-      "My journey in environmental conservation began with our school's nature club.",
+      "My journey in education began with the inspiring teachers at Kutumbpur High School. I hope to give back to my community in Chandina.",
     image:
       "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80",
   },

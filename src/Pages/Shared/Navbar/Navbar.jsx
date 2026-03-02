@@ -162,7 +162,7 @@ const Navbar = () => {
               &times;
             </button>
           </div>
-          <ul className="space-y-4 text-calm-300">
+          <ul className="space-y-4 text-slate-300">
             <li>
               <Dropdown
                 title="Home"

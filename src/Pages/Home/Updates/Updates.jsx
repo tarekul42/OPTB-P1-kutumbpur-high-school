@@ -7,12 +7,13 @@ const Updates = () => {
   return (
     <div className="min-h-screen bg-linear-to-b from-neutral-50 to-surface">
       {/* Hero Section */}
-      <div className="relative bg-linear-to-r from-primary-600 to-primary-800 text-white py-20">
+      <div className="relative text-white py-20">
+        <div className="absolute inset-0 bg-linear-to-r from-primary-900 to-primary-800 animate-gradient"></div>
         <div className="absolute inset-0 bg-black opacity-20"></div>
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-white">
           <div className="text-center">
-            <h1 className="text-5xl font-bold mb-6">Latest Updates</h1>
-            <p className="text-xl text-primary-100 max-w-3xl mx-auto">
+            <h1 className="text-5xl font-bold mb-6 drop-shadow-lg">Latest Updates</h1>
+            <p className="text-xl text-slate-100 max-w-3xl mx-auto">
               Stay informed about the latest news, events, and announcements
               from Kutumbpur High School.
             </p>
@@ -32,13 +33,13 @@ const Updates = () => {
               {updatesNewsItems.map((item, index) => (
                 <div
                   key={index}
-                  className="bg-surface rounded-xl shadow-lg p-6 border border-neutral-200"
+                  className="bg-surface rounded-xl shadow-lg p-6 border border-neutral-200 hover:border-accent-gold transition-all duration-300 cursor-pointer group/card"
                 >
                   <div className="flex items-start">
-                    <div className="shrink-0 text-primary-600">{item.icon}</div>
+                    <div className="shrink-0 text-accent-gold">{item.icon}</div>
                     <div className="ml-4">
                       <div className="flex items-center space-x-2 mb-2">
-                        <span className="text-sm font-medium text-primary-600">
+                        <span className="text-sm font-medium text-accent-gold">
                           {item.category}
                         </span>
                         <span className="text-sm text-neutral-500">•</span>
@@ -66,10 +67,10 @@ const Updates = () => {
               {updatesAnnouncements.map((announcement, index) => (
                 <div
                   key={index}
-                  className="bg-surface rounded-xl shadow-lg p-6 border border-neutral-200"
+                  className="bg-surface rounded-xl shadow-lg p-6 border border-neutral-200 hover:border-accent-gold transition-all duration-300 cursor-pointer group/card"
                 >
                   <div className="flex items-start">
-                    <div className="shrink-0 text-primary-600">
+                    <div className="shrink-0 text-accent-gold">
                       {announcement.icon}
                     </div>
                     <div className="ml-4">
@@ -91,7 +92,7 @@ const Updates = () => {
               <div className="space-y-4">
                 <a
                   href="#"
-                  className="flex items-center text-primary-600 hover:text-primary-700 transition-colors"
+                  className="flex items-center text-accent-gold hover:text-primary-900 transition-colors"
                 >
                   <svg
                     className="w-5 h-5 mr-2"
@@ -110,7 +111,7 @@ const Updates = () => {
                 </a>
                 <a
                   href="#"
-                  className="flex items-center text-primary-600 hover:text-primary-700 transition-colors"
+                  className="flex items-center text-accent-gold hover:text-primary-900 transition-colors"
                 >
                   <svg
                     className="w-5 h-5 mr-2"
@@ -129,7 +130,7 @@ const Updates = () => {
                 </a>
                 <a
                   href="#"
-                  className="flex items-center text-primary-600 hover:text-primary-700 transition-colors"
+                  className="flex items-center text-accent-gold hover:text-primary-900 transition-colors"
                 >
                   <svg
                     className="w-5 h-5 mr-2"

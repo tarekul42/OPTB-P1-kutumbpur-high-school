@@ -4,14 +4,16 @@ const Parent = () => {
   return (
     <div className="min-h-screen bg-linear-to-b from-neutral-50 to-surface">
       {/* Hero Section */}
-      <div className="relative bg-linear-to-r from-secondary-600 to-secondary-800 text-white py-20">
-        <div className="absolute inset-0 bg-black opacity-20"></div>
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="relative bg-primary-900 overflow-hidden py-24">
+        {/* Decorative background elements */}
+        <div className="absolute inset-0 bg-linear-to-b from-primary-900/40 via-transparent to-primary-900/80 z-10"></div>
+        <div className="absolute top-0 right-0 w-1/3 h-full bg-accent-gold/5 blur-[120px] rounded-full"></div>
+
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-20">
           <div className="text-center">
-            <h1 className="text-5xl font-bold mb-6">Parent Portal</h1>
-            <p className="text-xl text-secondary-100 max-w-3xl mx-auto">
-              Stay connected with your child's education and track their
-              progress.
+            <h1 className="text-5xl md:text-6xl font-serif font-bold text-white mb-6 animate-in fade-in slide-in-from-top-4 duration-700 drop-shadow-lg">Parent Portal</h1>
+            <p className="text-xl text-slate-100 max-w-3xl mx-auto font-medium drop-shadow-md">
+              Monitoring the academic journey of students (Class 6-10) at Kutumbpur High School. Stay informed on results, attendance, and fees.
             </p>
           </div>
         </div>
@@ -36,8 +38,8 @@ const Parent = () => {
                 <input
                   type="text"
                   id="parentId"
-                  className="mt-1 block w-full rounded-md border-neutral-300 shadow-sm focus:border-secondary-500 focus:ring-secondary-500"
-                  placeholder="Enter your parent ID"
+                  className="mt-1 block w-full rounded-md border-slate-300 shadow-sm focus:border-accent-gold focus:ring-accent-gold py-3 px-4 bg-slate-50 transition-all duration-200"
+                  placeholder="Unified Parent ID"
                 />
               </div>
               <div>
@@ -50,16 +52,16 @@ const Parent = () => {
                 <input
                   type="password"
                   id="password"
-                  className="mt-1 block w-full rounded-md border-neutral-300 shadow-sm focus:border-secondary-500 focus:ring-secondary-500"
+                  className="mt-1 block w-full rounded-md border-slate-300 shadow-sm focus:border-accent-gold focus:ring-accent-gold py-3 px-4 bg-slate-50 transition-all duration-200"
                   placeholder="••••••••"
                 />
               </div>
-              <div className="flex items-center justify-between">
+              <div className="flex items-center justify-between mb-6">
                 <div className="flex items-center">
                   <input
                     id="remember-me"
                     type="checkbox"
-                    className="h-4 w-4 text-secondary-600 focus:ring-secondary-500 border-neutral-300 rounded"
+                    className="h-4 w-4 text-accent-gold focus:ring-accent-gold border-slate-300 rounded cursor-pointer"
                   />
                   <label
                     htmlFor="remember-me"
@@ -68,18 +70,12 @@ const Parent = () => {
                     Remember me
                   </label>
                 </div>
-                <a
-                  href="#"
-                  className="text-sm text-secondary-600 hover:text-secondary-700 transition-colors"
-                >
-                  Forgot password?
-                </a>
               </div>
               <button
                 type="submit"
-                className="w-full bg-secondary-600 text-white py-3 px-6 rounded-md hover:bg-secondary-700 transition duration-300"
+                className="w-full bg-primary-900 text-white py-4 px-6 rounded-md hover:bg-primary-950 hover:shadow-lg transition-all duration-300 font-bold uppercase tracking-widest border border-accent-gold/20"
               >
-                Sign In
+                Access Portal
               </button>
             </form>
           </div>
@@ -93,7 +89,7 @@ const Parent = () => {
               <div className="space-y-6">
                 {parentalFeatures.map((feature, index) => (
                   <div key={index} className="flex items-start">
-                    <div className="shrink-0 text-secondary-600">
+                    <div className="shrink-0 text-accent-gold">
                       {feature.icon}
                     </div>
                     <div className="ml-4">

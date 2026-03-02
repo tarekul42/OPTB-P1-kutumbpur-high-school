@@ -4,8 +4,8 @@ const Events = () => {
   return (
     <div className="min-h-screen bg-linear-to-b from-neutral-50 to-surface">
       {/* Hero Section */}
-      <div className="relative bg-linear-to-r from-primary-600 to-primary-800 text-white py-20">
-        <div className="absolute inset-0 bg-black opacity-20"></div>
+      <div className="relative bg-primary-900 overflow-hidden py-20">
+        <div className="absolute inset-0 bg-linear-to-r from-primary-900 to-primary-800 animate-gradient text-white"></div>
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <h1 className="text-5xl font-bold mb-6">School Events</h1>
@@ -32,7 +32,7 @@ const Events = () => {
               >
                 <div className="p-6">
                   <div className="flex items-center justify-between mb-4">
-                    <span className="px-3 py-1 text-sm font-medium text-primary-600 bg-primary-100 rounded-full">
+                    <span className="px-3 py-1 text-sm font-medium text-white bg-accent-gold rounded-full">
                       {event.category}
                     </span>
                     <span className="text-sm text-neutral-500">
@@ -85,7 +85,7 @@ const Events = () => {
                   </div>
                 </div>
                 <div className="bg-neutral-50 px-6 py-4">
-                  <button className="w-full bg-primary-600 text-white py-2 px-4 rounded-md hover:bg-primary-700 transition duration-300">
+                  <button className="w-full bg-primary-900 text-white py-2 px-4 rounded-md hover:bg-primary-950 transition duration-300">
                     Register Now
                   </button>
                 </div>
@@ -129,7 +129,7 @@ const Events = () => {
             Don't miss any events! Subscribe to our calendar and get notified
             about upcoming events.
           </p>
-          <button className="bg-primary-600 text-white py-3 px-8 rounded-md hover:bg-primary-700 transition duration-300">
+          <button className="bg-primary-900 text-white py-3 px-8 rounded-md hover:bg-primary-950 transition duration-300">
             View Full Calendar
           </button>
         </div>
