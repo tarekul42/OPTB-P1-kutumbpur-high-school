@@ -1,5 +1,5 @@
-import { useState, useEffect } from "react";
-import { NavLink, useLocation } from "react-router-dom";
+import { useState } from "react";
+import { NavLink } from "react-router-dom";
 import logo from "../../../assets/school_logo_modern.png";
 import { Dropdown } from "../../../Components/Test/Test";
 
@@ -132,8 +132,9 @@ const Navbar = () => {
 
       {/* Left Drawer for Mobile */}
       <div
-        className={`fixed top-0 left-0 h-full w-80 bg-primary-900/95 backdrop-blur-xl z-50 transform ${isDrawerOpen ? "translate-x-0" : "-translate-x-full"
-          } transition-transform duration-500 ease-in-out md:hidden shadow-2xl border-r border-accent-gold/10`}
+        className={`fixed top-0 left-0 h-full w-80 bg-primary-900/95 backdrop-blur-xl z-50 transform ${
+          isDrawerOpen ? "translate-x-0" : "-translate-x-full"
+        } transition-transform duration-500 ease-in-out md:hidden shadow-2xl border-r border-accent-gold/10`}
       >
         <div className="p-6">
           <div className="flex justify-between items-center mb-8">
