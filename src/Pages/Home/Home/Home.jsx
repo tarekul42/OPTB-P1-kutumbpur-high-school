@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import heroImage from "../../../assets/school_hero_main.png";
 
 const Home = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -141,22 +142,22 @@ const Home = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-slate-50">
       {/* Enhanced Hero Section */}
       <div className="relative h-screen flex items-center justify-center overflow-hidden">
         {/* Animated Background Overlay */}
-        <div className="absolute inset-0 bg-linear-to-r from-primary-900/95 via-primary-800/90 to-primary-900/95 z-10"></div>
+        <div className="absolute inset-0 bg-primary-900/40 backdrop-blur-[2px] z-10"></div>
+        <div className="absolute inset-0 bg-linear-to-b from-primary-900/60 via-transparent to-primary-900/80 z-10"></div>
 
         {/* Animated Background Pattern */}
         <div className="absolute inset-0 bg-grid-white/10 opacity-50 z-10"></div>
 
         {/* Parallax Background Image */}
         <div
-          className="absolute inset-0 bg-cover bg-center bg-fixed"
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{
-            backgroundImage:
-              "url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80')",
-            transform: "scale(1.1)",
+            backgroundImage: `url(${heroImage})`,
+            transform: "scale(1.05)",
           }}
         ></div>
 
@@ -180,14 +181,14 @@ const Home = () => {
 
           {/* Main Heading with Gradient Text */}
           <h1
-            className={`text-5xl md:text-7xl font-bold mb-6 leading-tight transition-all duration-1000 transform ${isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"}`}
+            className={`text-6xl md:text-8xl font-serif font-bold mb-8 leading-tight transition-all duration-1000 transform ${isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"}`}
           >
-            <span className="bg-clip-text text-transparent bg-linear-to-r from-white to-accent-200">
-              Nurturing Minds,
+            <span className="text-white drop-shadow-2xl">
+              Nurturing <span className="text-accent-gold">Minds</span>,
             </span>
             <br />
-            <span className="bg-clip-text text-transparent bg-linear-to-r from-accent-200 to-white">
-              Building Futures
+            <span className="text-white drop-shadow-2xl">
+              Building <span className="text-accent-gold">Futures</span>
             </span>
           </h1>
 
