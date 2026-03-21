@@ -7,10 +7,22 @@ import {
   homeStats,
   homeTestimonials,
   homeNews,
+  newsCategories,
 } from "../../../data/homeData.jsx";
+import StatCard from "../../../Components/StatCard";
+import SearchBar from "../../../Components/SearchBar";
+import NewsCard from "../../../Components/NewsCard";
+import NewsModal from "../../../Components/NewsModal";
+import TestimonialCarousel from "../../../Components/TestimonialCarousel";
+
+const ITEMS_PER_PAGE = 3;
 
 const Home = () => {
   const [isVisible, setIsVisible] = useState(false);
+  const [selectedCategory, setSelectedCategory] = useState("All");
+  const [visibleItems, setVisibleItems] = useState(ITEMS_PER_PAGE);
+  const [selectedNews, setSelectedNews] = useState(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -19,18 +31,35 @@ const Home = () => {
     return () => clearTimeout(timer);
   }, []);
 
+  const filteredNews =
+    selectedCategory === "All"
+      ? homeNews
+      : homeNews.filter((item) => item.tag === selectedCategory);
+
+  const displayedNews = filteredNews.slice(0, visibleItems);
+  const hasMore = visibleItems < filteredNews.length;
+
+  const handleLoadMore = () => {
+    setVisibleItems((prev) => prev + ITEMS_PER_PAGE);
+  };
+
+  const handleReadMore = (item) => {
+    setSelectedNews(item);
+    setIsModalOpen(true);
+  };
+
+  const handleSearchSelect = (item) => {
+    setSelectedNews(item);
+    setIsModalOpen(true);
+  };
+
   return (
     <div className="min-h-screen bg-slate-50">
       {/* Enhanced Hero Section */}
       <div className="relative h-screen flex items-center justify-center overflow-hidden">
-        {/* Animated Background Overlay */}
         <div className="absolute inset-0 bg-primary-900/40 backdrop-blur-[2px] z-10"></div>
         <div className="absolute inset-0 bg-linear-to-b from-primary-900/60 via-transparent to-primary-900/80 z-10"></div>
-
-        {/* Animated Background Pattern */}
         <div className="absolute inset-0 bg-grid-white/10 opacity-50 z-10"></div>
-
-        {/* Parallax Background Image */}
         <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{
@@ -39,27 +68,27 @@ const Home = () => {
           }}
         ></div>
 
-        {/* Floating Elements */}
         <div className="absolute inset-0 overflow-hidden z-10">
           <div className="absolute top-20 left-10 w-20 h-20 bg-accent-gold/10 rounded-full blur-xl animate-pulse"></div>
           <div className="absolute bottom-20 right-10 w-32 h-32 bg-accent-gold/10 rounded-full blur-xl animate-pulse delay-1000"></div>
           <div className="absolute top-1/2 left-1/2 w-40 h-40 bg-accent-gold/10 rounded-full blur-xl animate-pulse delay-500"></div>
         </div>
 
-        {/* Main Content */}
-        <div className="relative z-20 text-center px-4 max-w-6xl mx-auto">
-          {/* Animated Badge */}
+        <div className="relative z-20 text-center px-4 max-w-6xl mx-auto w-full">
           <div
-            className={`inline-block px-4 py-2 rounded-full bg-white/10 backdrop-blur-sm text-white mb-8 transition-all duration-1000 transform ${isVisible ? "translate-y-0 opacity-100" : "-translate-y-10 opacity-0"}`}
+            className={`inline-block px-4 py-2 rounded-full bg-white/10 backdrop-blur-sm text-white mb-8 transition-all duration-1000 transform ${
+              isVisible ? "translate-y-0 opacity-100" : "-translate-y-10 opacity-0"
+            }`}
           >
             <span className="text-sm font-semibold tracking-wider">
               Welcome to Excellence in Education
             </span>
           </div>
 
-          {/* Main Heading with Gradient Text */}
           <h1
-            className={`text-6xl md:text-8xl font-serif font-bold mb-8 leading-tight transition-all duration-1000 transform ${isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"}`}
+            className={`text-5xl md:text-7xl lg:text-8xl font-serif font-bold mb-8 leading-tight transition-all duration-1000 transform ${
+              isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
+            }`}
           >
             <span className="text-white drop-shadow-2xl">
               Nurturing <span className="text-accent-gold">Minds</span>,
@@ -70,18 +99,28 @@ const Home = () => {
             </span>
           </h1>
 
-          {/* Animated Description */}
           <p
-            className={`text-xl md:text-2xl text-white/90 max-w-3xl mx-auto mb-12 transition-all duration-1000 delay-300 transform ${isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"}`}
+            className={`text-lg md:text-2xl text-white/90 max-w-3xl mx-auto mb-12 transition-all duration-1000 delay-300 transform ${
+              isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
+            }`}
           >
             A prestigious secondary institution in Chandina, Cumilla, providing
             quality education for Classes 6-10 and fostering excellence since
             1996.
           </p>
 
-          {/* Enhanced CTA Buttons */}
           <div
-            className={`flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-6 transition-all duration-1000 delay-500 transform ${isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"}`}
+            className={`max-w-2xl mx-auto mb-12 transition-all duration-1000 delay-500 transform ${
+              isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
+            }`}
+          >
+            <SearchBar data={homeNews} onSelect={handleSearchSelect} />
+          </div>
+
+          <div
+            className={`flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-6 transition-all duration-1000 delay-700 transform ${
+              isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
+            }`}
           >
             <Link
               to="/admissions"
@@ -105,7 +144,7 @@ const Home = () => {
         </div>
       </div>
 
-      {/* Features Section with 3D Cards */}
+      {/* Features Section */}
       <div className="py-20 bg-neutral-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
@@ -138,7 +177,7 @@ const Home = () => {
         </div>
       </div>
 
-      {/* Programs Section with Hover Effects */}
+      {/* Programs Section */}
       <div className="py-20 bg-surface">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
@@ -172,32 +211,27 @@ const Home = () => {
         </div>
       </div>
 
-      {/* Stats Section with Counter Animation */}
+      {/* Stats Section with Animated Counters */}
       <div className="py-20 bg-linear-to-r from-primary-900 to-primary-800 text-white relative overflow-hidden">
         <div className="absolute inset-0 bg-grid-white/10"></div>
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {homeStats.map((stat, index) => (
-              <div
+              <StatCard
                 key={index}
-                className="text-center transform hover:scale-105 transition duration-300"
-              >
-                <div className="text-4xl md:text-6xl font-serif font-bold mb-2 text-accent-gold">
-                  {stat.number}
-                </div>
-                <div className="text-slate-200 text-lg font-medium tracking-wide">
-                  {stat.label}
-                </div>
-              </div>
+                end={parseInt(stat.number)}
+                suffix={stat.suffix}
+                label={stat.label}
+              />
             ))}
           </div>
         </div>
       </div>
 
-      {/* News Section with Modern Cards */}
+      {/* News Section with Filtering & Load More */}
       <div className="py-20 bg-neutral-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
+          <div className="text-center mb-12">
             <h2 className="text-4xl font-bold text-neutral-900 mb-4">
               Latest News
             </h2>
@@ -205,36 +239,49 @@ const Home = () => {
               Stay updated with our latest events and achievements
             </p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {homeNews.map((item, index) => (
-              <div
-                key={index}
-                className="bg-surface rounded-2xl shadow-xl overflow-hidden transform hover:-translate-y-2 transition duration-300 group border border-neutral-200"
+
+          {/* Filter Buttons */}
+          <div className="flex flex-wrap justify-center gap-3 mb-12">
+            {newsCategories.map((category) => (
+              <button
+                key={category}
+                onClick={() => {
+                  setSelectedCategory(category);
+                  setVisibleItems(ITEMS_PER_PAGE);
+                }}
+                className={`px-6 py-2.5 rounded-full font-semibold transition-all duration-300 cursor-pointer ${
+                  selectedCategory === category
+                    ? "bg-accent-gold text-white shadow-lg shadow-accent-gold/30"
+                    : "bg-white text-slate-600 hover:bg-slate-100 border border-slate-200"
+                }`}
               >
-                <div className="relative overflow-hidden">
-                  <img
-                    src={item.image}
-                    alt={item.title}
-                    className="w-full h-48 object-cover transform group-hover:scale-110 transition duration-500"
-                  />
-                  <div className="absolute inset-0 bg-linear-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition duration-300"></div>
-                </div>
-                <div className="p-6">
-                  <div className="text-accent-gold mb-2 font-semibold">
-                    {item.date}
-                  </div>
-                  <h3 className="text-xl font-bold text-neutral-900 mb-2 group-hover:text-primary-900 transition duration-300">
-                    {item.title}
-                  </h3>
-                  <p className="text-neutral-600">{item.description}</p>
-                </div>
-              </div>
+                {category}
+              </button>
             ))}
           </div>
+
+          {/* News Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {displayedNews.map((item) => (
+              <NewsCard key={item.id} item={item} onReadMore={handleReadMore} />
+            ))}
+          </div>
+
+          {/* Load More Button */}
+          {hasMore && (
+            <div className="text-center mt-12">
+              <button
+                onClick={handleLoadMore}
+                className="px-8 py-3 bg-primary-900 text-white rounded-lg font-semibold hover:bg-primary-800 transition-all duration-300 transform hover:scale-105 hover:shadow-xl cursor-pointer"
+              >
+                Load More News
+              </button>
+            </div>
+          )}
         </div>
       </div>
 
-      {/* Testimonials Section with Modern Design */}
+      {/* Testimonials Section with Carousel */}
       <div className="py-20 bg-surface">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
@@ -245,38 +292,13 @@ const Home = () => {
               Hear from our community about their experiences
             </p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {homeTestimonials.map((testimonial, index) => (
-              <div
-                key={index}
-                className="bg-neutral-50 rounded-2xl p-8 transform hover:-translate-y-2 transition duration-300 hover:shadow-xl group border border-neutral-200"
-              >
-                <div className="flex items-center mb-6">
-                  <img
-                    src={testimonial.image}
-                    alt={testimonial.name}
-                    className="w-16 h-16 rounded-full object-cover ring-4 ring-primary-100 transform group-hover:scale-110 transition duration-300"
-                  />
-                  <div className="ml-4">
-                    <h4 className="text-xl font-serif font-bold text-primary-900 group-hover:text-accent-gold transition duration-300">
-                      {testimonial.name}
-                    </h4>
-                    <p className="text-slate-500 font-medium italic">
-                      {testimonial.role}
-                    </p>
-                  </div>
-                </div>
-                <p className="text-neutral-600 italic">"{testimonial.quote}"</p>
-              </div>
-            ))}
-          </div>
+          <TestimonialCarousel testimonials={homeTestimonials} />
         </div>
       </div>
 
-      {/* Enhanced CTA Section with Gradient Animation */}
+      {/* CTA Section */}
       <div className="py-20 bg-linear-to-r from-primary-900 to-primary-800 text-white relative overflow-hidden">
         <div className="absolute inset-0 bg-grid-white/10"></div>
-        <div className="absolute inset-0 bg-linear-to-r from-primary-900 to-primary-800 animate-gradient"></div>
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-4xl font-bold mb-6">
             Ready to Join Our Community?
@@ -300,6 +322,16 @@ const Home = () => {
           </div>
         </div>
       </div>
+
+      {/* News Modal */}
+      <NewsModal
+        item={selectedNews}
+        isOpen={isModalOpen}
+        onClose={() => {
+          setIsModalOpen(false);
+          setSelectedNews(null);
+        }}
+      />
     </div>
   );
 };
