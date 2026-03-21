@@ -2,11 +2,12 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import heroImage from "../../../assets/school_hero_main.png";
 import {
+  homeFeatures,
   homePrograms,
   homeStats,
   homeTestimonials,
   homeNews,
-} from "../../../assets/fakeData";
+} from "../../../data/homeData.jsx";
 
 const Home = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -17,71 +18,6 @@ const Home = () => {
     }, 100);
     return () => clearTimeout(timer);
   }, []);
-
-  const features = [
-    {
-      title: "Academic Excellence",
-      description:
-        "Comprehensive curriculum designed to nurture intellectual growth and critical thinking",
-      icon: (
-        <svg
-          className="w-12 h-12"
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth="2"
-            d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"
-          />
-        </svg>
-      ),
-    },
-    {
-      title: "Holistic Development",
-      description:
-        "Focus on physical, emotional, and social growth through diverse activities",
-      icon: (
-        <svg
-          className="w-12 h-12"
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth="2"
-            d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-          />
-        </svg>
-      ),
-    },
-    {
-      title: "Modern Facilities",
-      description:
-        "State-of-the-art infrastructure supporting innovative learning experiences",
-      icon: (
-        <svg
-          className="w-12 h-12"
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth="2"
-            d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"
-          />
-        </svg>
-      ),
-    },
-  ];
-
-  // Data is now imported from fakeData.jsx
 
   return (
     <div className="min-h-screen bg-slate-50">
@@ -138,7 +74,9 @@ const Home = () => {
           <p
             className={`text-xl md:text-2xl text-white/90 max-w-3xl mx-auto mb-12 transition-all duration-1000 delay-300 transform ${isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"}`}
           >
-            A prestigious secondary institution in Chandina, Cumilla, providing quality education for Classes 6-10 and fostering excellence since 1996.
+            A prestigious secondary institution in Chandina, Cumilla, providing
+            quality education for Classes 6-10 and fostering excellence since
+            1996.
           </p>
 
           {/* Enhanced CTA Buttons */}
@@ -180,7 +118,7 @@ const Home = () => {
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {features.map((feature, index) => (
+            {homeFeatures.map((feature, index) => (
               <div
                 key={index}
                 className="bg-white rounded-2xl shadow-xl p-8 transform hover:-translate-y-2 transition duration-300 hover:shadow-2xl group border border-slate-200"
@@ -191,7 +129,9 @@ const Home = () => {
                 <h3 className="text-2xl font-serif font-bold text-primary-900 mb-4 group-hover:text-accent-gold transition duration-300">
                   {feature.title}
                 </h3>
-                <p className="text-slate-600 leading-relaxed">{feature.description}</p>
+                <p className="text-slate-600 leading-relaxed">
+                  {feature.description}
+                </p>
               </div>
             ))}
           </div>
@@ -245,7 +185,9 @@ const Home = () => {
                 <div className="text-4xl md:text-6xl font-serif font-bold mb-2 text-accent-gold">
                   {stat.number}
                 </div>
-                <div className="text-slate-200 text-lg font-medium tracking-wide">{stat.label}</div>
+                <div className="text-slate-200 text-lg font-medium tracking-wide">
+                  {stat.label}
+                </div>
               </div>
             ))}
           </div>
@@ -319,7 +261,9 @@ const Home = () => {
                     <h4 className="text-xl font-serif font-bold text-primary-900 group-hover:text-accent-gold transition duration-300">
                       {testimonial.name}
                     </h4>
-                    <p className="text-slate-500 font-medium italic">{testimonial.role}</p>
+                    <p className="text-slate-500 font-medium italic">
+                      {testimonial.role}
+                    </p>
                   </div>
                 </div>
                 <p className="text-neutral-600 italic">"{testimonial.quote}"</p>
