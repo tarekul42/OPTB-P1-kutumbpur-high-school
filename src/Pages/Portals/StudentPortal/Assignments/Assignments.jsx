@@ -1,6 +1,6 @@
 import { useState, useMemo } from "react";
 import { format, isPast, isToday, isTomorrow, addDays } from "date-fns";
-import { useStudent } from "../../../Context/StudentContext";
+import { useStudent } from "../../../context/StudentContext";
 
 const Assignments = () => {
   const { assignments, submitAssignment } = useStudent();

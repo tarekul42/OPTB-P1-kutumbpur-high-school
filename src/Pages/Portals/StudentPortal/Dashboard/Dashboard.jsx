@@ -1,6 +1,6 @@
 import { useMemo } from "react";
 import { format } from "date-fns";
-import { useStudent } from "../../../Context/StudentContext";
+import { useStudent } from "../../../context/StudentContext";
 import StudentHeader from "./components/StudentHeader";
 import QuickStats from "./components/QuickStats";
 import DailySchedule from "./components/DailySchedule";

@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Outlet, NavLink, useNavigate } from "react-router-dom";
-import { useStudent } from "../../Context/StudentContext";
+import { useStudent } from "../../context/StudentContext";
 
 const StudentPortalLayout = () => {
   const { student, logout, notifications } = useStudent();

@@ -2,7 +2,7 @@ import { useState, useMemo, useCallback } from "react";
 import Calendar from "react-calendar";
 import "react-calendar/dist/Calendar.css";
 import { format, startOfMonth, endOfMonth, eachDayOfInterval } from "date-fns";
-import { useParent } from "../../../Context/ParentContext";
+import { useParent } from "../../../context/ParentContext";
 
 const Attendance = () => {
   const { selectedChild } = useParent();

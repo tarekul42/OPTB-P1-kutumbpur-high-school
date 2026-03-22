@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Outlet, NavLink, useNavigate } from "react-router-dom";
-import { useParent } from "../../Context/ParentContext";
+import { useParent } from "../../context/ParentContext";
 
 const ParentPortalLayout = () => {
   const { parent, selectedChild, allChildren, selectChild, logout, notifications } = useParent();

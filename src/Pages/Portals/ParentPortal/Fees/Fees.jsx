@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { format } from "date-fns";
-import { useParent } from "../../../Context/ParentContext";
+import { useParent } from "../../../context/ParentContext";
 import { generateReceiptPDF } from "../../../utils/receiptGenerator";
 
 const Fees = () => {

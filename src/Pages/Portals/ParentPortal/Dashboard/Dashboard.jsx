@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { format } from "date-fns";
-import { useParent } from "../../../Context/ParentContext";
+import { useParent } from "../../../context/ParentContext";
 
 const Dashboard = () => {
   const { selectedChild, childFees, noticeBoard } = useParent();

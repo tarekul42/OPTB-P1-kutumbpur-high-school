@@ -15,7 +15,7 @@ import {
   Cell,
 } from "recharts";
 import { academicResults } from "../../../data/studentData";
-import { useStudent } from "../../../Context/StudentContext";
+import { useStudent } from "../../../context/StudentContext";
 
 const CustomTooltip = ({ active, payload, label }) => {
   if (active && payload && payload.length) {

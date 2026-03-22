@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useParent } from "../../../Context/ParentContext";
+import { useParent } from "../../../context/ParentContext";
 
 const Messages = () => {
   const { selectedChild, sendMessage } = useParent();
