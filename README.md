@@ -12,16 +12,16 @@ A modern, responsive, and comprehensive digital platform for **Kutumbpur High Sc
 ### 🎓 For Students
 - **Academic Portal:** View grades, attendance, and class schedules.
 - **Resource Library:** Access digital textbooks, study materials, and past exam papers.
-- **Assignment Tracker:** Submit assignments and track deadlines.
+- **Assignment Tracker:** Submit assignments and track deadlines with real-time status updates.
 
 ### 👨‍👩‍👧‍👦 For Parents
 - **Progress Monitoring:** Real-time access to child's academic performance and attendance.
 - **Communication:** Direct messaging with teachers and administration.
-- **Fee Management:** View fee structures and payment history (future integration).
+- **Fee Management:** Digital fee structure viewing and payment history tracking.
 
 ### 🏫 For Administration & Faculty
 - **Content Management:** Manage news, events, and school announcements.
-- **Student Records:** centralized database for student information.
+- **Student Records:** Centralized database for student information.
 - **Faculty Portal:** Manage classes, grading, and resources.
 
 ## 🛠️ Technology Stack
@@ -30,10 +30,21 @@ A modern, responsive, and comprehensive digital platform for **Kutumbpur High Sc
 - **Framework:** [React](https://react.dev) (v19)
 - **Build Tool:** [Vite](https://vitejs.dev) (v7)
 - **Styling:** [Tailwind CSS](https://tailwindcss.com) (v4)
-- **State Management:** React Context API
+- **State Management:** React Context API (with domain-based splitting)
 - **Routing:** React Router DOM (v7)
 - **Testing:** [Vitest](https://vitest.dev) & React Testing Library
 - **Linting:** ESLint
+
+## 🏗️ Architecture & Decisions
+
+### State Management Strategy
+We chose **React Context API** over external libraries (like Redux) to minimize boilerplate for this scale of application. To ensure performance and scalability:
+- **Context Splitting:** State is divided into domain-specific contexts (`ThemeContext`, `NotificationContext`, `StudentContext`) to prevent unnecessary re-renders.
+- **Service Layer:** Data fetching is abstracted into a `services/api.js` layer, simulating asynchronous API calls. This decouples the UI from the data source, allowing for easy integration with a real backend in the future.
+
+### Component Design
+- **Atomic Design Principles:** UI primitives (like Badges, Icons) are separated from feature components.
+- **Compound Components:** Complex dashboards are broken down into small, single-responsibility widgets (e.g., `DailySchedule`, `QuickStats`) for maintainability.
 
 ## 📂 Project Structure
 
@@ -42,9 +53,12 @@ src/
 ├── assets/             # Static assets (images, icons)
 ├── Components/         # Reusable UI components
 │   ├── Shared/         # Global components (Navbar, Footer)
+│   ├── UI/             # Atomic UI primitives (Badge, Button)
+│   ├── Icons/          # SVG Icon library
 │   └── ...             # Feature-specific components
 ├── context/            # Global state (Theme, Auth, Data)
 ├── data/               # Static data & mock APIs
+├── services/           # API service layer (Mock async calls)
 ├── Layouts/            # Page layouts (Main, Auth, Dashboard)
 ├── Pages/              # Application views/routes
 │   ├── Home/           # Landing page & sub-sections
@@ -96,14 +110,13 @@ We use **Vitest** for unit and integration testing.
     bun run test:coverage
     ```
 
-## 🚢 Building for Production
+## 🗺️ Roadmap
 
-To create an optimized production build:
-
-```bash
-bun run build
-```
-The output will be in the `dist/` directory, ready for deployment.
+- [x] **Core Portals:** Student and Faculty dashboards.
+- [x] **Event Management:** Interactive calendar with Bangladesh holidays.
+- [ ] **Backend Integration:** Connect to a Node.js/Express API.
+- [ ] **Real-time Chat:** Socket.io integration for Parent-Teacher communication.
+- [ ] **Payment Gateway:** Integration with SSLCommerz for fee payments.
 
 ## 🤝 Contribution Guidelines
 

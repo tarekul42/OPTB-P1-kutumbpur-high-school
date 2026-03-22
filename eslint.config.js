@@ -6,7 +6,7 @@ import reactRefresh from 'eslint-plugin-react-refresh'
 
 export default [
   {
-    ignores: ['dist', 'tailwind.config.js', 'postcss.config.js', 'vite.config.js'],
+    ignores: ['dist', 'tailwind.config.js', 'postcss.config.js', 'vite.config.js', 'coverage', '__tests__', 'src/test'],
   },
   {
     files: ['**/*.{js,jsx}'],
@@ -40,7 +40,7 @@ export default [
       'no-unused-vars': [
         'error',
         {
-          varsIgnorePattern: '^React$',
+          varsIgnorePattern: '^React$|^_',
           args: 'after-used',
           ignoreRestSiblings: true,
         },
