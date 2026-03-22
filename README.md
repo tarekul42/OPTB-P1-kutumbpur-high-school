@@ -1,156 +1,125 @@
-# Kutumbpur High School Website
+# Kutumbpur High School - Digital Platform
 
-A modern, responsive website for Kutumbpur High School built with React and Tailwind CSS.
+![Build Status](https://img.shields.io/badge/build-passing-brightgreen)
+![License](https://img.shields.io/badge/license-MIT-blue)
+![Version](https://img.shields.io/badge/version-1.0.0-orange)
+![Tech Stack](https://img.shields.io/badge/stack-React%20%7C%20Vite%20%7C%20Tailwind-blueviolet)
+
+A modern, responsive, and comprehensive digital platform for **Kutumbpur High School**, designed to bridge the gap between students, parents, and faculty. This application serves as the central hub for academic management, communication, and school updates.
 
 ## 🚀 Features
 
-- **Modern UI/UX Design**
-  - Responsive layout for all devices
-  - Smooth animations and transitions
-  - Interactive components
-  - Beautiful gradient effects
+### 🎓 For Students
+- **Academic Portal:** View grades, attendance, and class schedules.
+- **Resource Library:** Access digital textbooks, study materials, and past exam papers.
+- **Assignment Tracker:** Submit assignments and track deadlines.
 
-- **Key Sections**
-  - Home page with hero section
-  - About Us
-  - Contact Information
-  - Updates & News
-  - FAQ Section
-  - Student Portal
-  - Parent Portal
-  - Extracurricular Activities
-  - Alumni Section
-  - Library
-  - Events Calendar
+### 👨‍👩‍👧‍👦 For Parents
+- **Progress Monitoring:** Real-time access to child's academic performance and attendance.
+- **Communication:** Direct messaging with teachers and administration.
+- **Fee Management:** View fee structures and payment history (future integration).
 
-## 🛠️ Technologies Used
+### 🏫 For Administration & Faculty
+- **Content Management:** Manage news, events, and school announcements.
+- **Student Records:** centralized database for student information.
+- **Faculty Portal:** Manage classes, grading, and resources.
 
-- **Frontend Framework**: React.js
-- **Styling**: Tailwind CSS
-- **Routing**: React Router
-- **UI Components**: Flowbite
-- **Icons**: Heroicons
-- **Animations**: Custom CSS animations
+## 🛠️ Technology Stack
 
-## 📦 Installation
+- **Runtime:** [Bun](https://bun.sh) (v1.x)
+- **Framework:** [React](https://react.dev) (v19)
+- **Build Tool:** [Vite](https://vitejs.dev) (v7)
+- **Styling:** [Tailwind CSS](https://tailwindcss.com) (v4)
+- **State Management:** React Context API
+- **Routing:** React Router DOM (v7)
+- **Testing:** [Vitest](https://vitest.dev) & React Testing Library
+- **Linting:** ESLint
 
-1. Clone the repository:
+## 📂 Project Structure
+
 ```bash
-git clone https://github.com/tarekul42/OPTB-P1-kutumbpur-high-school.git
-```
-
-2. Navigate to the project directory:
-```bash
-cd OPTB-P1-kutumbpur-high-school
-```
-
-3. Install dependencies:
-```bash
-bun install
-```
-
-4. Start the development server:
-```bash
-bun run dev
-```
-
-## 🎨 Project Structure
-
-```
 src/
-├── Pages/
-│   ├── Home/
-│   │   ├── Home.jsx
-│   │   ├── AboutUs/
-│   │   ├── Contact/
-│   │   ├── Updates/
-│   │   └── FAQ/
-│   ├── Portals/
-│   │   ├── Student/
-│   │   └── Parent/
-│   └── CuriosityCorner/
-│       ├── ExtracurricularActivities/
-│       ├── AlumniSection/
-│       ├── Library/
-│       └── EventsCalendar/
-├── Components/
-│   └── Shared/
-│       ├── Navbar/
-│       └── Footer/
-└── App.jsx
+├── assets/             # Static assets (images, icons)
+├── Components/         # Reusable UI components
+│   ├── Shared/         # Global components (Navbar, Footer)
+│   └── ...             # Feature-specific components
+├── context/            # Global state (Theme, Auth, Data)
+├── data/               # Static data & mock APIs
+├── Layouts/            # Page layouts (Main, Auth, Dashboard)
+├── Pages/              # Application views/routes
+│   ├── Home/           # Landing page & sub-sections
+│   ├── Portals/        # Student, Parent, & Faculty portals
+│   └── ...
+├── Routes/             # Router configuration
+├── styles/             # Global styles & Tailwind config
+└── utils/              # Helper functions & constants
 ```
 
-## 🚀 Key Features
+## ⚡ Getting Started
 
-### Home Page
-- Modern hero section with gradient effects
-- Feature highlights
-- School programs showcase
-- Latest news and updates
-- Testimonials section
+### Prerequisites
+- [Bun](https://bun.sh) (latest version recommended)
 
-### Student Portal
-- Academic progress tracking
-- Assignment submission
-- Class schedule
-- Study materials access
-- Student support services
+### Installation
 
-### Parent Portal
-- Academic progress monitoring
-- Attendance tracking
-- Fee management
-- Parent-teacher communication
-- School calendar access
+1.  **Clone the repository:**
+    ```bash
+    git clone https://github.com/tarekul42/OPTB-P1-kutumbpur-high-school.git
+    cd OPTB-P1-kutumbpur-high-school
+    ```
 
-### Extracurricular Activities
-- Sports programs
-- Arts and culture
-- Science club
-- Debate club
-- Activity schedules
+2.  **Install dependencies:**
+    ```bash
+    bun install
+    ```
 
-### Library
-- Digital resource access
-- Book catalog
-- Study spaces
-- Research assistance
-- Library hours
+3.  **Start the development server:**
+    ```bash
+    bun run dev
+    ```
+    The application will be available at `http://localhost:5173`.
 
-### Events Calendar
-- School events
-- Academic calendar
-- Sports events
-- Cultural programs
-- Parent-teacher meetings
+## 🧪 Testing
 
-## 🎯 Contributing
+We use **Vitest** for unit and integration testing.
 
-1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
+- **Run all tests:**
+    ```bash
+    bun run test
+    ```
+- **Run tests with UI:**
+    ```bash
+    bun run test:ui
+    ```
+- **Check coverage:**
+    ```bash
+    bun run test:coverage
+    ```
 
-## 📝 License
+## 🚢 Building for Production
+
+To create an optimized production build:
+
+```bash
+bun run build
+```
+The output will be in the `dist/` directory, ready for deployment.
+
+## 🤝 Contribution Guidelines
+
+We welcome contributions! Please follow these steps to ensure a smooth workflow:
+
+1.  **Fork the repository.**
+2.  **Create a feature branch:** `git checkout -b feature/amazing-feature`
+3.  **Commit your changes:** `git commit -m 'feat: Add amazing feature'` (Use [Conventional Commits](https://www.conventionalcommits.org/))
+4.  **Push to the branch:** `git push origin feature/amazing-feature`
+5.  **Open a Pull Request.**
+
+## 📄 License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-## 👥 Authors
+## 📞 Support & Contact
 
-- **Original Author**: [Tarekul Islam](https://github.com/tarekul42)
-- **Contributors**: [Abhishek Sharma](https://github.com/Abhishek-Sharma-21)
-
-## 🙏 Acknowledgments
-
-- Thanks to all contributors who have helped in developing this project
-- Special thanks to the school administration for their support
-- Inspired by modern educational websites
-
-## 📞 Contact
-
-For any queries or support, please contact:
-- Email: [kutumbpurhighschool1996@gmail.com]
-- Website: [kutumbpurhighschool.vercel.app]
-<!-- - Phone: [+8801*********] -->
-
+- **Email:** kutumbpurhighschool1996@gmail.com
+- **Maintainer:** [Tarekul Islam](https://github.com/tarekul42)

@@ -1,7 +1,7 @@
 import { Outlet } from "react-router-dom";
-import Navbar from "../../Pages/Shared/Navbar/Navbar";
+import Navbar from "../../Components/Shared/Navbar/Navbar";
 import ScrollToTop from "../../Components/ScrollToTop";
-import Footer from "../../Pages/Shared/Footer/Footer";
+import Footer from "../../Components/Shared/Footer/Footer";
 
 const MainUserLayout = () => {
   return (
