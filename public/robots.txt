@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://kutumbpurhighschool.edu.bd/sitemap.xml
+
+# Disallow admin/portal access for crawlers
+Disallow: /portal/
+Disallow: /admin/
+Disallow: /*.json$
