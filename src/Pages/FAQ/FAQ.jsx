@@ -42,8 +42,9 @@ const FAQ = () => {
                     </h3>
                   </div>
                   <svg
-                    className={`w-6 h-6 text-neutral-500 transform transition-transform duration-200 ${openIndex === index ? "rotate-180" : ""
-                      }`}
+                    className={`w-6 h-6 text-neutral-500 transform transition-transform duration-200 ${
+                      openIndex === index ? "rotate-180" : ""
+                    }`}
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -97,7 +98,7 @@ const FAQ = () => {
             </a>
             <a
               href="tel:+8801234567890"
-              className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-primary-900 bg-white hover:bg-slate-50 border border-slate-200 transition-colors"
+              className="inline-flex items-center px-6 py-3 border-slate-200 text-base font-medium rounded-md text-primary-900 bg-white hover:bg-slate-50 border border-slate-200 transition-colors"
             >
               <svg
                 className="w-5 h-5 mr-2"

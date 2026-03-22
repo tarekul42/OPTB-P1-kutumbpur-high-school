@@ -30,7 +30,8 @@ export const initialAssignments = [
     id: 4,
     subject: "General Science",
     title: "Lab Report - Photosynthesis Experiment",
-    description: "Submit the lab report for the photosynthesis experiment conducted on March 20",
+    description:
+      "Submit the lab report for the photosynthesis experiment conducted on March 20",
     dueDate: "2026-03-28",
     status: "Pending",
     submittedDate: null,

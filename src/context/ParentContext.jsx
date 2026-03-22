@@ -16,7 +16,8 @@ export const ParentProvider = ({ children: childrenProp }) => {
   const [notifications, setNotifications] = useState([]);
   const [isLoggedIn, setIsLoggedIn] = useState(true);
 
-  const selectedChild = allChildren.find((child) => child.id === selectedChildId) || allChildren[0];
+  const selectedChild =
+    allChildren.find((child) => child.id === selectedChildId) || allChildren[0];
 
   const childFees = feesMap[selectedChildId] || child1Fees;
 
@@ -32,12 +33,15 @@ export const ParentProvider = ({ children: childrenProp }) => {
     }, 5000);
   }, []);
 
-  const sendMessage = useCallback((teacherName) => {
-    addNotification({
-      type: "success",
-      message: `Message sent to ${teacherName} successfully!`,
-    });
-  }, [addNotification]);
+  const sendMessage = useCallback(
+    (teacherName) => {
+      addNotification({
+        type: "success",
+        message: `Message sent to ${teacherName} successfully!`,
+      });
+    },
+    [addNotification],
+  );
 
   const logout = useCallback(() => {
     setIsLoggedIn(false);

@@ -6,8 +6,8 @@ const Badge = ({ children, variant = "primary", className = "" }) => {
     slate: "bg-slate-100 text-slate-700",
     accent: "bg-accent-100 text-accent-700",
     "accent-gold": "bg-accent-gold text-white",
-    "dark": "bg-slate-800/80 text-white",
-    "light": "bg-primary-50 text-primary-700",
+    dark: "bg-slate-800/80 text-white",
+    light: "bg-primary-50 text-primary-700",
   };
 
   return (

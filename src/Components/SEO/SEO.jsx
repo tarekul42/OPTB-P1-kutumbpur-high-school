@@ -6,13 +6,15 @@ const SEO_DATA = {
     title: "Kutumbpur High School | Excellence in Education",
     description:
       "Official digital portal of Kutumbpur High School, Chandina, Cumilla. Empowering students with knowledge, values, and excellence in education since 1985.",
-    keywords: "Kutumbpur High School, Kutumbpur, Chandina, Cumilla, school, education, SSC, Bangladesh school",
+    keywords:
+      "Kutumbpur High School, Kutumbpur, Chandina, Cumilla, school, education, SSC, Bangladesh school",
   },
   "/about": {
     title: "About Us | Kutumbpur High School",
     description:
       "Learn about Kutumbpur High School's mission, vision, and commitment to academic excellence. Discover our history, facilities, and dedicated faculty.",
-    keywords: "about school, Kutumbpur school history, school mission, education excellence",
+    keywords:
+      "about school, Kutumbpur school history, school mission, education excellence",
   },
   "/contact": {
     title: "Contact Us | Kutumbpur High School",
@@ -84,7 +86,8 @@ const SEO_DATA = {
     title: "Parent Portal | Kutumbpur High School",
     description:
       "Parents can monitor their child's attendance, view results, manage fees, and communicate with teachers.",
-    keywords: "parent dashboard, child attendance, school fees, parent communication",
+    keywords:
+      "parent dashboard, child attendance, school fees, parent communication",
   },
   "/curiosity-corner": {
     title: "Curiosity Corner | Kutumbpur High School",
@@ -140,8 +143,9 @@ const DEFAULT_SEO = {
 
 const SEO = () => {
   const location = useLocation();
-  const pathKey = Object.keys(SEO_DATA).find((path) =>
-    location.pathname === path || location.pathname.startsWith(path + "/")
+  const pathKey = Object.keys(SEO_DATA).find(
+    (path) =>
+      location.pathname === path || location.pathname.startsWith(path + "/"),
   );
   const seoData = SEO_DATA[pathKey] || DEFAULT_SEO;
 

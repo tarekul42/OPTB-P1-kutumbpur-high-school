@@ -18,18 +18,18 @@ const BookCard = ({ book, onToggleFavorite, isFavorite }) => {
         book.status === "Issued" ? "opacity-90" : ""
       }`}
     >
-      <div className="relative aspect-[3/4] overflow-hidden bg-slate-100">
+      <div className="relative aspect-3/4 overflow-hidden bg-slate-100">
         {!imageError ? (
           <img
             src={book.coverImage}
             alt={book.title}
             onError={handleImageError}
             className={`w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 ${
-              book.status === "Issued" ? "grayscale-[40%] opacity-80" : ""
+              book.status === "Issued" ? "grayscale-40 opacity-80" : ""
             }`}
           />
         ) : (
-          <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-primary-100 to-primary-200">
+          <div className="w-full h-full flex items-center justify-center bg-linear-to-br from-primary-100 to-primary-200">
             <svg
               className={`w-20 h-20 text-primary-300 ${book.status === "Issued" ? "opacity-50" : ""}`}
               fill="none"
@@ -51,7 +51,11 @@ const BookCard = ({ book, onToggleFavorite, isFavorite }) => {
             className={`inline-flex items-center px-2.5 py-1 rounded-full text-xs font-semibold border ${statusColors[book.status]}`}
           >
             {book.status === "Available" ? (
-              <svg className="w-3 h-3 mr-1" fill="currentColor" viewBox="0 0 20 20">
+              <svg
+                className="w-3 h-3 mr-1"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+              >
                 <path
                   fillRule="evenodd"
                   d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
@@ -59,7 +63,11 @@ const BookCard = ({ book, onToggleFavorite, isFavorite }) => {
                 />
               </svg>
             ) : (
-              <svg className="w-3 h-3 mr-1" fill="currentColor" viewBox="0 0 20 20">
+              <svg
+                className="w-3 h-3 mr-1"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+              >
                 <path
                   fillRule="evenodd"
                   d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z"
@@ -78,7 +86,9 @@ const BookCard = ({ book, onToggleFavorite, isFavorite }) => {
               ? "bg-rose-500 text-white hover:bg-rose-600"
               : "bg-white/90 text-slate-400 hover:text-rose-500 hover:bg-white"
           } shadow-lg`}
-          aria-label={isFavorite ? "Remove from reading list" : "Add to reading list"}
+          aria-label={
+            isFavorite ? "Remove from reading list" : "Add to reading list"
+          }
         >
           <svg
             className="w-5 h-5"
@@ -97,8 +107,10 @@ const BookCard = ({ book, onToggleFavorite, isFavorite }) => {
 
         {book.status === "Issued" && (
           <div className="absolute inset-0 bg-slate-900/20 flex items-center justify-center">
-            <div className="bg-white/95 px-4 py-2 rounded-lg shadow-lg transform rotate-[-12deg]">
-              <span className="text-sm font-bold text-red-600">Currently Issued</span>
+            <div className="bg-white/95 px-4 py-2 rounded-lg shadow-lg transform -rotate-12">
+              <span className="text-sm font-bold text-red-600">
+                Currently Issued
+              </span>
             </div>
           </div>
         )}
@@ -118,8 +130,12 @@ const BookCard = ({ book, onToggleFavorite, isFavorite }) => {
         <p className="text-sm text-slate-500 mb-3">{book.author}</p>
 
         <div className="flex items-center justify-between pt-3 border-t border-slate-100">
-          <span className="text-xs text-slate-400 font-medium">{book.classLevel}</span>
-          <span className="text-xs text-slate-400">ISBN: {book.isbn.slice(-6)}</span>
+          <span className="text-xs text-slate-400 font-medium">
+            {book.classLevel}
+          </span>
+          <span className="text-xs text-slate-400">
+            ISBN: {book.isbn.slice(-6)}
+          </span>
         </div>
       </div>
     </div>

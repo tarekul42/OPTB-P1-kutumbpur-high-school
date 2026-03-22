@@ -11,9 +11,12 @@ const Academics = () => {
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-20">
           <div className="text-center">
-            <h1 className="text-5xl md:text-6xl font-serif font-bold text-white mb-6 drop-shadow-lg">Academic Programs</h1>
+            <h1 className="text-5xl md:text-6xl font-serif font-bold text-white mb-6 drop-shadow-lg">
+              Academic Programs
+            </h1>
             <p className="text-xl text-slate-100 max-w-3xl mx-auto font-medium drop-shadow-md">
-              A commitment to excellence in Chandina. Specializing in Class 6-10 Secondary education with a focus on SSC board achievement.
+              A commitment to excellence in Chandina. Specializing in Class 6-10
+              Secondary education with a focus on SSC board achievement.
             </p>
           </div>
         </div>
@@ -28,9 +31,7 @@ const Academics = () => {
               key={index}
               className="bg-white rounded-xl shadow-lg p-8 transform transition duration-300 hover:shadow-xl border border-slate-200 group"
             >
-              <div
-                className="w-16 h-16 bg-primary-50 rounded-2xl flex items-center justify-center text-3xl mb-6 group-hover:bg-accent-gold/20 transition-colors"
-              >
+              <div className="w-16 h-16 bg-primary-50 rounded-2xl flex items-center justify-center text-3xl mb-6 group-hover:bg-accent-gold/20 transition-colors">
                 {program.icon}
               </div>
               <h3 className="text-2xl font-serif font-bold text-primary-900 mb-4">

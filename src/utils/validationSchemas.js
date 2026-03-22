@@ -12,10 +12,11 @@ export const contactFormSchema = z.object({
   phone: z
     .string()
     .min(1, "Phone number is required")
-    .regex(/^01[1-9]\d{8}$/, "Please enter a valid Bangladeshi mobile number (e.g., 01712345678)"),
-  subject: z
-    .string()
-    .min(1, "Please select a subject"),
+    .regex(
+      /^01[1-9]\d{8}$/,
+      "Please enter a valid Bangladeshi mobile number (e.g., 01712345678)",
+    ),
+  subject: z.string().min(1, "Please select a subject"),
   message: z
     .string()
     .min(10, "Message must be at least 10 characters")
@@ -38,10 +39,11 @@ export const admissionFormSchema = z.object({
   phone: z
     .string()
     .min(1, "Phone number is required")
-    .regex(/^01[1-9]\d{8}$/, "Please enter a valid Bangladeshi mobile number (e.g., 01712345678)"),
-  applyingForClass: z
-    .string()
-    .min(1, "Please select a class"),
+    .regex(
+      /^01[1-9]\d{8}$/,
+      "Please enter a valid Bangladeshi mobile number (e.g., 01712345678)",
+    ),
+  applyingForClass: z.string().min(1, "Please select a class"),
   previousSchool: z
     .string()
     .min(3, "Previous school name must be at least 3 characters")

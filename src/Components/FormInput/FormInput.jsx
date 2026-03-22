@@ -15,7 +15,7 @@ const FormInput = ({
   const isValid = !hasError && register && register(name)?.value;
 
   const inputClasses = `
-    mt-1 block w-full rounded-lg border px-4 py-3 text-slate-800 
+    mt-1 block w-full rounded-lg border px-4 py-3 text-slate-800
     transition-all duration-200 shadow-sm
     focus:outline-none focus:ring-2 focus:ring-offset-0
     disabled:bg-slate-100 disabled:cursor-not-allowed
@@ -23,8 +23,8 @@ const FormInput = ({
       hasError
         ? "border-red-400 focus:border-red-500 focus:ring-red-200 bg-red-50"
         : isValid
-        ? "border-accent-500 focus:border-accent-600 focus:ring-accent-200"
-        : "border-slate-300 focus:border-primary-500 focus:ring-primary-200 hover:border-slate-400"
+          ? "border-accent-500 focus:border-accent-600 focus:ring-accent-200"
+          : "border-slate-300 focus:border-primary-500 focus:ring-primary-200 hover:border-slate-400"
     }
     ${className}
   `;

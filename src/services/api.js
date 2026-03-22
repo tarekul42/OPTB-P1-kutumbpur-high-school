@@ -1,4 +1,8 @@
-import { studentProfile, attendanceData, noticeBoard } from "../data/studentData";
+import {
+  studentProfile,
+  attendanceData,
+  noticeBoard,
+} from "../data/studentData";
 import { initialAssignments } from "../data/assignmentsData";
 import { scheduleData } from "../data/scheduleData";
 
@@ -23,8 +27,11 @@ export const studentService = {
   submitAssignment: () => {
     return new Promise((resolve) => {
       setTimeout(() => {
-        resolve({ success: true, message: "Assignment submitted successfully" });
+        resolve({
+          success: true,
+          message: "Assignment submitted successfully",
+        });
       }, DELAY);
     });
-  }
+  },
 };

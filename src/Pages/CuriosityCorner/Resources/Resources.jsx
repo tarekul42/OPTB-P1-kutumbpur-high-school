@@ -11,9 +11,12 @@ const Resources = () => {
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-20">
           <div className="text-center">
-            <h1 className="text-5xl md:text-6xl font-serif font-bold text-white mb-6 animate-in fade-in slide-in-from-top-4 duration-700 drop-shadow-lg">Digital Resources</h1>
+            <h1 className="text-5xl md:text-6xl font-serif font-bold text-white mb-6 animate-in fade-in slide-in-from-top-4 duration-700 drop-shadow-lg">
+              Digital Resources
+            </h1>
             <p className="text-xl text-slate-100 max-w-3xl mx-auto font-medium drop-shadow-md">
-              Empowering students with 21st-century learning tools. Access PSC, JSC, and SSC board preparation materials.
+              Empowering students with 21st-century learning tools. Access PSC,
+              JSC, and SSC board preparation materials.
             </p>
           </div>
         </div>
@@ -41,10 +44,7 @@ const Resources = () => {
                 <p className="text-slate-600 mb-6">{subject.description}</p>
                 <ul className="space-y-2">
                   {subject.resources.map((resource, idx) => (
-                    <li
-                      key={idx}
-                      className="flex items-start text-slate-600"
-                    >
+                    <li key={idx} className="flex items-start text-slate-600">
                       <svg
                         className="w-5 h-5 text-accent-gold mt-1 mr-2 shrink-0"
                         fill="none"
@@ -78,7 +78,9 @@ const Resources = () => {
                 key={index}
                 className="bg-white rounded-xl shadow-lg p-8 transform transition duration-300 hover:scale-105 border border-slate-200 group"
               >
-                <div className="text-accent-gold mb-4 group-hover:scale-110 transition-transform duration-300">{resource.icon}</div>
+                <div className="text-accent-gold mb-4 group-hover:scale-110 transition-transform duration-300">
+                  {resource.icon}
+                </div>
                 <h3 className="text-xl font-serif font-bold text-primary-900 mb-4">
                   {resource.title}
                 </h3>
@@ -111,7 +113,9 @@ const Resources = () => {
                   d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"
                 />
               </svg>
-              <span className="text-primary-900 font-semibold italic">E-Books</span>
+              <span className="text-primary-900 font-semibold italic">
+                E-Books
+              </span>
             </a>
             <a
               href="#"
@@ -130,7 +134,9 @@ const Resources = () => {
                   d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"
                 />
               </svg>
-              <span className="text-primary-900 font-semibold italic">Video Lectures</span>
+              <span className="text-primary-900 font-semibold italic">
+                Video Lectures
+              </span>
             </a>
             <a
               href="#"
@@ -149,7 +155,9 @@ const Resources = () => {
                   d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"
                 />
               </svg>
-              <span className="text-primary-900 font-semibold italic">Practice Tests</span>
+              <span className="text-primary-900 font-semibold italic">
+                Practice Tests
+              </span>
             </a>
             <a
               href="#"
@@ -168,7 +176,9 @@ const Resources = () => {
                   d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
                 />
               </svg>
-              <span className="text-primary-900 font-semibold italic">Study Schedule</span>
+              <span className="text-primary-900 font-semibold italic">
+                Study Schedule
+              </span>
             </a>
           </div>
         </div>

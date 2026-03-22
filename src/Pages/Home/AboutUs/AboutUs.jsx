@@ -71,8 +71,8 @@ const AboutUs = () => {
               Our Vision
             </h3>
             <p className="text-slate-600">
-              To be a leading educational institution in Cumilla that nurtures academic
-              excellence, character development, and innovation.
+              To be a leading educational institution in Cumilla that nurtures
+              academic excellence, character development, and innovation.
             </p>
           </div>
         </div>

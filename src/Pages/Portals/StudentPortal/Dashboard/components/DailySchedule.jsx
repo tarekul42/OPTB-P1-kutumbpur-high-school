@@ -1,6 +1,9 @@
 import { Link } from "react-router-dom";
 import Badge from "../../../../../Components/UI/Badge";
-import { CalendarCheckIcon, CalendarClockIcon } from "../../../../../Components/Icons";
+import {
+  CalendarCheckIcon,
+  CalendarClockIcon,
+} from "../../../../../Components/Icons";
 
 const DailySchedule = ({ classes, day }) => {
   return (

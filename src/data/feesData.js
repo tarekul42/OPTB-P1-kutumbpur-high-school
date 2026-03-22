@@ -9,26 +9,46 @@ export const feesStructure = {
 };
 
 export const generateFeesForChild = (childId, year = 2026) => {
-  const baseMonthlyFee = feesStructure.tuition + 
-    feesStructure.library + 
-    feesStructure.laboratory + 
+  const baseMonthlyFee =
+    feesStructure.tuition +
+    feesStructure.library +
+    feesStructure.laboratory +
     feesStructure.sports;
 
   const quarters = [
-    { quarter: "Q1", months: ["January", "February", "March"], monthsNum: [1, 2, 3] },
+    {
+      quarter: "Q1",
+      months: ["January", "February", "March"],
+      monthsNum: [1, 2, 3],
+    },
     { quarter: "Q2", months: ["April", "May", "June"], monthsNum: [4, 5, 6] },
-    { quarter: "Q3", months: ["July", "August", "September"], monthsNum: [7, 8, 9] },
-    { quarter: "Q4", months: ["October", "November", "December"], monthsNum: [10, 11, 12] },
+    {
+      quarter: "Q3",
+      months: ["July", "August", "September"],
+      monthsNum: [7, 8, 9],
+    },
+    {
+      quarter: "Q4",
+      months: ["October", "November", "December"],
+      monthsNum: [10, 11, 12],
+    },
   ];
 
   const fees = [];
 
   quarters.forEach((q, quarterIndex) => {
-    const isPaid = quarterIndex < 2 || (quarterIndex === 2 && Math.random() > 0.5);
+    const isPaid =
+      quarterIndex < 2 || (quarterIndex === 2 && Math.random() > 0.5);
     const isOverdue = quarterIndex === 0 && !isPaid;
-    
+
     const dueDate = new Date(year, q.monthsNum[0] - 1, 15);
-    const paidDate = isPaid ? new Date(year, q.monthsNum[0] + Math.floor(Math.random() * 2), Math.floor(Math.random() * 15) + 1) : null;
+    const paidDate = isPaid
+      ? new Date(
+          year,
+          q.monthsNum[0] + Math.floor(Math.random() * 2),
+          Math.floor(Math.random() * 15) + 1,
+        )
+      : null;
 
     fees.push({
       id: `${childId}-${year}-Q${quarterIndex + 1}`,
@@ -53,11 +73,17 @@ export const generateFeesForChild = (childId, year = 2026) => {
       childId,
       year,
       month,
-      monthName: new Date(year, month - 1).toLocaleString("en", { month: "long" }),
+      monthName: new Date(year, month - 1).toLocaleString("en", {
+        month: "long",
+      }),
       dueDate: new Date(year, month - 1, 10).toISOString().split("T")[0],
       amount: baseMonthlyFee,
       status: isPaid ? "Paid" : month <= 10 ? "Due" : "Overdue",
-      paidDate: isPaid ? new Date(year, month - 1, Math.floor(Math.random() * 10) + 1).toISOString().split("T")[0] : null,
+      paidDate: isPaid
+        ? new Date(year, month - 1, Math.floor(Math.random() * 10) + 1)
+            .toISOString()
+            .split("T")[0]
+        : null,
     });
   }
 
@@ -65,9 +91,16 @@ export const generateFeesForChild = (childId, year = 2026) => {
     quarterly: fees,
     monthly: monthlyFees,
     summary: {
-      totalAnnual: (baseMonthlyFee * 12) + (feesStructure.examination * 4) + feesStructure.development,
-      paid: fees.filter(f => f.status === "Paid").reduce((sum, f) => sum + f.paidAmount, 0),
-      pending: fees.filter(f => f.status !== "Paid").reduce((sum, f) => sum + f.dueAmount, 0),
+      totalAnnual:
+        baseMonthlyFee * 12 +
+        feesStructure.examination * 4 +
+        feesStructure.development,
+      paid: fees
+        .filter((f) => f.status === "Paid")
+        .reduce((sum, f) => sum + f.paidAmount, 0),
+      pending: fees
+        .filter((f) => f.status !== "Paid")
+        .reduce((sum, f) => sum + f.dueAmount, 0),
     },
   };
 };

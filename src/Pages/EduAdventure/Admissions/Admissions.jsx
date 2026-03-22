@@ -12,7 +12,9 @@ const Admissions = () => {
         <div className="absolute inset-0 bg-linear-to-r from-primary-900 to-primary-800 animate-gradient text-white"></div>
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-white">
           <div className="text-center">
-            <h1 className="text-5xl font-serif font-bold mb-6 drop-shadow-lg">Admissions</h1>
+            <h1 className="text-5xl font-serif font-bold mb-6 drop-shadow-lg">
+              Admissions
+            </h1>
             <p className="text-xl text-slate-100 max-w-3xl mx-auto font-medium drop-shadow-md">
               Join the academic community of Kutumbpur High School. We are
               accepting applications for Classes 6 through 10 (SSC).
@@ -85,11 +87,15 @@ const Admissions = () => {
               </div>
               <div className="flex justify-between items-center">
                 <span className="text-neutral-600">Admission Test</span>
-                <span className="text-neutral-900 font-medium">December 20 - 25</span>
+                <span className="text-neutral-900 font-medium">
+                  December 20 - 25
+                </span>
               </div>
               <div className="flex justify-between items-center">
                 <span className="text-neutral-600">Results Declaration</span>
-                <span className="text-neutral-900 font-medium">December 30</span>
+                <span className="text-neutral-900 font-medium">
+                  December 30
+                </span>
               </div>
               <div className="flex justify-between items-center">
                 <span className="text-neutral-600">New Academic Session</span>

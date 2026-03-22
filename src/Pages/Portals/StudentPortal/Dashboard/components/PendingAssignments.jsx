@@ -1,7 +1,11 @@
 import { Link } from "react-router-dom";
 import { format } from "date-fns";
 import Badge from "../../../../../Components/UI/Badge";
-import { ClipboardListIcon, DocumentTextIcon, CheckCircleIcon } from "../../../../../Components/Icons";
+import {
+  ClipboardListIcon,
+  DocumentTextIcon,
+  CheckCircleIcon,
+} from "../../../../../Components/Icons";
 
 const PendingAssignments = ({ assignments }) => {
   return (

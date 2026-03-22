@@ -15,10 +15,13 @@ const SearchModal = () => {
   const inputRef = useRef(null);
   const [selectedIndex, setSelectedIndex] = useState(-1);
 
-  const handleSelect = useCallback((item) => {
-    closeSearch();
-    navigate(item.path);
-  }, [closeSearch, navigate]);
+  const handleSelect = useCallback(
+    (item) => {
+      closeSearch();
+      navigate(item.path);
+    },
+    [closeSearch, navigate],
+  );
 
   useEffect(() => {
     if (isSearchOpen && inputRef.current) {
@@ -31,30 +34,33 @@ const SearchModal = () => {
     setSelectedIndex(-1);
   }, [searchQuery]);
 
-  const handleKeyDown = useCallback((e) => {
-    if (!isSearchOpen) return;
+  const handleKeyDown = useCallback(
+    (e) => {
+      if (!isSearchOpen) return;
 
-    switch (e.key) {
-      case "Escape":
-        closeSearch();
-        break;
-      case "ArrowDown":
-        e.preventDefault();
-        setSelectedIndex((prev) =>
-          prev < searchResults.length - 1 ? prev + 1 : prev
-        );
-        break;
-      case "ArrowUp":
-        e.preventDefault();
-        setSelectedIndex((prev) => (prev > 0 ? prev - 1 : -1));
-        break;
-      case "Enter":
-        if (selectedIndex >= 0 && searchResults[selectedIndex]) {
-          handleSelect(searchResults[selectedIndex]);
-        }
-        break;
-    }
-  }, [isSearchOpen, searchResults, selectedIndex, closeSearch, handleSelect]);
+      switch (e.key) {
+        case "Escape":
+          closeSearch();
+          break;
+        case "ArrowDown":
+          e.preventDefault();
+          setSelectedIndex((prev) =>
+            prev < searchResults.length - 1 ? prev + 1 : prev,
+          );
+          break;
+        case "ArrowUp":
+          e.preventDefault();
+          setSelectedIndex((prev) => (prev > 0 ? prev - 1 : -1));
+          break;
+        case "Enter":
+          if (selectedIndex >= 0 && searchResults[selectedIndex]) {
+            handleSelect(searchResults[selectedIndex]);
+          }
+          break;
+      }
+    },
+    [isSearchOpen, searchResults, selectedIndex, closeSearch, handleSelect],
+  );
 
   useEffect(() => {
     window.addEventListener("keydown", handleKeyDown);
@@ -112,12 +118,18 @@ const SearchModal = () => {
         <div className="flex items-center justify-between px-4 py-3 border-t border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800/50">
           <div className="flex items-center gap-4 text-xs text-slate-500 dark:text-slate-400">
             <span className="flex items-center gap-1">
-              <kbd className="px-1.5 py-0.5 bg-slate-200 dark:bg-slate-600 rounded">↑</kbd>
-              <kbd className="px-1.5 py-0.5 bg-slate-200 dark:bg-slate-600 rounded">↓</kbd>
+              <kbd className="px-1.5 py-0.5 bg-slate-200 dark:bg-slate-600 rounded">
+                ↑
+              </kbd>
+              <kbd className="px-1.5 py-0.5 bg-slate-200 dark:bg-slate-600 rounded">
+                ↓
+              </kbd>
               <span>to navigate</span>
             </span>
             <span className="flex items-center gap-1">
-              <kbd className="px-1.5 py-0.5 bg-slate-200 dark:bg-slate-600 rounded">Enter</kbd>
+              <kbd className="px-1.5 py-0.5 bg-slate-200 dark:bg-slate-600 rounded">
+                Enter
+              </kbd>
               <span>to select</span>
             </span>
           </div>

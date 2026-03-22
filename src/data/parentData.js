@@ -14,7 +14,8 @@ export const children = [
     class: "Class 10",
     section: "A",
     roll_no: 12,
-    photo: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face",
+    photo:
+      "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face",
     studentId: "KHS-2022-0012",
     dateOfBirth: "2006-05-20",
     bloodGroup: "A+",
@@ -23,8 +24,16 @@ export const children = [
       { name: "Mathematics", teacher: "Mr. Islam", email: "islam@school.edu" },
       { name: "English", teacher: "Mrs. Akter", email: "akter@school.edu" },
       { name: "Bangla", teacher: "Mrs. Rahman", email: "rahman@school.edu" },
-      { name: "General Science", teacher: "Mr. Haque", email: "haque@school.edu" },
-      { name: "Social Studies", teacher: "Mrs. Begum", email: "begum@school.edu" },
+      {
+        name: "General Science",
+        teacher: "Mr. Haque",
+        email: "haque@school.edu",
+      },
+      {
+        name: "Social Studies",
+        teacher: "Mrs. Begum",
+        email: "begum@school.edu",
+      },
     ],
     attendance: {
       totalDays: 90,
@@ -48,7 +57,8 @@ export const children = [
     class: "Class 6",
     section: "B",
     roll_no: 8,
-    photo: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop&crop=face",
+    photo:
+      "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop&crop=face",
     studentId: "KHS-2025-0008",
     dateOfBirth: "2010-11-15",
     bloodGroup: "O+",
@@ -57,8 +67,16 @@ export const children = [
       { name: "Mathematics", teacher: "Mr. Islam", email: "islam@school.edu" },
       { name: "English", teacher: "Mrs. Akter", email: "akter@school.edu" },
       { name: "Bangla", teacher: "Mrs. Rahman", email: "rahman@school.edu" },
-      { name: "General Science", teacher: "Mr. Haque", email: "haque@school.edu" },
-      { name: "Social Studies", teacher: "Mrs. Begum", email: "begum@school.edu" },
+      {
+        name: "General Science",
+        teacher: "Mr. Haque",
+        email: "haque@school.edu",
+      },
+      {
+        name: "Social Studies",
+        teacher: "Mrs. Begum",
+        email: "begum@school.edu",
+      },
     ],
     attendance: {
       totalDays: 90,
@@ -87,7 +105,7 @@ function generateAttendanceRecords(totalDays) {
   for (let i = 0; i < totalDays; i++) {
     const date = new Date(startDate);
     date.setDate(startDate.getDate() + i);
-    
+
     const dayOfWeek = date.getDay();
     if (dayOfWeek === 5 || dayOfWeek === 6) continue;
 
@@ -117,20 +135,23 @@ export const noticeBoard = [
     title: "SSC Examination Schedule 2026",
     date: "2026-03-20",
     priority: "high",
-    content: "SSC examinations will begin from April 1, 2026. Students must carry their admit cards.",
+    content:
+      "SSC examinations will begin from April 1, 2026. Students must carry their admit cards.",
   },
   {
     id: 2,
     title: "Parent-Teacher Meeting",
     date: "2026-03-25",
     priority: "medium",
-    content: "Quarterly PTM scheduled for March 25, 2026. All parents are requested to attend.",
+    content:
+      "Quarterly PTM scheduled for March 25, 2026. All parents are requested to attend.",
   },
   {
     id: 3,
     title: "Fee Payment Deadline",
     date: "2026-03-28",
     priority: "high",
-    content: "Last date for quarterly fee payment is March 31, 2026. Late fee will be applicable after deadline.",
+    content:
+      "Last date for quarterly fee payment is March 31, 2026. Late fee will be applicable after deadline.",
   },
 ];

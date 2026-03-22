@@ -26,7 +26,10 @@ export const PageSkeleton = () => {
       <div className="h-64 bg-slate-200 dark:bg-slate-700 rounded-lg mb-6"></div>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
         {[1, 2, 3].map((i) => (
-          <div key={i} className="h-48 bg-slate-200 dark:bg-slate-700 rounded-lg"></div>
+          <div
+            key={i}
+            className="h-48 bg-slate-200 dark:bg-slate-700 rounded-lg"
+          ></div>
         ))}
       </div>
       <div className="space-y-4">

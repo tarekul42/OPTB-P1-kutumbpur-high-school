@@ -11,9 +11,12 @@ const Faculty = () => {
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-20">
           <div className="text-center">
-            <h1 className="text-5xl md:text-6xl font-serif font-bold text-white mb-6 animate-in fade-in slide-in-from-top-4 duration-700 drop-shadow-lg">Faculty Portal</h1>
+            <h1 className="text-5xl md:text-6xl font-serif font-bold text-white mb-6 animate-in fade-in slide-in-from-top-4 duration-700 drop-shadow-lg">
+              Faculty Portal
+            </h1>
             <p className="text-xl text-slate-100 max-w-3xl mx-auto font-medium drop-shadow-md">
-              Administrative and teaching hub for Kutumbpur High School educators. Manage Class 6-10 streams, assessments, and attendance.
+              Administrative and teaching hub for Kutumbpur High School
+              educators. Manage Class 6-10 streams, assessments, and attendance.
             </p>
           </div>
         </div>

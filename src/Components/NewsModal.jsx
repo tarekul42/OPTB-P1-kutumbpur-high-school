@@ -14,8 +14,18 @@ const NewsModal = ({ item, isOpen, onClose }) => {
           onClick={onClose}
           className="absolute top-4 right-4 z-10 w-10 h-10 bg-white/90 rounded-full flex items-center justify-center text-slate-600 hover:text-slate-900 hover:bg-white transition-all cursor-pointer shadow-lg"
         >
-          <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
+          <svg
+            className="w-6 h-6"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
+              d="M6 18L18 6M6 6l12 12"
+            />
           </svg>
         </button>
 
@@ -26,7 +36,7 @@ const NewsModal = ({ item, isOpen, onClose }) => {
               alt={item.title}
               className="w-full h-64 md:h-80 object-cover"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+            <div className="absolute inset-0 bg-linear-to-t from-black/60 to-transparent"></div>
             {item.tag && (
               <span className="absolute bottom-4 left-6 px-4 py-1.5 bg-accent-gold text-white text-sm font-semibold rounded-full">
                 {item.tag}
@@ -36,7 +46,9 @@ const NewsModal = ({ item, isOpen, onClose }) => {
 
           <div className="p-6 md:p-8">
             <div className="flex items-center gap-4 mb-4">
-              <span className="text-accent-gold font-semibold">{item.date}</span>
+              <span className="text-accent-gold font-semibold">
+                {item.date}
+              </span>
               <span className="w-1.5 h-1.5 bg-slate-300 rounded-full"></span>
               <span className="text-slate-500">{item.category}</span>
             </div>
@@ -51,8 +63,18 @@ const NewsModal = ({ item, isOpen, onClose }) => {
 
             <div className="flex items-center justify-between pt-6 border-t border-slate-200">
               <div className="flex items-center gap-2 text-slate-500 text-sm">
-                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                <svg
+                  className="w-5 h-5"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
+                  />
                 </svg>
                 <span>Published on {item.date}</span>
               </div>

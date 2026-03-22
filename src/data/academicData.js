@@ -124,7 +124,8 @@ export const academicsDetailedPrograms = [
 export const admissionSteps = [
   {
     title: "Online Inquiry",
-    description: "Fill out the online interest form or visit our campus office.",
+    description:
+      "Fill out the online interest form or visit our campus office.",
     icon: "📝",
   },
   {

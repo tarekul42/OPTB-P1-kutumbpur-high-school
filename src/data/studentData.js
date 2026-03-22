@@ -4,7 +4,8 @@ export const studentProfile = {
   class: "Class 9",
   section: "A",
   roll_no: 15,
-  photo: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150&h=150&fit=crop&crop=face",
+  photo:
+    "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150&h=150&fit=crop&crop=face",
   email: "fatema.akter@student.kutumbpur.edu.bd",
   phone: "+880 17XX-XXXXXX",
   fatherName: "Abul Kalam",
@@ -81,20 +82,23 @@ export const noticeBoard = [
     title: "SSC Model Test Schedule",
     date: "2026-03-20",
     priority: "high",
-    content: "Model tests will begin from April 1st. Please prepare accordingly.",
+    content:
+      "Model tests will begin from April 1st. Please prepare accordingly.",
   },
   {
     id: 2,
     title: "Science Fair Registration",
     date: "2026-03-22",
     priority: "medium",
-    content: "Interested students can register for the annual science fair by March 25.",
+    content:
+      "Interested students can register for the annual science fair by March 25.",
   },
   {
     id: 3,
     title: "Book Fair Notice",
     date: "2026-03-18",
     priority: "low",
-    content: "A book fair will be organized in the school premises on March 28-30.",
+    content:
+      "A book fair will be organized in the school premises on March 28-30.",
   },
 ];

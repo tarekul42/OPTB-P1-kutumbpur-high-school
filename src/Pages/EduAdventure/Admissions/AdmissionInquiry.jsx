@@ -4,7 +4,10 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { Toaster, toast } from "react-hot-toast";
 import { Link } from "react-router-dom";
 import FormInput from "../../../Components/FormInput/FormInput";
-import { admissionFormSchema, classOptions } from "../../../utils/validationSchemas";
+import {
+  admissionFormSchema,
+  classOptions,
+} from "../../../utils/validationSchemas";
 
 const AdmissionInquiry = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -44,7 +47,7 @@ const AdmissionInquiry = () => {
           borderRadius: "12px",
           fontWeight: "600",
         },
-      }
+      },
     );
 
     reset();
@@ -52,18 +55,28 @@ const AdmissionInquiry = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-slate-50 to-surface">
+    <div className="min-h-screen bg-linear-to-b from-slate-50 to-surface">
       <Toaster />
 
-      <div className="relative bg-gradient-to-r from-primary-900 via-primary-800 to-secondary-800 overflow-hidden py-20">
+      <div className="relative bg-linear-to-r from-primary-900 via-primary-800 to-secondary-800 overflow-hidden py-20">
         <div className="absolute inset-0 bg-grid-white/5"></div>
         <div className="absolute top-0 right-0 w-1/2 h-full bg-accent-gold/10 blur-[150px] rounded-full"></div>
         <div className="absolute bottom-0 left-0 w-1/3 h-1/2 bg-accent-gold/5 blur-[100px] rounded-full"></div>
-        
+
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-white text-center">
           <div className="inline-flex items-center gap-2 px-4 py-2 bg-accent-gold/20 rounded-full text-accent-gold text-sm font-medium mb-6">
-            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z" />
+            <svg
+              className="w-4 h-4"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z"
+              />
             </svg>
             Admissions Open 2026
           </div>
@@ -71,14 +84,26 @@ const AdmissionInquiry = () => {
             Admission Inquiry
           </h1>
           <p className="text-xl text-slate-200 max-w-3xl mx-auto mb-8">
-            Take the first step towards your child's bright future. Fill out the form below and our admissions team will guide you through the process.
+            Take the first step towards your child's bright future. Fill out the
+            form below and our admissions team will guide you through the
+            process.
           </p>
           <Link
             to="/admissions"
             className="inline-flex items-center gap-2 px-6 py-3 bg-white text-primary-900 rounded-lg font-bold hover:bg-slate-100 transition-colors"
           >
-            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+            <svg
+              className="w-5 h-5"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+              />
             </svg>
             View Admission Requirements
           </Link>
@@ -94,7 +119,8 @@ const AdmissionInquiry = () => {
                   Student Information
                 </h2>
                 <p className="text-slate-500">
-                  Please provide accurate details for the admission inquiry. All fields marked with * are required.
+                  Please provide accurate details for the admission inquiry. All
+                  fields marked with * are required.
                 </p>
               </div>
 
@@ -175,7 +201,7 @@ const AdmissionInquiry = () => {
                     className={`w-full py-4 px-6 rounded-xl font-bold text-lg uppercase tracking-wider transition-all duration-300 flex items-center justify-center gap-3 ${
                       isSubmitting
                         ? "bg-slate-400 cursor-not-allowed"
-                        : "bg-gradient-to-r from-primary-900 to-primary-800 hover:from-primary-800 hover:to-primary-700 hover:shadow-xl"
+                        : "bg-linear-to-r from-primary-900 to-primary-800 hover:from-primary-800 hover:to-primary-700 hover:shadow-xl"
                     } text-white`}
                   >
                     {isSubmitting ? (
@@ -204,7 +230,12 @@ const AdmissionInquiry = () => {
                       </>
                     ) : (
                       <>
-                        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <svg
+                          className="w-6 h-6"
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                        >
                           <path
                             strokeLinecap="round"
                             strokeLinejoin="round"
@@ -217,7 +248,8 @@ const AdmissionInquiry = () => {
                     )}
                   </button>
                   <p className="text-center text-sm text-slate-500 mt-4">
-                    By submitting this form, you agree to be contacted by our admissions team.
+                    By submitting this form, you agree to be contacted by our
+                    admissions team.
                   </p>
                 </div>
               </form>
@@ -225,47 +257,102 @@ const AdmissionInquiry = () => {
           </div>
 
           <div className="space-y-6">
-            <div className="bg-gradient-to-br from-primary-900 to-primary-800 rounded-2xl shadow-lg p-6 text-white">
+            <div className="bg-linear-to-br from-primary-900 to-primary-800 rounded-2xl shadow-lg p-6 text-white">
               <h3 className="text-xl font-serif font-bold mb-4 flex items-center gap-2">
-                <svg className="w-6 h-6 text-accent-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+                <svg
+                  className="w-6 h-6 text-accent-gold"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"
+                  />
                 </svg>
                 Classes Available
               </h3>
               <div className="space-y-3">
-                {["Class 6", "Class 7", "Class 8", "Class 9", "Class 10"].map((cls) => (
-                  <div key={cls} className="flex items-center gap-3 p-3 bg-white/10 rounded-lg">
-                    <div className="w-8 h-8 bg-accent-gold/20 rounded-full flex items-center justify-center">
-                      <svg className="w-4 h-4 text-accent-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
-                      </svg>
+                {["Class 6", "Class 7", "Class 8", "Class 9", "Class 10"].map(
+                  (cls) => (
+                    <div
+                      key={cls}
+                      className="flex items-center gap-3 p-3 bg-white/10 rounded-lg"
+                    >
+                      <div className="w-8 h-8 bg-accent-gold/20 rounded-full flex items-center justify-center">
+                        <svg
+                          className="w-4 h-4 text-accent-gold"
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth="2"
+                            d="M5 13l4 4L19 7"
+                          />
+                        </svg>
+                      </div>
+                      <span>{cls}</span>
                     </div>
-                    <span>{cls}</span>
-                  </div>
-                ))}
+                  ),
+                )}
               </div>
             </div>
 
             <div className="bg-white rounded-2xl shadow-lg p-6 border border-slate-200">
               <h3 className="text-lg font-serif font-bold text-primary-900 mb-4 flex items-center gap-2">
-                <svg className="w-5 h-5 text-accent-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                <svg
+                  className="w-5 h-5 text-accent-gold"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"
+                  />
                 </svg>
                 Admission Process
               </h3>
               <div className="space-y-4">
                 {[
-                  { step: "1", title: "Submit Inquiry", desc: "Fill out the form" },
-                  { step: "2", title: "Get Callback", desc: "Our team contacts you" },
-                  { step: "3", title: "Visit School", desc: "Schedule a visit" },
-                  { step: "4", title: "Complete Admission", desc: "Submit required documents" },
+                  {
+                    step: "1",
+                    title: "Submit Inquiry",
+                    desc: "Fill out the form",
+                  },
+                  {
+                    step: "2",
+                    title: "Get Callback",
+                    desc: "Our team contacts you",
+                  },
+                  {
+                    step: "3",
+                    title: "Visit School",
+                    desc: "Schedule a visit",
+                  },
+                  {
+                    step: "4",
+                    title: "Complete Admission",
+                    desc: "Submit required documents",
+                  },
                 ].map((item) => (
                   <div key={item.step} className="flex items-start gap-3">
                     <div className="w-8 h-8 bg-primary-100 rounded-full flex items-center justify-center shrink-0">
-                      <span className="text-sm font-bold text-primary-900">{item.step}</span>
+                      <span className="text-sm font-bold text-primary-900">
+                        {item.step}
+                      </span>
                     </div>
                     <div>
-                      <p className="font-semibold text-slate-800">{item.title}</p>
+                      <p className="font-semibold text-slate-800">
+                        {item.title}
+                      </p>
                       <p className="text-sm text-slate-500">{item.desc}</p>
                     </div>
                   </div>
@@ -275,8 +362,18 @@ const AdmissionInquiry = () => {
 
             <div className="bg-accent-50 rounded-2xl p-6 border border-accent-200">
               <h3 className="text-lg font-bold text-accent-800 mb-3 flex items-center gap-2">
-                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                <svg
+                  className="w-5 h-5"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
+                  />
                 </svg>
                 Need Immediate Help?
               </h3>

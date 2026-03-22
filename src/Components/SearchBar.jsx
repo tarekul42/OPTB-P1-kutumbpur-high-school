@@ -9,49 +9,57 @@ const SearchBar = ({ data, onSelect }) => {
 
   const results = useMemo(() => {
     if (query.length > 0) {
-      return data.filter(
-        (item) =>
-          item.title.toLowerCase().includes(query.toLowerCase()) ||
-          item.description.toLowerCase().includes(query.toLowerCase()) ||
-          (item.tag && item.tag.toLowerCase().includes(query.toLowerCase()))
-      ).slice(0, 5);
+      return data
+        .filter(
+          (item) =>
+            item.title.toLowerCase().includes(query.toLowerCase()) ||
+            item.description.toLowerCase().includes(query.toLowerCase()) ||
+            (item.tag && item.tag.toLowerCase().includes(query.toLowerCase())),
+        )
+        .slice(0, 5);
     }
     return [];
   }, [query, data]);
 
   const isOpen = query.length > 0 && results.length > 0 && isDropdownOpen;
 
-  const handleSelect = useCallback((item) => {
-    onSelect(item);
-    setQuery("");
-    setIsDropdownOpen(false);
-  }, [onSelect]);
+  const handleSelect = useCallback(
+    (item) => {
+      onSelect(item);
+      setQuery("");
+      setIsDropdownOpen(false);
+    },
+    [onSelect],
+  );
 
-  const handleKeyDown = useCallback((e) => {
-    if (!isOpen) return;
+  const handleKeyDown = useCallback(
+    (e) => {
+      if (!isOpen) return;
 
-    switch (e.key) {
-      case "ArrowDown":
-        e.preventDefault();
-        setSelectedIndex((prev) =>
-          prev < results.length - 1 ? prev + 1 : prev
-        );
-        break;
-      case "ArrowUp":
-        e.preventDefault();
-        setSelectedIndex((prev) => (prev > 0 ? prev - 1 : prev));
-        break;
-      case "Enter":
-        e.preventDefault();
-        if (selectedIndex >= 0 && results[selectedIndex]) {
-          handleSelect(results[selectedIndex]);
-        }
-        break;
-      case "Escape":
-        setIsDropdownOpen(false);
-        break;
-    }
-  }, [isOpen, results, selectedIndex, handleSelect]);
+      switch (e.key) {
+        case "ArrowDown":
+          e.preventDefault();
+          setSelectedIndex((prev) =>
+            prev < results.length - 1 ? prev + 1 : prev,
+          );
+          break;
+        case "ArrowUp":
+          e.preventDefault();
+          setSelectedIndex((prev) => (prev > 0 ? prev - 1 : prev));
+          break;
+        case "Enter":
+          e.preventDefault();
+          if (selectedIndex >= 0 && results[selectedIndex]) {
+            handleSelect(results[selectedIndex]);
+          }
+          break;
+        case "Escape":
+          setIsDropdownOpen(false);
+          break;
+      }
+    },
+    [isOpen, results, selectedIndex, handleSelect],
+  );
 
   const handleInputChange = useCallback((e) => {
     const value = e.target.value;
@@ -138,7 +146,7 @@ const SearchBar = ({ data, onSelect }) => {
                     >
                       <div className="flex items-start gap-3">
                         <svg
-                          className="w-5 h-5 text-accent-gold mt-0.5 flex-shrink-0"
+                          className="w-5 h-5 text-accent-gold mt-0.5 shrink-0"
                           fill="none"
                           stroke="currentColor"
                           viewBox="0 0 24 24"

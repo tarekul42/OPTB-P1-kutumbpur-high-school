@@ -25,7 +25,9 @@ const HeroSection = ({ isVisible, homeNews, handleSearchSelect }) => {
       <div className="relative z-20 text-center px-4 max-w-6xl mx-auto w-full">
         <div
           className={`inline-block px-4 py-2 rounded-full bg-white/10 backdrop-blur-sm text-white mb-8 transition-all duration-1000 transform ${
-            isVisible ? "translate-y-0 opacity-100" : "-translate-y-10 opacity-0"
+            isVisible
+              ? "translate-y-0 opacity-100"
+              : "-translate-y-10 opacity-0"
           }`}
         >
           <span className="text-sm font-semibold tracking-wider">

@@ -1,4 +1,11 @@
-import { createContext, useContext, useState, useEffect, useCallback, useMemo } from "react";
+import {
+  createContext,
+  useContext,
+  useState,
+  useEffect,
+  useCallback,
+  useMemo,
+} from "react";
 
 const NotificationContext = createContext();
 
@@ -45,12 +52,15 @@ export const NotificationProvider = ({ children }) => {
     }
   }, [notifications]);
 
-  const toggleNotification = useCallback(() => setIsNotificationOpen((prev) => !prev), []);
+  const toggleNotification = useCallback(
+    () => setIsNotificationOpen((prev) => !prev),
+    [],
+  );
   const closeNotification = useCallback(() => setIsNotificationOpen(false), []);
 
   const markAsRead = useCallback((id) => {
     setNotifications((prev) =>
-      prev.map((n) => (n.id === id ? { ...n, read: true } : n))
+      prev.map((n) => (n.id === id ? { ...n, read: true } : n)),
     );
   }, []);
 
@@ -62,7 +72,10 @@ export const NotificationProvider = ({ children }) => {
     setNotifications([]);
   }, []);
 
-  const unreadCount = useMemo(() => notifications.filter((n) => !n.read).length, [notifications]);
+  const unreadCount = useMemo(
+    () => notifications.filter((n) => !n.read).length,
+    [notifications],
+  );
 
   const value = useMemo(
     () => ({
@@ -84,7 +97,7 @@ export const NotificationProvider = ({ children }) => {
       markAllAsRead,
       clearNotifications,
       unreadCount,
-    ]
+    ],
   );
 
   return (
@@ -97,7 +110,9 @@ export const NotificationProvider = ({ children }) => {
 export const useNotification = () => {
   const context = useContext(NotificationContext);
   if (!context) {
-    throw new Error("useNotification must be used within a NotificationProvider");
+    throw new Error(
+      "useNotification must be used within a NotificationProvider",
+    );
   }
   return context;
 };

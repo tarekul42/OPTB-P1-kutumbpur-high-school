@@ -3,7 +3,10 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Toaster, toast } from "react-hot-toast";
 import FormInput from "../../../Components/FormInput/FormInput";
-import { contactFormSchema, subjectOptions } from "../../../utils/validationSchemas";
+import {
+  contactFormSchema,
+  subjectOptions,
+} from "../../../utils/validationSchemas";
 
 const Contact = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -47,17 +50,20 @@ const Contact = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-slate-50 to-surface">
+    <div className="min-h-screen bg-linear-to-b from-slate-50 to-surface">
       <Toaster />
-      
+
       <div className="relative bg-primary-900 overflow-hidden py-20">
-        <div className="absolute inset-0 bg-gradient-to-r from-primary-900 to-primary-800 animate-gradient"></div>
+        <div className="absolute inset-0 bg-linear-to-r from-primary-900 to-primary-800 animate-gradient"></div>
         <div className="absolute top-0 right-0 w-1/3 h-full bg-accent-gold/5 blur-[120px] rounded-full"></div>
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-white">
           <div className="text-center">
-            <h1 className="text-5xl font-serif font-bold mb-4 drop-shadow-lg">Contact Us</h1>
+            <h1 className="text-5xl font-serif font-bold mb-4 drop-shadow-lg">
+              Contact Us
+            </h1>
             <p className="text-xl text-slate-100 max-w-3xl mx-auto font-medium drop-shadow-md">
-              Get in touch with us. We're here to help and answer any questions you may have.
+              Get in touch with us. We're here to help and answer any questions
+              you may have.
             </p>
           </div>
         </div>
@@ -71,7 +77,8 @@ const Contact = () => {
                 Send us a Message
               </h2>
               <p className="text-slate-500">
-                Fill out the form below and we'll get back to you as soon as possible.
+                Fill out the form below and we'll get back to you as soon as
+                possible.
               </p>
             </div>
 
@@ -170,7 +177,12 @@ const Contact = () => {
                   </>
                 ) : (
                   <>
-                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg
+                      className="w-5 h-5"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
                       <path
                         strokeLinecap="round"
                         strokeLinejoin="round"
@@ -216,7 +228,8 @@ const Contact = () => {
                   <div>
                     <p className="font-bold text-primary-900 mb-1">Address</p>
                     <p className="text-slate-600">
-                      Kutumbpur High School<br />
+                      Kutumbpur High School
+                      <br />
                       Chandina, Cumilla, Bangladesh
                     </p>
                   </div>
@@ -241,7 +254,9 @@ const Contact = () => {
                   <div>
                     <p className="font-bold text-primary-900 mb-1">Phone</p>
                     <p className="text-slate-600">+880 1234 567890</p>
-                    <p className="text-slate-500 text-sm mt-1">Office Hours: 10AM - 4PM</p>
+                    <p className="text-slate-500 text-sm mt-1">
+                      Office Hours: 10AM - 4PM
+                    </p>
                   </div>
                 </div>
 
@@ -263,15 +278,21 @@ const Contact = () => {
                   </div>
                   <div>
                     <p className="font-bold text-primary-900 mb-1">Email</p>
-                    <p className="text-slate-600">info@kutumbpurhighschool.edu.bd</p>
-                    <p className="text-slate-500 text-sm mt-1">We reply within 24 hours</p>
+                    <p className="text-slate-600">
+                      info@kutumbpurhighschool.edu.bd
+                    </p>
+                    <p className="text-slate-500 text-sm mt-1">
+                      We reply within 24 hours
+                    </p>
                   </div>
                 </div>
               </div>
             </div>
 
-            <div className="bg-gradient-to-br from-primary-900 to-primary-800 rounded-2xl shadow-lg p-8 text-white">
-              <h2 className="text-xl font-serif font-bold mb-4">Office Hours</h2>
+            <div className="bg-linear-to-br from-primary-900 to-primary-800 rounded-2xl shadow-lg p-8 text-white">
+              <h2 className="text-xl font-serif font-bold mb-4">
+                Office Hours
+              </h2>
               <div className="space-y-3">
                 <div className="flex justify-between items-center p-3 bg-white/10 rounded-lg">
                   <span className="text-slate-200">Sunday - Thursday</span>
@@ -279,12 +300,15 @@ const Contact = () => {
                 </div>
                 <div className="flex justify-between items-center p-3 bg-white/10 rounded-lg">
                   <span className="text-slate-200">Friday & Saturday</span>
-                  <span className="font-bold text-accent-gold">Weekly Holiday</span>
+                  <span className="font-bold text-accent-gold">
+                    Weekly Holiday
+                  </span>
                 </div>
               </div>
               <div className="mt-6 p-4 bg-accent-gold/20 rounded-xl border border-accent-gold/30">
                 <p className="text-sm text-slate-200">
-                  <strong className="text-accent-gold">Note:</strong> For urgent matters, please call our office directly during working hours.
+                  <strong className="text-accent-gold">Note:</strong> For urgent
+                  matters, please call our office directly during working hours.
                 </p>
               </div>
             </div>

@@ -1,4 +1,4 @@
-import '@testing-library/jest-dom';
+import "@testing-library/jest-dom";
 
 Element.prototype.scrollTo = vi.fn();
 
@@ -24,12 +24,14 @@ global.ResizeObserver = ResizeObserver;
 class IntersectionObserver {
   constructor() {
     this.root = null;
-    this.rootMargin = '';
+    this.rootMargin = "";
     this.thresholds = [];
   }
   observe() {}
   unobserve() {}
   disconnect() {}
-  takeRecords() { return []; }
+  takeRecords() {
+    return [];
+  }
 }
 global.IntersectionObserver = IntersectionObserver;

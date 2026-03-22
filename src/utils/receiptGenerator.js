@@ -16,8 +16,15 @@ export const generateReceiptPDF = (fee, student, parent) => {
 
   doc.setFontSize(10);
   doc.setFont("helvetica", "normal");
-  doc.text("Village: Kutumbpur, Upazila: Burichang, District: Cumilla", 105, 26, { align: "center" });
-  doc.text("Phone: +880 1XXX-XXXXXX | Email: info@kutumbpur.edu.bd", 105, 33, { align: "center" });
+  doc.text(
+    "Village: Kutumbpur, Upazila: Burichang, District: Cumilla",
+    105,
+    26,
+    { align: "center" },
+  );
+  doc.text("Phone: +880 1XXX-XXXXXX | Email: info@kutumbpur.edu.bd", 105, 33, {
+    align: "center",
+  });
 
   doc.setDrawColor(...accentColor);
   doc.setLineWidth(2);
@@ -32,7 +39,12 @@ export const generateReceiptPDF = (fee, student, parent) => {
   doc.setFont("helvetica", "normal");
   doc.setTextColor(100, 100, 100);
   doc.text(`Receipt No: ${fee.receiptId}`, 105, 70, { align: "center" });
-  doc.text(`Date: ${fee.paidDate ? new Date(fee.paidDate).toLocaleDateString("en-GB") : "N/A"}`, 105, 76, { align: "center" });
+  doc.text(
+    `Date: ${fee.paidDate ? new Date(fee.paidDate).toLocaleDateString("en-GB") : "N/A"}`,
+    105,
+    76,
+    { align: "center" },
+  );
 
   doc.setDrawColor(200, 200, 200);
   doc.setLineWidth(0.5);
@@ -101,30 +113,104 @@ export const generateReceiptPDF = (fee, student, parent) => {
   doc.setFont("helvetica", "normal");
   doc.text("Terms & Conditions:", 20, 238);
   doc.setFontSize(8);
-  doc.text("1. This receipt is valid only with official seal and signature.", 20, 245);
-  doc.text("2. Fee once paid is non-refundable unless specified by school policy.", 20, 251);
+  doc.text(
+    "1. This receipt is valid only with official seal and signature.",
+    20,
+    245,
+  );
+  doc.text(
+    "2. Fee once paid is non-refundable unless specified by school policy.",
+    20,
+    251,
+  );
   doc.text("3. Please retain this receipt for future reference.", 20, 257);
 
   doc.setFillColor(...primaryColor);
   doc.rect(0, 275, 210, 22, "F");
   doc.setTextColor(255, 255, 255);
   doc.setFontSize(9);
-  doc.text("Kutumbpur High School | Established 1985", 105, 282, { align: "center" });
-  doc.text("This is a computer-generated receipt. No signature required.", 105, 289, { align: "center" });
+  doc.text("Kutumbpur High School | Established 1985", 105, 282, {
+    align: "center",
+  });
+  doc.text(
+    "This is a computer-generated receipt. No signature required.",
+    105,
+    289,
+    { align: "center" },
+  );
 
   doc.save(`Receipt_${fee.receiptId}.pdf`);
 };
 
 function numberToWords(num) {
-  const units = ["", "One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten",
-    "Eleven", "Twelve", "Thirteen", "Fourteen", "Fifteen", "Sixteen", "Seventeen", "Eighteen", "Nineteen"];
-  const tens = ["", "", "Twenty", "Thirty", "Forty", "Fifty", "Sixty", "Seventy", "Eighty", "Ninety"];
+  const units = [
+    "",
+    "One",
+    "Two",
+    "Three",
+    "Four",
+    "Five",
+    "Six",
+    "Seven",
+    "Eight",
+    "Nine",
+    "Ten",
+    "Eleven",
+    "Twelve",
+    "Thirteen",
+    "Fourteen",
+    "Fifteen",
+    "Sixteen",
+    "Seventeen",
+    "Eighteen",
+    "Nineteen",
+  ];
+  const tens = [
+    "",
+    "",
+    "Twenty",
+    "Thirty",
+    "Forty",
+    "Fifty",
+    "Sixty",
+    "Seventy",
+    "Eighty",
+    "Ninety",
+  ];
 
   if (num === 0) return "Zero Taka Only";
   if (num < 20) return units[num] + " Taka Only";
-  if (num < 100) return tens[Math.floor(num / 10)] + (num % 10 ? " " + units[num % 10] : "") + " Taka Only";
-  if (num < 1000) return units[Math.floor(num / 100)] + " Hundred" + (num % 100 ? " " + numberToWords(num % 100) : "") + " Taka Only";
-  if (num < 100000) return numberToWords(Math.floor(num / 1000)) + " Thousand" + (num % 1000 ? " " + numberToWords(num % 1000) : "") + " Taka Only";
-  if (num < 10000000) return numberToWords(Math.floor(num / 100000)) + " Lakh" + (num % 100000 ? " " + numberToWords(num % 100000) : "") + " Taka Only";
-  return numberToWords(Math.floor(num / 10000000)) + " Crore" + (num % 10000000 ? " " + numberToWords(num % 10000000) : "") + " Taka Only";
+  if (num < 100)
+    return (
+      tens[Math.floor(num / 10)] +
+      (num % 10 ? " " + units[num % 10] : "") +
+      " Taka Only"
+    );
+  if (num < 1000)
+    return (
+      units[Math.floor(num / 100)] +
+      " Hundred" +
+      (num % 100 ? " " + numberToWords(num % 100) : "") +
+      " Taka Only"
+    );
+  if (num < 100000)
+    return (
+      numberToWords(Math.floor(num / 1000)) +
+      " Thousand" +
+      (num % 1000 ? " " + numberToWords(num % 1000) : "") +
+      " Taka Only"
+    );
+  if (num < 10000000)
+    return (
+      numberToWords(Math.floor(num / 100000)) +
+      " Lakh" +
+      (num % 100000 ? " " + numberToWords(num % 100000) : "") +
+      " Taka Only"
+    );
+  return (
+    numberToWords(Math.floor(num / 10000000)) +
+    " Crore" +
+    (num % 10000000 ? " " + numberToWords(num % 10000000) : "") +
+    " Taka Only"
+  );
 }

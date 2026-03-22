@@ -1,5 +1,8 @@
 import Badge from "../../../../../Components/UI/Badge";
-import { CheckCircleIcon, ClipboardListIcon } from "../../../../../Components/Icons";
+import {
+  CheckCircleIcon,
+  ClipboardListIcon,
+} from "../../../../../Components/Icons";
 
 const QuickStats = ({ attendancePercentage, pendingCount }) => {
   return (

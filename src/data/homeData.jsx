@@ -70,7 +70,8 @@ export const homePrograms = [
   },
   {
     title: "Secondary (SSC)",
-    description: "Intensive prep for Science, Humanities, and Commerce streams.",
+    description:
+      "Intensive prep for Science, Humanities, and Commerce streams.",
     image:
       "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80",
   },
@@ -194,7 +195,8 @@ export const homeNews = [
     tag: "Sports",
     image:
       "https://images.unsplash.com/photo-1546519638-68e109498ffc?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80",
-    description: "Outstanding performance at the inter-school basketball tournament.",
+    description:
+      "Outstanding performance at the inter-school basketball tournament.",
     content:
       "Our basketball team has qualified for the National Championship after an impressive victory at the regional tournament. This is the first time in school history that our team has reached the national level.",
   },

@@ -46,7 +46,8 @@ export const academicPrograms = [
 export const faqs = [
   {
     question: "What are the school timings?",
-    answer: "The school is open from Sunday to Thursday, 10:00 AM to 4:00 PM. Friday and Saturday are weekly holidays.",
+    answer:
+      "The school is open from Sunday to Thursday, 10:00 AM to 4:00 PM. Friday and Saturday are weekly holidays.",
     icon: "⏰",
   },
   {
@@ -795,7 +796,8 @@ export const homePrograms = [
   },
   {
     title: "Secondary (SSC)",
-    description: "Intensive prep for Science, Humanities, and Commerce streams.",
+    description:
+      "Intensive prep for Science, Humanities, and Commerce streams.",
     image:
       "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80",
   },
@@ -1328,7 +1330,11 @@ export const academicsPrograms = [
     title: "Vocational & Digital Skills",
     description:
       "Empowering students with practical computing and technical skills for the digital age.",
-    features: ["Basic Computer Literacy", "Digital Art & Design", "SSC ICT Preparation"],
+    features: [
+      "Basic Computer Literacy",
+      "Digital Art & Design",
+      "SSC ICT Preparation",
+    ],
     icon: (
       <svg
         className="w-8 h-8"
