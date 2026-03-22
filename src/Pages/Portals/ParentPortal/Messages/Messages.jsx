@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useParent } from "../../../context/ParentContext";
+import Badge from "../../../Components/UI/Badge";
 
 const Messages = () => {
   const { selectedChild, sendMessage } = useParent();
@@ -71,9 +72,7 @@ const Messages = () => {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
                   </svg>
                 </div>
-                <span className="px-2 py-1 bg-primary-100 text-primary-700 text-xs font-medium rounded-full">
-                  {subject.name}
-                </span>
+                <Badge>{subject.name}</Badge>
               </div>
               <h3 className="font-bold text-slate-800 text-lg mb-1">{subject.teacher}</h3>
               <p className="text-sm text-slate-500 mb-4">{subject.email}</p>

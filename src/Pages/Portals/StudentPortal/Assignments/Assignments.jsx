@@ -1,6 +1,7 @@
 import { useState, useMemo } from "react";
 import { format, isPast, isToday, isTomorrow, addDays } from "date-fns";
 import { useStudent } from "../../../context/StudentContext";
+import Badge from "../../../Components/UI/Badge";
 
 const Assignments = () => {
   const { assignments, submitAssignment } = useStudent();
@@ -150,9 +151,7 @@ const Assignments = () => {
                   <div className="flex flex-col lg:flex-row lg:items-center gap-4">
                     <div className="flex-1">
                       <div className="flex items-center gap-3 mb-2">
-                        <span className="px-3 py-1 bg-primary-100 text-primary-700 text-xs font-medium rounded-full">
-                          {assignment.subject}
-                        </span>
+                        <Badge>{assignment.subject}</Badge>
                         <span className={`px-3 py-1 text-xs font-medium rounded-full ${dueStatus.bg} ${dueStatus.color}`}>
                           {dueStatus.text}
                         </span>

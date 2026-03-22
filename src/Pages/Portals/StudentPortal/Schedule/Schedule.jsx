@@ -1,14 +1,21 @@
 import { useState, useMemo } from "react";
 import { format } from "date-fns";
-import { scheduleData, subjects } from "../../../data/scheduleData";
+import { useStudent } from "../../../context/StudentContext";
+import Badge from "../../../Components/UI/Badge";
+import { subjects } from "../../../data/scheduleData";
 
 const Schedule = () => {
+  const { scheduleData: contextScheduleData } = useStudent();
+  const scheduleData = useMemo(
+    () => contextScheduleData?.length ? contextScheduleData : [],
+    [contextScheduleData]
+  );
   const today = format(new Date(), "EEEE");
   const [selectedDay, setSelectedDay] = useState(today);
 
   const currentDaySchedule = useMemo(() => {
     return scheduleData.find((day) => day.day === selectedDay);
-  }, [selectedDay]);
+  }, [selectedDay, scheduleData]);
 
   const getSubjectColor = (subject) => {
     const colorMap = {
@@ -38,9 +45,7 @@ const Schedule = () => {
               {format(new Date(), "MMMM d, yyyy")}
             </p>
             {selectedDay === today && (
-              <span className="inline-block mt-1 px-3 py-1 bg-accent-100 text-accent-700 text-xs font-medium rounded-full">
-                Today
-              </span>
+              <Badge variant="accent">Today</Badge>
             )}
           </div>
         </div>
