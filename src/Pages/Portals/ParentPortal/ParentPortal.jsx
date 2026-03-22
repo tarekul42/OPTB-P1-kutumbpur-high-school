@@ -1,173 +1,110 @@
-import { parentalPortalFeatures } from "../../../assets/fakeData";
+import { useNavigate } from "react-router-dom";
+import { parentalPortalFeatures } from "../../../data/portalData";
 
 const ParentPortal = () => {
+  const navigate = useNavigate();
+
+  const handleLogin = (e) => {
+    e.preventDefault();
+    navigate("/portal/parent/dashboard");
+  };
+
   return (
-    <div className="min-h-screen bg-linear-to-b from-gray-50 to-white">
-      {/* Hero Section */}
-      <div className="relative bg-linear-to-r from-blue-600 to-blue-800 text-white py-20">
-        <div className="absolute inset-0 bg-black opacity-20"></div>
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen bg-gradient-to-b from-slate-50 to-surface">
+      <div className="relative bg-secondary-800 overflow-hidden py-24">
+        <div className="absolute inset-0 bg-gradient-to-b from-secondary-800/40 via-transparent to-secondary-800/80 z-10"></div>
+        <div className="absolute top-0 right-0 w-1/3 h-full bg-accent-gold/5 blur-[120px] rounded-full"></div>
+
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-20">
           <div className="text-center">
-            <h1 className="text-5xl font-bold mb-6">Parent Portal</h1>
-            <p className="text-xl text-blue-100 max-w-3xl mx-auto">
-              Stay connected with your child's education and track their
-              progress.
+            <h1 className="text-5xl md:text-6xl font-serif font-bold text-white mb-6 animate-fade-in drop-shadow-lg">
+              Parent Portal
+            </h1>
+            <p className="text-xl text-slate-100 max-w-3xl mx-auto font-medium drop-shadow-md">
+              Monitor your child&apos;s academic journey at Kutumbpur High School. Track attendance, view results, and communicate with teachers.
             </p>
           </div>
         </div>
       </div>
 
-      {/* Main Content */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-          {/* Login Form */}
-          <div className="bg-white rounded-xl shadow-lg p-8">
-            <h2 className="text-2xl font-bold text-gray-900 mb-6">
-              Login to Portal
+          <div className="bg-white rounded-xl shadow-lg p-8 border border-slate-200">
+            <h2 className="text-2xl font-bold text-slate-900 mb-6">
+              Access Parent Portal
             </h2>
-            <form className="space-y-6">
-              <div>
-                <label
-                  htmlFor="parent-id"
-                  className="block text-sm font-medium text-gray-700"
-                >
-                  Parent ID
-                </label>
-                <input
-                  type="text"
-                  id="parent-id"
-                  className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
-                  placeholder="Enter your parent ID"
-                />
-              </div>
-              <div>
-                <label
-                  htmlFor="password"
-                  className="block text-sm font-medium text-gray-700"
-                >
-                  Password
-                </label>
-                <input
-                  type="password"
-                  id="password"
-                  className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
-                  placeholder="••••••••"
-                />
-              </div>
-              <div className="flex items-center justify-between">
-                <div className="flex items-center">
-                  <input
-                    id="remember-me"
-                    type="checkbox"
-                    className="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded"
-                  />
-                  <label
-                    htmlFor="remember-me"
-                    className="ml-2 block text-sm text-gray-700"
-                  >
-                    Remember me
-                  </label>
-                </div>
-                <a
-                  href="#"
-                  className="text-sm text-blue-600 hover:text-blue-800"
-                >
-                  Forgot password?
-                </a>
-              </div>
-              <button
-                type="submit"
-                className="w-full bg-blue-600 text-white py-3 px-6 rounded-md hover:bg-blue-700 transition duration-300"
-              >
-                Sign In
-              </button>
-            </form>
+            <p className="text-slate-600 mb-6">
+              For demonstration purposes, click the button below to enter the parent dashboard.
+            </p>
+            <button
+              onClick={handleLogin}
+              className="w-full bg-secondary-800 text-white py-4 px-6 rounded-md hover:bg-secondary-900 hover:shadow-lg transition-all duration-300 font-bold uppercase tracking-widest border border-accent-gold/20"
+            >
+              Enter Portal (Demo)
+            </button>
           </div>
 
-          {/* Features */}
           <div className="space-y-8">
-            <div className="bg-white rounded-xl shadow-lg p-8">
-              <h2 className="text-2xl font-bold text-gray-900 mb-6">
+            <div className="bg-white rounded-xl shadow-lg p-8 border border-slate-200">
+              <h2 className="text-2xl font-bold text-slate-900 mb-6">
                 Portal Features
               </h2>
               <div className="space-y-6">
                 {parentalPortalFeatures.map((feature, index) => (
                   <div key={index} className="flex items-start">
-                    <div className="shrink-0 text-blue-600">{feature.icon}</div>
+                    <div className="shrink-0 text-accent-gold">
+                      {feature.icon}
+                    </div>
                     <div className="ml-4">
-                      <h3 className="text-lg font-bold text-gray-900">
+                      <h3 className="text-lg font-bold text-slate-900">
                         {feature.title}
                       </h3>
-                      <p className="text-gray-600">{feature.description}</p>
+                      <p className="text-slate-600">{feature.description}</p>
                     </div>
                   </div>
                 ))}
               </div>
             </div>
 
-            {/* Quick Links */}
-            <div className="bg-white rounded-xl shadow-lg p-8">
-              <h3 className="text-lg font-bold text-gray-900 mb-4">
-                Quick Links
-              </h3>
+            <div className="bg-gradient-to-r from-secondary-800 to-secondary-700 rounded-xl shadow-lg p-8 text-white">
+              <h3 className="text-lg font-bold mb-4">Quick Links</h3>
               <div className="space-y-4">
-                <a
-                  href="#"
-                  className="flex items-center text-blue-600 hover:text-blue-800"
+                <button
+                  onClick={() => navigate("/portal/parent/dashboard")}
+                  className="flex items-center w-full text-left text-slate-100 hover:text-white transition-colors"
                 >
-                  <svg
-                    className="w-5 h-5 mr-2"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth="2"
-                      d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
-                    />
+                  <svg className="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
                   </svg>
-                  School Calendar
-                </a>
-                <a
-                  href="#"
-                  className="flex items-center text-blue-600 hover:text-blue-800"
+                  Dashboard
+                </button>
+                <button
+                  onClick={() => navigate("/portal/parent/attendance")}
+                  className="flex items-center w-full text-left text-slate-100 hover:text-white transition-colors"
                 >
-                  <svg
-                    className="w-5 h-5 mr-2"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth="2"
-                      d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"
-                    />
+                  <svg className="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" />
                   </svg>
-                  Parent-Teacher Meeting
-                </a>
-                <a
-                  href="#"
-                  className="flex items-center text-blue-600 hover:text-blue-800"
+                  Attendance
+                </button>
+                <button
+                  onClick={() => navigate("/portal/parent/fees")}
+                  className="flex items-center w-full text-left text-slate-100 hover:text-white transition-colors"
                 >
-                  <svg
-                    className="w-5 h-5 mr-2"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth="2"
-                      d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
-                    />
+                  <svg className="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z" />
                   </svg>
-                  Contact Teachers
-                </a>
+                  Fees & Payments
+                </button>
+                <button
+                  onClick={() => navigate("/portal/parent/messages")}
+                  className="flex items-center w-full text-left text-slate-100 hover:text-white transition-colors"
+                >
+                  <svg className="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" />
+                  </svg>
+                  Messages
+                </button>
               </div>
             </div>
           </div>

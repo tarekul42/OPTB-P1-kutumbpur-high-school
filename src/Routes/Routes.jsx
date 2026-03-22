@@ -8,6 +8,8 @@ import Testimonials from "../Pages/Home/Testimonials/Testimonials";
 import Faculty from "../Pages/Portals/Faculty/Faculty";
 import Student from "../Pages/Portals/Student/Student";
 import Parent from "../Pages/Portals/Parent/Parent";
+import StudentPortal from "../Pages/Portals/StudentPortal/StudentPortal";
+import ParentPortal from "../Pages/Portals/ParentPortal/ParentPortal";
 import Resources from "../Pages/CuriosityCorner/Resources/Resources";
 import ExtracurricularActivities from "../Pages/CuriosityCorner/ExtracurricularActivities/ExtracurricularActivities";
 import AlumniSection from "../Pages/CuriosityCorner/AlumniSection/AlumniSection";
@@ -75,8 +77,16 @@ export const router = createBrowserRouter([
         element: <Student />,
       },
       {
+        path: "portal/student/*",
+        element: <StudentPortal />,
+      },
+      {
         path: "parent-portal",
         element: <Parent />,
+      },
+      {
+        path: "portal/parent/*",
+        element: <ParentPortal />,
       },
       {
         path: "curiosity-corner",

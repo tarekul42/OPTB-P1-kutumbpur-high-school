@@ -1,173 +1,110 @@
-import { studentPortalFeatures } from "../../../assets/fakeData";
+import { useNavigate } from "react-router-dom";
+import { studentPortalFeatures } from "../../../data/portalData";
 
 const StudentPortal = () => {
+  const navigate = useNavigate();
+
+  const handleLogin = (e) => {
+    e.preventDefault();
+    navigate("/portal/student/dashboard");
+  };
+
   return (
-    <div className="min-h-screen bg-linear-to-b from-gray-50 to-white">
-      {/* Hero Section */}
-      <div className="relative bg-linear-to-r from-blue-600 to-blue-800 text-white py-20">
-        <div className="absolute inset-0 bg-black opacity-20"></div>
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen bg-gradient-to-b from-slate-50 to-surface">
+      <div className="relative bg-primary-900 overflow-hidden py-24">
+        <div className="absolute inset-0 bg-gradient-to-b from-primary-900/40 via-transparent to-primary-900/80 z-10"></div>
+        <div className="absolute top-0 right-0 w-1/3 h-full bg-accent-gold/5 blur-[120px] rounded-full"></div>
+
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-20">
           <div className="text-center">
-            <h1 className="text-5xl font-bold mb-6">Student Portal</h1>
-            <p className="text-xl text-blue-100 max-w-3xl mx-auto">
-              Access your academic resources, track your progress, and stay
-              connected with your education.
+            <h1 className="text-5xl md:text-6xl font-serif font-bold text-white mb-6 animate-fade-in drop-shadow-lg">
+              Student Portal
+            </h1>
+            <p className="text-xl text-slate-100 max-w-3xl mx-auto font-medium drop-shadow-md">
+              Official digital gateway for Kutumbpur High School students (Class 6-10) to access academic materials, results (SSC), and schedules.
             </p>
           </div>
         </div>
       </div>
 
-      {/* Main Content */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-          {/* Login Form */}
-          <div className="bg-white rounded-xl shadow-lg p-8">
-            <h2 className="text-2xl font-bold text-gray-900 mb-6">
-              Login to Portal
+          <div className="bg-white rounded-xl shadow-lg p-8 border border-slate-200">
+            <h2 className="text-2xl font-bold text-slate-900 mb-6">
+              Enter Student Portal
             </h2>
-            <form className="space-y-6">
-              <div>
-                <label
-                  htmlFor="student-id"
-                  className="block text-sm font-medium text-gray-700"
-                >
-                  Student ID
-                </label>
-                <input
-                  type="text"
-                  id="student-id"
-                  className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
-                  placeholder="Enter your student ID"
-                />
-              </div>
-              <div>
-                <label
-                  htmlFor="password"
-                  className="block text-sm font-medium text-gray-700"
-                >
-                  Password
-                </label>
-                <input
-                  type="password"
-                  id="password"
-                  className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
-                  placeholder="••••••••"
-                />
-              </div>
-              <div className="flex items-center justify-between">
-                <div className="flex items-center">
-                  <input
-                    id="remember-me"
-                    type="checkbox"
-                    className="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded"
-                  />
-                  <label
-                    htmlFor="remember-me"
-                    className="ml-2 block text-sm text-gray-700"
-                  >
-                    Remember me
-                  </label>
-                </div>
-                <a
-                  href="#"
-                  className="text-sm text-blue-600 hover:text-blue-800"
-                >
-                  Forgot password?
-                </a>
-              </div>
-              <button
-                type="submit"
-                className="w-full bg-blue-600 text-white py-3 px-6 rounded-md hover:bg-blue-700 transition duration-300"
-              >
-                Sign In
-              </button>
-            </form>
+            <p className="text-slate-600 mb-6">
+              For demonstration purposes, click the button below to enter the student dashboard.
+            </p>
+            <button
+              onClick={handleLogin}
+              className="w-full bg-primary-900 text-white py-4 px-6 rounded-md hover:bg-primary-950 hover:shadow-lg transition-all duration-300 font-bold uppercase tracking-widest border border-accent-gold/20"
+            >
+              Enter Portal (Demo)
+            </button>
           </div>
 
-          {/* Features */}
           <div className="space-y-8">
-            <div className="bg-white rounded-xl shadow-lg p-8">
-              <h2 className="text-2xl font-bold text-gray-900 mb-6">
+            <div className="bg-white rounded-xl shadow-lg p-8 border border-slate-200">
+              <h2 className="text-2xl font-bold text-slate-900 mb-6">
                 Portal Features
               </h2>
               <div className="space-y-6">
                 {studentPortalFeatures.map((feature, index) => (
                   <div key={index} className="flex items-start">
-                    <div className="shrink-0 text-blue-600">{feature.icon}</div>
+                    <div className="shrink-0 text-accent-gold">
+                      {feature.icon}
+                    </div>
                     <div className="ml-4">
-                      <h3 className="text-lg font-bold text-gray-900">
+                      <h3 className="text-lg font-bold text-slate-900">
                         {feature.title}
                       </h3>
-                      <p className="text-gray-600">{feature.description}</p>
+                      <p className="text-slate-600">{feature.description}</p>
                     </div>
                   </div>
                 ))}
               </div>
             </div>
 
-            {/* Quick Links */}
-            <div className="bg-white rounded-xl shadow-lg p-8">
-              <h3 className="text-lg font-bold text-gray-900 mb-4">
-                Quick Links
-              </h3>
+            <div className="bg-gradient-to-r from-primary-900 to-primary-800 rounded-xl shadow-lg p-8 text-white">
+              <h3 className="text-lg font-bold mb-4">Quick Links</h3>
               <div className="space-y-4">
-                <a
-                  href="#"
-                  className="flex items-center text-blue-600 hover:text-blue-800"
+                <button
+                  onClick={() => navigate("/portal/student/dashboard")}
+                  className="flex items-center w-full text-left text-slate-100 hover:text-white transition-colors"
                 >
-                  <svg
-                    className="w-5 h-5 mr-2"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth="2"
-                      d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
-                    />
+                  <svg className="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+                  </svg>
+                  Dashboard
+                </button>
+                <button
+                  onClick={() => navigate("/portal/student/schedule")}
+                  className="flex items-center w-full text-left text-slate-100 hover:text-white transition-colors"
+                >
+                  <svg className="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
                   </svg>
                   Class Schedule
-                </a>
-                <a
-                  href="#"
-                  className="flex items-center text-blue-600 hover:text-blue-800"
+                </button>
+                <button
+                  onClick={() => navigate("/portal/student/assignments")}
+                  className="flex items-center w-full text-left text-slate-100 hover:text-white transition-colors"
                 >
-                  <svg
-                    className="w-5 h-5 mr-2"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth="2"
-                      d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"
-                    />
+                  <svg className="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
                   </svg>
-                  Study Materials
-                </a>
-                <a
-                  href="#"
-                  className="flex items-center text-blue-600 hover:text-blue-800"
+                  Assignments
+                </button>
+                <button
+                  onClick={() => navigate("/portal/student/results")}
+                  className="flex items-center w-full text-left text-slate-100 hover:text-white transition-colors"
                 >
-                  <svg
-                    className="w-5 h-5 mr-2"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth="2"
-                      d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"
-                    />
+                  <svg className="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
                   </svg>
-                  Student Support
-                </a>
+                  Results
+                </button>
               </div>
             </div>
           </div>
