@@ -28,12 +28,12 @@ dist-ssr
 .env
 
 # Testing and Coverage
-coverage/
+coverage
 .vitest.result.json
 
 # Tooling and AI
-.qodo/
+.qodo
 
 # Temporary artifacts
 build_error*.txt
-build_error.txt
+build_error.txt
