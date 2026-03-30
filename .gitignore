@@ -26,3 +26,14 @@ dist-ssr
 .vercel
 .env*.local
 .env
+
+# Testing and Coverage
+coverage/
+.vitest.result.json
+
+# Tooling and AI
+.qodo/
+
+# Temporary artifacts
+build_error*.txt
+build_error.txt
