@@ -1,0 +1,51 @@
+import { Student, ParentProfile, QuarterlyFee } from "@/shared/types/user";
+
+export const generateReceiptPDF = (fee: QuarterlyFee, student: Student, parent: ParentProfile): void => {
+  const doc = new (window as unknown as { jsPDF: new (options?: Record<string, unknown>) => { setFillColor: (r: number, g?: number, b?: number) => void; rect: (x: number, y: number, w: number, h: number, style?: string) => void; setTextColor: (r: number, g: number, b: number) => void; setFontSize: (size: number) => void; setFont: (font: string, style?: string) => void; text: (text: string, x: number, y: number, options?: Record<string, unknown>) => void; setDrawColor: (r: number, g?: number, b?: number) => void; setLineWidth: (width: number) => void; line: (x1: number, y1: number, x2: number, y2: number) => void; save: (filename: string) => void } }).jsPDF();
+
+  const primaryColor: [number, number, number] = [16, 42, 67];
+  const accentColor: [number, number, number] = [212, 175, 55];
+
+  doc.setFillColor(...primaryColor);
+  doc.rect(0, 0, 210, 45, "F");
+  doc.setTextColor(255, 255, 255);
+  doc.setFontSize(22);
+  doc.setFont("helvetica", "bold");
+  doc.text("KUTUMBPUR HIGH SCHOOL", 105, 18, { align: "center" });
+  doc.setFontSize(10);
+  doc.setFont("helvetica", "normal");
+  doc.text("Village: Kutumbpur, Upazila: Burichang, District: Cumilla", 105, 26, { align: "center" });
+  doc.text("Phone: +880 1XXX-XXXXXX | Email: info@kutumbpur.edu.bd", 105, 33, { align: "center" });
+  doc.setDrawColor(...accentColor);
+  doc.setLineWidth(2);
+  doc.line(20, 48, 190, 48);
+  doc.setTextColor(...primaryColor);
+  doc.setFontSize(16);
+  doc.setFont("helvetica", "bold");
+  doc.text("OFFICIAL FEE RECEIPT", 105, 60, { align: "center" });
+  doc.setFontSize(10);
+  doc.setFont("helvetica", "normal");
+  doc.setTextColor(100, 100, 100);
+  doc.text(`Receipt No: ${fee.receiptId}`, 105, 70, { align: "center" });
+  doc.text(`Date: ${fee.paidDate ? new Date(fee.paidDate).toLocaleDateString("en-GB") : "N/A"}`, 105, 76, { align: "center" });
+  doc.setFillColor(245, 245, 245);
+  doc.rect(20, 90, 170, 35, "F");
+  doc.setTextColor(60, 60, 60);
+  doc.setFontSize(11);
+  doc.setFont("helvetica", "bold");
+  doc.text("Student Details", 25, 98);
+  doc.setFont("helvetica", "normal");
+  doc.setFontSize(10);
+  doc.text(`Name: ${student.name}`, 25, 106);
+  doc.text(`Class: ${student.class} | Section: ${student.section}`, 25, 113);
+  doc.text(`Roll No: ${student.roll_no}`, 25, 120);
+  doc.setFillColor(240, 240, 240);
+  doc.rect(20, 200, 170, 20, "F");
+  doc.setTextColor(...primaryColor);
+  doc.setFontSize(14);
+  doc.setFont("helvetica", "bold");
+  doc.text("TOTAL PAID:", 25, 214);
+  doc.setTextColor(0, 128, 0);
+  doc.text(`৳${fee.paidAmount.toLocaleString()}`, 130, 214);
+  doc.save(`Receipt_${fee.receiptId}.pdf`);
+};
