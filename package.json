@@ -44,8 +44,13 @@
     "@types/react": "^19.2.14",
     "@types/react-dom": "^19.2.3",
     "@vitejs/plugin-react": "^5.2.0",
+<<<<<<< dependabot/npm_and_yarn/vitest/coverage-v8-4.1.2
     "@vitest/coverage-v8": "4.1.2",
     "@vitest/ui": "4.1.0",
+=======
+    "@vitest/coverage-v8": "4.1.0",
+    "@vitest/ui": "4.1.2",
+>>>>>>> main
     "autoprefixer": "^10.4.27",
     "eslint": "^10.1.0",
     "eslint-plugin-react": "^7.37.5",
