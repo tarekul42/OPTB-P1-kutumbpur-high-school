@@ -1,5 +1,6 @@
 import { useState } from "react";
 import type { Book } from "@/shared/data/booksData";
+import { Card } from "@/shared/ui";
 
 interface BookCardProps {
   book: Book;
@@ -20,8 +21,9 @@ const BookCard = ({ book, onToggleFavorite, isFavorite }: BookCardProps) => {
   };
 
   return (
-    <div
-      className={`group relative bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 border border-slate-200 ${
+    <Card
+      hoverable
+      className={`group relative overflow-hidden flex flex-col h-full ${
         book.status === "Issued" ? "opacity-90" : ""
       }`}
     >
@@ -36,7 +38,7 @@ const BookCard = ({ book, onToggleFavorite, isFavorite }: BookCardProps) => {
             }`}
           />
         ) : (
-          <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-primary-100 to-primary-200">
+          <div className="w-full h-full flex items-center justify-center bg-linear-to-br from-primary-100 to-primary-200">
             <svg
               className={`w-20 h-20 text-primary-300 ${book.status === "Issued" ? "opacity-50" : ""}`}
               fill="none"
@@ -123,29 +125,29 @@ const BookCard = ({ book, onToggleFavorite, isFavorite }: BookCardProps) => {
         )}
       </div>
 
-      <div className="p-5">
+      <div className="p-5 flex-1 flex flex-col">
         <div className="mb-2">
-          <span className="inline-block px-2 py-0.5 bg-primary-50 text-primary-700 text-xs font-medium rounded-full">
+          <span className="inline-block px-2 py-0.5 bg-primary-50 text-primary-700 text-xs font-semibold rounded-full">
             {book.subject}
           </span>
         </div>
 
-        <h3 className="font-bold text-lg text-slate-900 mb-1 line-clamp-2 leading-tight group-hover:text-primary-700 transition-colors">
+        <h3 className="font-bold text-lg text-slate-900 mb-1 line-clamp-2 leading-tight group-hover:text-primary-800 transition-colors">
           {book.title}
         </h3>
 
         <p className="text-sm text-slate-500 mb-3">{book.author}</p>
 
-        <div className="flex items-center justify-between pt-3 border-t border-slate-100">
-          <span className="text-xs text-slate-400 font-medium">
+        <div className="mt-auto flex items-center justify-between pt-3 border-t border-slate-100">
+          <span className="text-xs text-slate-400 font-bold">
             {book.classLevel}
           </span>
-          <span className="text-xs text-slate-400">
+          <span className="text-xs text-slate-400 font-medium">
             ISBN: {book.isbn.slice(-6)}
           </span>
         </div>
       </div>
-    </div>
+    </Card>
   );
 };
 

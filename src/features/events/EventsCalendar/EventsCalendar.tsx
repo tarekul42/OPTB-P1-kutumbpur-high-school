@@ -1,20 +1,24 @@
 import { useState, useCallback, useMemo } from "react";
-import Calendar from "react-calendar";
-import "react-calendar/dist/Calendar.css";
-import "@/app/styles/calendar.css";
 import { format, addMonths, subMonths } from "date-fns";
 import {
-  bangladeshHolidays,
   allEvents,
   isHoliday,
   schoolEvents,
   formatDate,
-  generateGoogleCalendarLink,
   bengaliMonths,
   bengaliDays,
 } from "@/shared/data/bangladeshHolidays";
-import type { SchoolEvent } from "@/shared/types/api";
 import { Hero, Card, Button } from "@/shared/ui";
+import CalendarPanel from "./components/CalendarPanel";
+import UpcomingEventsList from "./components/UpcomingEventsList";
+import SelectedDatePanel from "./components/SelectedDatePanel";
+import MajorHolidaysList from "./components/MajorHolidaysList";
+
+const legendItems = [
+  { label: "Public Holiday", color: "bg-red-100 text-red-700", border: "border-red-300" },
+  { label: "School Event", color: "bg-blue-100 text-blue-700", border: "border-blue-300" },
+  { label: "Friday (Weekend)", color: "bg-red-50", border: "border-red-200" },
+];
 
 const EventsCalendar = () => {
   const [selectedDate, setSelectedDate] = useState(new Date());
@@ -22,11 +26,9 @@ const EventsCalendar = () => {
   const [viewMode, setViewMode] = useState<"month" | "year" | "decade" | "century">("month");
   const [language, setLanguage] = useState<"en" | "bn">("en");
 
-  const isFriday = useCallback((date: Date) => {
-    return date.getDay() === 5;
-  }, []);
+  const isFriday = useCallback((date: Date) => date.getDay() === 5, []);
 
-  const getSchoolEvents = useCallback((date: Date): SchoolEvent[] => {
+  const getSchoolEvents = useCallback((date: Date) => {
     const dateStr = formatDate(date);
     return schoolEvents.filter((event) => event.date === dateStr);
   }, []);
@@ -36,63 +38,30 @@ const EventsCalendar = () => {
     return allEvents.filter((event) => event.date === dateStr);
   }, []);
 
-  const tileClassName = useCallback(({ date, view }: { date: Date; view: string }) => {
-    if (view !== "month") return "";
+  const tileClassName = useCallback(
+    ({ date, view }: { date: Date; view: string }) => {
+      if (view !== "month") return "";
+      const classes: string[] = [];
+      const holiday = isHoliday(date);
+      const schoolEvts = getSchoolEvents(date);
+      const friday = isFriday(date);
 
-    const classes: string[] = [];
-    const holiday = isHoliday(date);
-    const schoolEvts = getSchoolEvents(date);
-    const friday = isFriday(date);
+      if (friday && !holiday) classes.push("bg-red-50");
+      if (holiday) classes.push("bg-red-100", "text-red-700", "font-semibold");
+      if (schoolEvts.length > 0 && !holiday) classes.push("bg-blue-50", "text-blue-700");
 
-    if (friday && !holiday) {
-      classes.push("bg-red-50");
-    }
-
-    if (holiday) {
-      classes.push("bg-red-100", "text-red-700", "font-semibold");
-    }
-
-    if (schoolEvts.length > 0 && !holiday) {
-      classes.push("bg-blue-50", "text-blue-700");
-    }
-
-    return classes.join(" ");
-  }, [getSchoolEvents, isFriday]);
+      return classes.join(" ");
+    },
+    [getSchoolEvents, isFriday],
+  );
 
   const selectedDateContent = useMemo(() => {
-    const holiday = isHoliday(selectedDate);
-    const schoolEvts = getSchoolEvents(selectedDate);
     const allDateEvents = getDateEvents(selectedDate);
-
     return {
-      holiday,
-      schoolEvents: schoolEvts,
       allEvents: allDateEvents,
       hasEvents: allDateEvents.length > 0,
-      isHoliday: !!holiday,
     };
-  }, [selectedDate, getDateEvents, getSchoolEvents]);
-
-  const goToPreviousMonth = () => setCurrentMonth(subMonths(currentMonth, 1));
-  const goToNextMonth = () => setCurrentMonth(addMonths(currentMonth, 1));
-  const goToToday = () => {
-    setCurrentMonth(new Date());
-    setSelectedDate(new Date());
-  };
-
-  const formatMonthName = (date: Date) => {
-    if (language === "bn") {
-      return bengaliMonths[date.getMonth()];
-    }
-    return format(date, "MMMM yyyy");
-  };
-
-  const getDayName = (date: Date) => {
-    if (language === "bn") {
-      return bengaliDays[date.getDay()];
-    }
-    return format(date, "EEEE");
-  };
+  }, [selectedDate, getDateEvents]);
 
   const upcomingEvents = useMemo(() => {
     const today = new Date();
@@ -108,41 +77,49 @@ const EventsCalendar = () => {
       .slice(0, 5);
   }, []);
 
-  const legendItems = [
-    {
-      label: "Public Holiday",
-      color: "bg-red-100 text-red-700",
-      border: "border-red-300",
-    },
-    {
-      label: "School Event",
-      color: "bg-blue-100 text-blue-700",
-      border: "border-blue-300",
-    },
-    { label: "Friday (Weekend)", color: "bg-red-50", border: "border-red-200" },
-  ];
+  const formatMonthName = useCallback(
+    (date: Date): string =>
+      language === "bn" ? (bengaliMonths[date.getMonth()] ?? "") : format(date, "MMMM yyyy"),
+    [language],
+  );
+
+  const getDayName = useCallback(
+    (date: Date): string =>
+      language === "bn" ? (bengaliDays[date.getDay()] ?? "") : format(date, "EEEE"),
+    [language],
+  );
 
   return (
     <div className="min-h-screen bg-linear-to-b from-gray-50 to-white">
       <Hero
         accentColor="rose-600"
         title={language === "bn" ? "ইভেন্ট ক্যালেন্ডার" : "Events Calendar"}
-        description={language === "bn"
-          ? "স্কুলের সকল ইভেন্ট, কার্যক্রম এবং গুরুত্বপূর্ণ তারিখ সম্পর্কে আপডেট থাকুন।"
-          : "Stay updated with all school events, activities, and important dates."}
+        description={
+          language === "bn"
+            ? "স্কুলের সকল ইভেন্ট, কার্যক্রম এবং গুরুত্বপূর্ণ তারিখ সম্পর্কে আপডেট থাকুন।"
+            : "Stay updated with all school events, activities, and important dates."
+        }
       >
         <div className="mt-6 flex justify-center gap-4">
           <Button
             onClick={() => setLanguage("en")}
             variant={language === "en" ? "primary" : "outline"}
-            className={language === "en" ? "bg-white text-rose-700 hover:bg-rose-50" : "border-rose-400 text-white hover:bg-rose-700"}
+            className={
+              language === "en"
+                ? "bg-white text-rose-700 hover:bg-rose-50"
+                : "border-rose-400 text-white hover:bg-rose-700"
+            }
           >
             English
           </Button>
           <Button
             onClick={() => setLanguage("bn")}
             variant={language === "bn" ? "primary" : "outline"}
-            className={language === "bn" ? "bg-white text-rose-700 hover:bg-rose-50" : "border-rose-400 text-white hover:bg-rose-700"}
+            className={
+              language === "bn"
+                ? "bg-white text-rose-700 hover:bg-rose-50"
+                : "border-rose-400 text-white hover:bg-rose-700"
+            }
           >
             বাংলা
           </Button>
@@ -151,211 +128,54 @@ const EventsCalendar = () => {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+          {/* Main column */}
           <div className="lg:col-span-2 space-y-6">
             <Card className="p-6 lg:p-8">
-              <div className="flex flex-col sm:flex-row justify-between items-center mb-6 gap-4">
-                <div className="flex items-center gap-4">
-                  <button
-                    onClick={goToPreviousMonth}
-                    className="p-2 hover:bg-gray-100 rounded-lg transition-colors cursor-pointer"
-                    aria-label="Previous month"
-                  >
-                    <svg className="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 19l-7-7 7-7" />
-                    </svg>
-                  </button>
-                  <h2 className="text-2xl font-bold text-gray-900 min-w-48 text-center">
-                    {formatMonthName(currentMonth)}
-                  </h2>
-                  <button
-                    onClick={goToNextMonth}
-                    className="p-2 hover:bg-gray-100 rounded-lg transition-colors cursor-pointer"
-                    aria-label="Next month"
-                  >
-                    <svg className="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" />
-                    </svg>
-                  </button>
-                </div>
-                <Button onClick={goToToday} variant="secondary">
-                  {language === "bn" ? "আজ" : "Today"}
-                </Button>
-              </div>
-
-              <div className="calendar-wrapper">
-                <Calendar
-                  onChange={(value) => {
-                    if (value instanceof Date) {
-                      setSelectedDate(value);
-                    } else if (Array.isArray(value) && value[0] instanceof Date) {
-                      setSelectedDate(value[0]);
-                    }
-                  }}
-                  value={selectedDate}
-                  locale="bn-BD"
-                  tileClassName={tileClassName}
-                  view={viewMode}
-                  onViewChange={({ view }) => setViewMode(view as typeof viewMode)}
-                  className="w-full border-0 react-calendar"
-                />
-              </div>
-
-              <div className="mt-6 pt-6 border-t border-gray-200">
-                <h3 className="text-sm font-semibold text-gray-700 mb-3">
-                  {language === "bn" ? "ক্যালেন্ডার লেজেন্ড" : "Calendar Legend"}
-                </h3>
-                <div className="flex flex-wrap gap-4">
-                  {legendItems.map((item, index) => (
-                    <div key={index} className="flex items-center gap-2">
-                      <div className={`w-6 h-6 rounded border-2 ${item.border} ${item.color}`}></div>
-                      <span className="text-sm text-gray-600">{item.label}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
+              <CalendarPanel
+                selectedDate={selectedDate}
+                currentMonth={currentMonth}
+                viewMode={viewMode}
+                language={language}
+                formatMonthName={formatMonthName}
+                tileClassName={tileClassName}
+                onDateChange={setSelectedDate}
+                onViewChange={setViewMode}
+                onPreviousMonth={() => setCurrentMonth(subMonths(currentMonth, 1))}
+                onNextMonth={() => setCurrentMonth(addMonths(currentMonth, 1))}
+                onToday={() => {
+                  setCurrentMonth(new Date());
+                  setSelectedDate(new Date());
+                }}
+                legendItems={legendItems}
+              />
             </Card>
 
             <Card className="p-6 lg:p-8">
               <h2 className="text-2xl font-bold text-gray-900 mb-6">
                 {language === "bn" ? "আসন্ন ইভেন্ট" : "Upcoming Events"}
               </h2>
-              <div className="space-y-4">
-                {upcomingEvents.length > 0 ? (
-                  upcomingEvents.map((event) => (
-                    <div
-                      key={event.id}
-                      className={`p-4 rounded-lg border-l-4 ${
-                        event.type === "public_holiday"
-                          ? "bg-red-50 border-red-500"
-                          : "bg-blue-50 border-blue-500"
-                      }`}
-                    >
-                      <div className="flex justify-between items-start">
-                        <div>
-                          <h3 className="font-semibold text-gray-900">
-                            {language === "bn" ? event.bnTitle : event.title}
-                          </h3>
-                          <p className="text-sm text-gray-600 mt-1">{event.date}</p>
-                        </div>
-                        <span
-                          className={`px-3 py-1 rounded-full text-xs font-medium ${
-                            event.type === "public_holiday"
-                              ? "bg-red-100 text-red-700"
-                              : "bg-blue-100 text-blue-700"
-                          }`}
-                        >
-                          {event.type === "public_holiday"
-                            ? language === "bn" ? "ছুটি" : "Holiday"
-                            : language === "bn" ? "স্কুল ইভেন্ট" : "School Event"}
-                        </span>
-                      </div>
-                    </div>
-                  ))
-                ) : (
-                  <p className="text-gray-500 text-center py-8">
-                    {language === "bn" ? "কোনো আসন্ন ইভেন্ট নেই।" : "No upcoming events."}
-                  </p>
-                )}
-              </div>
+              <UpcomingEventsList language={language} events={upcomingEvents} />
             </Card>
           </div>
 
+          {/* Sidebar */}
           <div className="space-y-6">
             <Card className="p-6 lg:p-8 sticky top-8">
               <h2 className="text-2xl font-bold text-gray-900 mb-6">
                 {language === "bn" ? "নির্বাচিত তারিখ" : "Selected Date"}
               </h2>
-
-              <div className="mb-6 p-4 bg-gradient-to-r from-rose-50 to-rose-100 rounded-lg">
-                <p className="text-3xl font-bold text-rose-800">
-                  {format(selectedDate, "dd")}
-                </p>
-                <p className="text-lg text-rose-700">{getDayName(selectedDate)}</p>
-                <p className="text-rose-600">{formatMonthName(selectedDate)}</p>
-              </div>
-
-              <div className="space-y-4">
-                {selectedDateContent.hasEvents ? (
-                  selectedDateContent.allEvents.map((event) => (
-                    <div
-                      key={event.id}
-                      className={`p-4 rounded-lg border-2 ${
-                        event.type === "public_holiday"
-                          ? "bg-red-50 border-red-200"
-                          : "bg-blue-50 border-blue-200"
-                      }`}
-                    >
-                      {event.type === "public_holiday" && (
-                        <div className="mb-3">
-                          <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-red-600 text-white">
-                            {language === "bn" ? "সরকারি ছুটি" : "Public Holiday"}
-                          </span>
-                        </div>
-                      )}
-                      <h3 className="font-bold text-gray-900 text-lg mb-2">
-                        {language === "bn" ? event.bnTitle : event.title}
-                      </h3>
-                      {event.description && (
-                        <p className="text-sm text-gray-600 mb-3">{event.description}</p>
-                      )}
-                      <a
-                        href={generateGoogleCalendarLink(event)}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center text-sm text-rose-600 hover:text-rose-800 font-medium"
-                      >
-                        <svg className="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20">
-                          <path
-                            fillRule="evenodd"
-                            d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z"
-                            clipRule="evenodd"
-                          />
-                        </svg>
-                        {language === "bn" ? "গুগল ক্যালেন্ডারে যোগ করুন" : "Add to Google Calendar"}
-                      </a>
-                    </div>
-                  ))
-                ) : (
-                  <div className="text-center py-8">
-                    <p className="text-gray-500">
-                      {language === "bn" ? "এই তারিখে কোনো ইভেন্ট নেই" : "No events on this date"}
-                    </p>
-                  </div>
-                )}
-              </div>
-
-              <div className="mt-6 p-4 bg-gradient-to-r from-yellow-50 to-yellow-100 rounded-lg border border-yellow-200">
-                <h4 className="font-semibold text-yellow-800 mb-1">
-                  {language === "bn" ? "সাপ্তাহিক ছুটি" : "Weekend Notice"}
-                </h4>
-                <p className="text-sm text-yellow-700">
-                  {language === "bn"
-                    ? "বাংলাদেশে শুক্রবার সরকারি সাপ্তাহিক ছুটি। স্কুল বন্ধ থাকে।"
-                    : "Friday is the official weekly holiday in Bangladesh. Schools remain closed."}
-                </p>
-              </div>
+              <SelectedDatePanel
+                selectedDate={selectedDate}
+                language={language}
+                getDayName={getDayName}
+                formatMonthName={formatMonthName}
+                allEvents={selectedDateContent.allEvents}
+                hasEvents={selectedDateContent.hasEvents}
+              />
             </Card>
 
             <Card className="p-6">
-              <h3 className="text-xl font-bold text-gray-900 mb-4">
-                {language === "bn" ? "প্রধান ছুটিসমূহ" : "Major Holidays"}
-              </h3>
-              <div className="space-y-3">
-                {bangladeshHolidays.slice(0, 5).map((holiday) => (
-                  <div
-                    key={holiday.id}
-                    className="flex items-start gap-3 p-2 hover:bg-gray-50 rounded-lg transition-colors cursor-pointer"
-                  >
-                    <div className="w-2 h-2 bg-red-500 rounded-full mt-2 shrink-0"></div>
-                    <div className="flex-1 min-w-0">
-                      <p className="text-sm font-medium text-gray-900 truncate">
-                        {language === "bn" ? holiday.bnTitle : holiday.title}
-                      </p>
-                      <p className="text-xs text-gray-500">{holiday.date}</p>
-                    </div>
-                  </div>
-                ))}
-              </div>
+              <MajorHolidaysList language={language} />
             </Card>
           </div>
         </div>

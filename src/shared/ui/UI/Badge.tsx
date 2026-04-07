@@ -8,7 +8,9 @@ type BadgeVariant =
   | "accent"
   | "accent-gold"
   | "dark"
-  | "light";
+  | "light"
+  | "warning"
+  | "neutral";
 
 interface BadgeProps {
   children: ReactNode;
@@ -26,6 +28,8 @@ const variants: Record<BadgeVariant, string> = {
   "accent-gold": "bg-accent-gold text-white",
   dark: "bg-slate-800/80 text-white",
   light: "bg-primary-50 text-primary-700",
+  warning: "bg-amber-100 text-amber-700",
+  neutral: "bg-slate-100 text-slate-600",
 };
 
 const Badge = ({

@@ -1,29 +1,23 @@
+import React from "react";
 import { extracurricularActivities } from "@/shared/data/academicData";
+import { Hero, Card, Button, SectionHeader, ListItem } from "@/shared/ui";
 
-const ExtracurricularActivities = () => {
+const ExtracurricularActivities: React.FC = () => {
   return (
     <div className="min-h-screen bg-linear-to-b from-gray-50 to-white">
-      <div className="relative bg-linear-to-r from-indigo-600 to-indigo-800 text-white py-20">
-        <div className="absolute inset-0 bg-black opacity-20"></div>
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center">
-            <h1 className="text-5xl font-bold mb-6">
-              Extracurricular Activities
-            </h1>
-            <p className="text-xl text-indigo-100 max-w-3xl mx-auto">
-              Discover and participate in various activities that help you grow
-              beyond academics.
-            </p>
-          </div>
-        </div>
-      </div>
+      <Hero
+        accentColor="indigo-600"
+        title="Extracurricular Activities"
+        description="Discover and participate in various activities that help you grow beyond academics."
+      />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {extracurricularActivities.map((activity, index) => (
-            <div
+            <Card
               key={index}
-              className="bg-white rounded-xl shadow-lg p-8 hover:shadow-xl transition duration-300"
+              hoverable
+              className="p-8"
             >
               <div className="flex items-start">
                 <div className="shrink-0 text-indigo-600">{activity.icon}</div>
@@ -34,50 +28,40 @@ const ExtracurricularActivities = () => {
                   <p className="text-gray-600">{activity.description}</p>
                 </div>
               </div>
-            </div>
+            </Card>
           ))}
         </div>
 
-        <div className="mt-16 bg-white rounded-xl shadow-lg p-8">
+        <Card className="mt-16 p-12 border border-indigo-100 bg-indigo-50/30" shadow="lg">
           <div className="text-center">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">
+            <h2 className="text-3xl font-bold text-gray-900 mb-4 font-serif">
               Join Our Activities
             </h2>
-            <p className="text-gray-600 mb-8 max-w-2xl mx-auto">
+            <p className="text-gray-600 mb-8 max-w-2xl mx-auto text-lg">
               Take the first step towards discovering your talents and
               interests. Join our diverse range of extracurricular activities.
             </p>
-            <button className="bg-indigo-600 text-white px-8 py-3 rounded-md hover:bg-indigo-700 transition duration-300">
+            <Button size="lg" className="px-10 bg-indigo-600 hover:bg-indigo-700">
               Register Now
-            </button>
+            </Button>
           </div>
-        </div>
+        </Card>
 
-        <div className="mt-16 bg-white rounded-xl shadow-lg p-8">
-          <h2 className="text-2xl font-bold text-gray-900 mb-6">
-            Activity Schedule
-          </h2>
+        <div className="mt-16">
+          <SectionHeader title="Activity Schedule" align="left" className="mb-8" />
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            <div className="border border-gray-200 rounded-lg p-4">
-              <h3 className="font-bold text-gray-900 mb-2">Sports</h3>
-              <p className="text-gray-600">Monday & Wednesday</p>
-              <p className="text-gray-600">3:00 PM - 5:00 PM</p>
-            </div>
-            <div className="border border-gray-200 rounded-lg p-4">
-              <h3 className="font-bold text-gray-900 mb-2">Arts & Culture</h3>
-              <p className="text-gray-600">Tuesday & Thursday</p>
-              <p className="text-gray-600">3:00 PM - 5:00 PM</p>
-            </div>
-            <div className="border border-gray-200 rounded-lg p-4">
-              <h3 className="font-bold text-gray-900 mb-2">Science Club</h3>
-              <p className="text-gray-600">Friday</p>
-              <p className="text-gray-600">3:00 PM - 5:00 PM</p>
-            </div>
-            <div className="border border-gray-200 rounded-lg p-4">
-              <h3 className="font-bold text-gray-900 mb-2">Debate Club</h3>
-              <p className="text-gray-600">Saturday</p>
-              <p className="text-gray-600">10:00 AM - 12:00 PM</p>
-            </div>
+            {[
+              { title: "Sports", days: "Monday & Wednesday", time: "3:00 PM - 5:00 PM" },
+              { title: "Arts & Culture", days: "Tuesday & Thursday", time: "3:00 PM - 5:00 PM" },
+              { title: "Science Club", days: "Friday", time: "3:00 PM - 5:00 PM" },
+              { title: "Debate Club", days: "Saturday", time: "10:00 AM - 12:00 PM" },
+            ].map((schedule, idx) => (
+              <Card key={idx} className="p-6 border border-gray-100" shadow="sm">
+                <h3 className="font-bold text-gray-900 mb-2 text-lg">{schedule.title}</h3>
+                <p className="text-gray-600 font-medium">{schedule.days}</p>
+                <p className="text-slate-500 text-sm">{schedule.time}</p>
+              </Card>
+            ))}
           </div>
         </div>
       </div>

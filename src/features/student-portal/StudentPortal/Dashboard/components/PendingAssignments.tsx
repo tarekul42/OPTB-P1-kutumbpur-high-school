@@ -1,6 +1,7 @@
+import React from "react";
 import { Link } from "react-router-dom";
 import { format } from "date-fns";
-import Badge from "@/shared/ui/UI/Badge";
+import { Badge, Card } from "@/shared/ui";
 import {
   ClipboardListIcon,
   DocumentTextIcon,
@@ -14,7 +15,7 @@ interface PendingAssignmentsProps {
 
 const PendingAssignments: React.FC<PendingAssignmentsProps> = ({ assignments }) => {
   return (
-    <div className="bg-white rounded-2xl p-6 shadow-md">
+    <Card className="p-6">
       <div className="flex items-center justify-between mb-6">
         <h3 className="font-serif font-bold text-lg text-primary-900 flex items-center gap-2">
           <ClipboardListIcon className="w-5 h-5 text-secondary-600" />
@@ -40,7 +41,7 @@ const PendingAssignments: React.FC<PendingAssignmentsProps> = ({ assignments }) 
                 </p>
                 <p className="text-xs text-slate-500">{assignment.subject}</p>
               </div>
-              <div className="text-xs text-secondary-600 font-medium whitespace-nowrap">
+              <div className="text-xs text-secondary-600 font-bold whitespace-nowrap">
                 Due: {format(new Date(assignment.dueDate), "MMM d")}
               </div>
             </div>
@@ -49,16 +50,16 @@ const PendingAssignments: React.FC<PendingAssignmentsProps> = ({ assignments }) 
       ) : (
         <div className="text-center py-8 text-slate-500">
           <CheckCircleIcon className="w-12 h-12 mx-auto mb-3 text-accent-300" />
-          <p>All assignments completed!</p>
+          <p className="font-medium text-slate-400">All assignments completed!</p>
         </div>
       )}
       <Link
         to="/portal/student/assignments"
-        className="mt-4 block text-center text-sm text-primary-700 hover:text-accent-gold font-medium transition-colors"
+        className="mt-4 block text-center text-sm text-primary-800 hover:text-accent-gold font-bold transition-colors"
       >
         View All Assignments →
       </Link>
-    </div>
+    </Card>
   );
 };
 

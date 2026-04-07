@@ -1,5 +1,6 @@
+import React from "react";
 import { Link } from "react-router-dom";
-import Badge from "@/shared/ui/UI/Badge";
+import { Badge, Card } from "@/shared/ui";
 import {
   CalendarCheckIcon,
   CalendarClockIcon,
@@ -13,7 +14,7 @@ interface DailyScheduleProps {
 
 const DailySchedule: React.FC<DailyScheduleProps> = ({ classes, day }) => {
   return (
-    <div className="bg-white rounded-2xl p-6 shadow-md">
+    <Card className="p-6">
       <div className="flex items-center justify-between mb-6">
         <h3 className="font-serif font-bold text-lg text-primary-900 flex items-center gap-2">
           <CalendarCheckIcon className="w-5 h-5 text-accent-gold" />
@@ -37,7 +38,7 @@ const DailySchedule: React.FC<DailyScheduleProps> = ({ classes, day }) => {
                 </p>
                 <p className="text-xs text-slate-500">{classItem.teacher}</p>
               </div>
-              <div className="text-xs px-2 py-1 bg-primary-100 text-primary-700 rounded">
+              <div className="text-xs px-2 py-1 bg-primary-100 text-primary-700 rounded font-medium">
                 Room {classItem.room}
               </div>
             </div>
@@ -46,16 +47,16 @@ const DailySchedule: React.FC<DailyScheduleProps> = ({ classes, day }) => {
       ) : (
         <div className="text-center py-8 text-slate-500">
           <CalendarClockIcon className="w-12 h-12 mx-auto mb-3 text-slate-300" />
-          <p>No classes scheduled for today</p>
+          <p className="font-medium text-slate-400">No classes scheduled for today</p>
         </div>
       )}
       <Link
         to="/portal/student/schedule"
-        className="mt-4 block text-center text-sm text-primary-700 hover:text-accent-gold font-medium transition-colors"
+        className="mt-4 block text-center text-sm text-primary-800 hover:text-accent-gold font-bold transition-colors"
       >
         View Full Schedule →
       </Link>
-    </div>
+    </Card>
   );
 };
 

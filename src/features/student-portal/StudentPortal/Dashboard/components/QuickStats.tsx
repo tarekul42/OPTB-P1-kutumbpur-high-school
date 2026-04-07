@@ -1,4 +1,5 @@
-import Badge from "@/shared/ui/UI/Badge";
+import React from "react";
+import { Badge, Card } from "@/shared/ui";
 import {
   CheckCircleIcon,
   ClipboardListIcon,
@@ -11,7 +12,7 @@ interface QuickStatsProps {
 
 const QuickStats: React.FC<QuickStatsProps> = ({ attendancePercentage, pendingCount }) => {
   return (
-    <div className="bg-white rounded-2xl p-6 shadow-md">
+    <Card className="p-6">
       <div className="flex items-center justify-between mb-4">
         <h3 className="font-serif font-bold text-lg text-primary-900">
           Quick Stats
@@ -24,9 +25,9 @@ const QuickStats: React.FC<QuickStatsProps> = ({ attendancePercentage, pendingCo
             <div className="p-2 bg-accent-100 rounded-lg">
               <CheckCircleIcon className="w-5 h-5 text-accent-600" />
             </div>
-            <span className="text-slate-600">Attendance</span>
+            <span className="text-slate-600 font-medium">Attendance</span>
           </div>
-          <span className="font-bold text-accent-600">
+          <span className="font-bold text-accent-600 text-lg">
             {attendancePercentage}%
           </span>
         </div>
@@ -35,12 +36,12 @@ const QuickStats: React.FC<QuickStatsProps> = ({ attendancePercentage, pendingCo
             <div className="p-2 bg-secondary-100 rounded-lg">
               <ClipboardListIcon className="w-5 h-5 text-secondary-600" />
             </div>
-            <span className="text-slate-600">Pending Tasks</span>
+            <span className="text-slate-600 font-medium">Pending Tasks</span>
           </div>
-          <span className="font-bold text-secondary-600">{pendingCount}</span>
+          <span className="font-bold text-secondary-600 text-lg">{pendingCount}</span>
         </div>
       </div>
-    </div>
+    </Card>
   );
 };
 

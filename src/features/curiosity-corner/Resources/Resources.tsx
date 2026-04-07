@@ -1,36 +1,28 @@
 import { studyMaterials } from "@/shared/data/academicData";
 import { digitalResources } from "@/shared/data/booksData";
+import { Hero, Card, SectionHeader, ListItem } from "@/shared/ui";
 
 const Resources = () => {
   return (
     <div className="min-h-screen bg-linear-to-b from-neutral-50 to-surface">
-      <div className="relative bg-primary-900 overflow-hidden py-24">
-        <div className="absolute inset-0 bg-linear-to-b from-primary-900/40 via-transparent to-primary-900/80 z-10"></div>
-        <div className="absolute top-0 right-0 w-1/3 h-full bg-accent-gold/5 blur-[120px] rounded-full"></div>
-
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-20">
-          <div className="text-center">
-            <h1 className="text-5xl md:text-6xl font-serif font-bold text-white mb-6 animate-in fade-in slide-in-from-top-4 duration-700 drop-shadow-lg">
-              Digital Resources
-            </h1>
-            <p className="text-xl text-slate-100 max-w-3xl mx-auto font-medium drop-shadow-md">
-              Empowering students with 21st-century learning tools. Access PSC,
-              JSC, and SSC board preparation materials.
-            </p>
-          </div>
-        </div>
-      </div>
+      <Hero
+        title="Digital Resources"
+        description="Empowering students with 21st-century learning tools. Access PSC, JSC, and SSC board preparation materials."
+      />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="mb-20">
-          <h2 className="text-4xl font-serif font-bold text-primary-900 mb-10 text-center">
-            Board Preparation Materials
-          </h2>
+          <SectionHeader
+            title="Board Preparation Materials"
+            align="center"
+            className="mb-10"
+          />
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {studyMaterials.map((subject, index) => (
-              <div
+              <Card
                 key={index}
-                className="bg-white rounded-xl shadow-lg p-8 transform transition duration-300 hover:shadow-xl border border-slate-200 group"
+                hoverable
+                className="p-8 group"
               >
                 <div className="w-14 h-14 bg-primary-50 rounded-xl flex items-center justify-center text-2xl mb-6 group-hover:bg-accent-gold/20 transition-colors">
                   {subject.icon}
@@ -41,38 +33,28 @@ const Resources = () => {
                 <p className="text-slate-600 mb-6">{subject.description}</p>
                 <ul className="space-y-2">
                   {subject.resources.map((resource, idx) => (
-                    <li key={idx} className="flex items-start text-slate-600">
-                      <svg
-                        className="w-5 h-5 text-accent-gold mt-1 mr-2 shrink-0"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth="2"
-                          d="M5 13l4 4L19 7"
-                        />
-                      </svg>
+                    <ListItem key={idx}>
                       {resource}
-                    </li>
+                    </ListItem>
                   ))}
                 </ul>
-              </div>
+              </Card>
             ))}
           </div>
         </div>
 
         <div className="mb-16">
-          <h2 className="text-3xl font-bold text-neutral-900 mb-8">
-            Digital Resources
-          </h2>
+          <SectionHeader
+            title="Digital Resources"
+            align="left"
+            className="mb-8"
+          />
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {digitalResources.map((resource, index) => (
-              <div
+              <Card
                 key={index}
-                className="bg-white rounded-xl shadow-lg p-8 transform transition duration-300 hover:scale-105 border border-slate-200 group"
+                hoverable
+                className="p-8 group"
               >
                 <div className="text-accent-gold mb-4 group-hover:scale-110 transition-transform duration-300">
                   <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -83,15 +65,17 @@ const Resources = () => {
                   {resource.title}
                 </h3>
                 <p className="text-neutral-600">{resource.description}</p>
-              </div>
+              </Card>
             ))}
           </div>
         </div>
 
-        <div className="bg-white rounded-2xl shadow-sm p-12 border border-slate-200">
-          <h2 className="text-3xl font-serif font-bold text-primary-900 mb-10 text-center">
-            Quick Portal Access
-          </h2>
+        <Card className="p-12 border border-slate-200">
+          <SectionHeader
+            title="Quick Portal Access"
+            align="center"
+            className="mb-10"
+          />
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {["E-Books", "Video Lectures", "Practice Tests", "Study Schedule"].map((item) => (
               <a
@@ -118,7 +102,7 @@ const Resources = () => {
               </a>
             ))}
           </div>
-        </div>
+        </Card>
       </div>
     </div>
   );

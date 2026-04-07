@@ -6,6 +6,7 @@ interface HeroProps {
   className?: string;
   accentColor?: string;
   center?: boolean;
+  children?: React.ReactNode;
 }
 
 const Hero: React.FC<HeroProps> = ({
@@ -14,6 +15,7 @@ const Hero: React.FC<HeroProps> = ({
   className = '',
   accentColor = 'primary-900',
   center = true,
+  children,
 }) => {
   return (
     <div className={`relative overflow-hidden py-20 ${className}`}>
@@ -29,6 +31,7 @@ const Hero: React.FC<HeroProps> = ({
               {description}
             </p>
           ) : null}
+          {children && <div className="mt-8">{children}</div>}
         </div>
       </div>
     </div>

@@ -30,47 +30,52 @@ Built with a modern stack emphasizing speed, reliability, and accessibility.
 
 ---
 
-## 🛠️ Technical Excellence
+## 🏗️ Architecture: Atomic Design System
 
-Developing for longevity and performance, this project utilizes a **Feature-Based Architecture** (FSD-lite) to ensure scalability.
+The project has transitioned to a highly modular **Atomic Architecture**. Large, monolithic features are decomposed into lean, state-managing containers that compose reusable sub-components.
 
--   **Runtime & Package Manager:** [Bun](https://bun.sh) for lightning-fast installations and builds.
--   **Core Framework:** [React 19](https://react.dev) utilizing the latest concurrent features.
--   **Styling Engine:** [Tailwind CSS 4.0](https://tailwindcss.com) for a modern, fluid design system.
--   **Data Visualization:** [Recharts](https://recharts.org/) for intuitive student performance analytics.
--   **State Management:** Optimized React Context patterns with domain isolation.
--   **Testing:** [Vitest](https://vitest.dev) with a co-location strategy for maximum reliability.
+-   **Containers:** Located in `src/features/[feature]/[FeatureName].tsx`. They handle side effects, data fetching, and state.
+-   **Sub-components:** Located in `src/features/[feature]/components/`. These are visual-only or specialized UI blocks.
+-   **Shared UI:** Located in `src/shared/ui/`. Generic, project-wide atoms (Buttons, Badges, Modals, Cards).
 
----
-
-## 📂 Project Architecture
+### 📂 Directory Structure
 
 ```bash
 src/
+├── app/                # Global providers, styles, and routing
 ├── features/           # Domain-driven feature modules
-│   ├── home/           # Landing page & core identity
-│   ├── student-portal/ # Advanced student dashboard
-│   ├── faculty-portal/ # Faculty management tools
-│   ├── parent-portal/  # Parent engagement hub
-│   ├── events/         # Calendar & localization logic
-│   └── ...
+│   ├── curiosity-corner/
+│   ├── edu-adventure/
+│   ├── events/
+│   ├── faculty-portal/
+│   ├── parent-portal/  # Lean containers + component folders
+│   └── student-portal/
 ├── shared/             # Atomic cross-cutting concerns
-│   ├── ui/             # Premium design system components
-│   ├── hooks/          # Domain-agnostic logic
-│   ├── types/          # Global TypeScript definitions
-│   └── lib/            # Utility functions & generators
-├── docs/               # Detailed feature documentation
-└── ...
+│   ├── ui/             # Premium Design System (UI Kit)
+│   ├── data/           # Mock data and localization sets
+│   ├── types/          # Shared TypeScript definitions
+│   └── utils/          # Formatting & logic helpers
 ```
 
 ---
 
-## 🚀 Experience the Platform
+## 🛠️ Technical Excellence
+
+-   **Runtime & Package Manager:** [Bun](https://bun.sh) for lightning-fast installations and builds. (Configured as primary toolchain).
+-   **Core Framework:** [React 19](https://react.dev) utilizing latest concurrent features.
+-   **Build Tool:** [Vite 7](https://vitejs.dev/) with optimized HMR.
+-   **Styling Engine:** [Tailwind CSS 4.0](https://tailwindcss.com) for a modern, fluid design system.
+-   **Data Visualization:** [Recharts](https://recharts.org/) for student performance analytics.
+-   **Testing:** [Vitest](https://vitest.dev) with co-location strategy for maximum reliability.
+
+---
+
+## 🚀 Get Started
 
 ### Prerequisites
 *   [Bun](https://bun.sh) (v1.x+)
 
-### Rapid Setup
+### Setup
 1.  **Clone the Vision:**
     ```bash
     git clone https://github.com/tarekul42/OPTB-P1-kutumbpur-high-school.git
@@ -80,27 +85,24 @@ src/
     ```bash
     bun install
     ```
-3.  **Launch Production Sync:**
+3.  **Launch Dev Server:**
     ```bash
     bun run dev
     ```
-    Access the platform at `http://localhost:5173`.
 
 ---
 
 ## 🧪 Quality Assurance
 
-We maintain a rigorous testing standard to ensure the platform's stability.
+We maintain zero-error tolerance for the build and lint process.
 
 ```bash
+# Type check and lint
+bun run lint
+bun run type-check
+
 # Execute unit and integration tests
 bun run test
-
-# Launch visual test suite
-bun run test:ui
-
-# Generate comprehensive coverage reports
-bun run test:coverage
 ```
 
 ---
@@ -108,9 +110,10 @@ bun run test:coverage
 ## 🤝 Roadmap & Vision
 
 - [x] **Phase 1:** Core Portal Architecture and localized events.
-- [x] **Phase 2:** Responsive Design and Feature-Based Restructuring.
-- [ ] **Phase 3:** Real-time parent-teacher socket integration.
-- [ ] **Phase 4:** National Result API integration and SSLCommerz payment gateway.
+- [x] **Phase 2:** Transition to Atomic Component Design (FSD-lite).
+- [x] **Phase 3:** Infrastructure migration to Bun/React 19/Vite 7.
+- [ ] **Phase 4:** Real-time parent-teacher communication bridge.
+- [ ] **Phase 5:** National Result API and SSLCommerz payment gateway.
 
 ---
 
