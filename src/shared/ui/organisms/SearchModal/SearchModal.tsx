@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
-import { useApp } from "@/app/providers/AppContext";
+import { useApp } from "@/app/providers/contexts/AppContext";
 import SearchResultsList from "./SearchResultsList";
 import { SearchResult } from "@/shared/types/common";
 

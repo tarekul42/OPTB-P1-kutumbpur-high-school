@@ -1,5 +1,5 @@
 import { useState, useMemo } from "react";
-import { useStudent } from "@/app/providers/StudentContext";
+import { useStudent } from "@/app/providers/contexts/StudentContext";
 import type { Assignment } from "@/shared/types/user";
 import AssignmentStats from "./components/AssignmentStats";
 import AssignmentFilters from "./components/AssignmentFilters";

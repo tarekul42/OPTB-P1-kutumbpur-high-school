@@ -1,9 +1,9 @@
 import { Outlet } from "react-router-dom";
-import Navbar from "../../Shared/Navbar/Navbar";
-import ScrollToTop from "../../ScrollToTop";
-import Footer from "../../Shared/Footer/Footer";
+import Navbar from "../organisms/Navbar/Navbar";
+import ScrollToTop from "../utilities/ScrollToTop";
+import Footer from "../organisms/Footer/Footer";
 
-const MainUserLayout = () => {
+const MainLayout = () => {
   return (
     <div className="flex flex-col min-h-screen">
       <ScrollToTop />
@@ -16,4 +16,4 @@ const MainUserLayout = () => {
   );
 };
 
-export default MainUserLayout;
+export default MainLayout;

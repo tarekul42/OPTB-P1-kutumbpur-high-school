@@ -1,6 +1,6 @@
 import { useState, useMemo } from "react";
 import { format } from "date-fns";
-import { useStudent } from "@/app/providers/StudentContext";
+import { useStudent } from "@/app/providers/contexts/StudentContext";
 import Badge from "@/shared/ui/UI/Badge";
 import { subjects } from "@/shared/data/studentData";
 

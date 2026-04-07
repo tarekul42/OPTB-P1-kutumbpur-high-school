@@ -1,4 +1,4 @@
-import { useParent } from "@/app/providers/ParentContext";
+import { useParent } from "@/app/providers/contexts/ParentContext";
 import ChildProfileCard from "./components/ChildProfileCard";
 import DashboardStatsGrid from "./components/DashboardStatsGrid";
 import RecentResultsCard from "./components/RecentResultsCard";

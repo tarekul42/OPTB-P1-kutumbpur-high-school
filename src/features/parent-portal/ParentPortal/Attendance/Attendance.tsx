@@ -1,6 +1,6 @@
 import { useState, useMemo, useCallback } from "react";
 import { format, startOfMonth, endOfMonth, eachDayOfInterval } from "date-fns";
-import { useParent } from "@/app/providers/ParentContext";
+import { useParent } from "@/app/providers/contexts/ParentContext";
 import type { AttendanceRecord } from "@/shared/types/user";
 import AttendanceCalendar from "./components/AttendanceCalendar";
 import AttendanceStats from "./components/AttendanceStats";

@@ -1,6 +1,6 @@
 import { useMemo } from "react";
 import { academicResults } from "@/shared/data/studentData";
-import { useStudent } from "@/app/providers/StudentContext";
+import { useStudent } from "@/app/providers/contexts/StudentContext";
 import ResultsHeader from "./components/ResultsHeader";
 import PerformanceCharts from "./components/PerformanceCharts";
 import DetailedResultsTable from "./components/DetailedResultsTable";

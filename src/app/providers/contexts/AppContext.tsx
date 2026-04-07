@@ -7,12 +7,16 @@ import {
   useMemo,
   type ReactNode,
 } from "react";
-import { homeNews } from "../../shared/data/homeData";
-import { bangladeshHolidays } from "../../shared/data/bangladeshHolidays";
-import { booksData } from "../../shared/data/booksData";
+import { homeNews } from "../../../shared/data/homeData";
+import { bangladeshHolidays } from "../../../shared/data/bangladeshHolidays";
+import { booksData } from "../../../shared/data/booksData";
 import { ThemeProvider, useTheme } from "./ThemeContext";
-import { NotificationProvider, useNotification } from "./NotificationContext";
-import { SearchResult } from "../../shared/types/common";
+import {
+  NotificationProvider,
+  useNotification,
+  type Notification,
+} from "./NotificationContext";
+import { SearchResult } from "../../../shared/types/common";
 
 interface AppContextType {
   searchQuery: string;
@@ -32,22 +36,13 @@ interface AppContextType {
   unreadCount: number;
 }
 
-interface Notification {
-  id: number;
-  title: string;
-  message: string;
-  type: "event" | "holiday" | "admission";
-  read: boolean;
-  date: string;
-}
-
 const AppContext = createContext<AppContextType | undefined>(undefined);
 
-interface AppProviderContentProps {
+interface AppProviderProps {
   children: ReactNode;
 }
 
-const AppProviderContent = ({ children }: AppProviderContentProps) => {
+export const AppProvider = ({ children }: AppProviderProps) => {
   const [searchQuery, setSearchQuery] = useState("");
   const [isSearchOpen, setIsSearchOpen] = useState(false);
 
@@ -150,20 +145,6 @@ const AppProviderContent = ({ children }: AppProviderContentProps) => {
   );
 
   return <AppContext.Provider value={value}>{children}</AppContext.Provider>;
-};
-
-interface AppProviderProps {
-  children: ReactNode;
-}
-
-export const AppProvider = ({ children }: AppProviderProps) => {
-  return (
-    <ThemeProvider>
-      <NotificationProvider>
-        <AppProviderContent>{children}</AppProviderContent>
-      </NotificationProvider>
-    </ThemeProvider>
-  );
 };
 
 export const useApp = (): AppContextType => {

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useParent } from "@/app/providers/ParentContext";
+import { useParent } from "@/app/providers/contexts/ParentContext";
 import { generateReceiptPDF } from "@/shared/lib/receiptGenerator";
 import type { QuarterlyFee, MonthlyFee } from "@/shared/types/user";
 import FeesSummaryBanner from "./components/FeesSummaryBanner";

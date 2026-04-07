@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useParent } from "@/app/providers/ParentContext";
+import { useParent } from "@/app/providers/contexts/ParentContext";
 import { Subject } from "@/shared/types/user";
 import MessageHeader from "./components/MessageHeader";
 import TeacherGrid from "./components/TeacherGrid";

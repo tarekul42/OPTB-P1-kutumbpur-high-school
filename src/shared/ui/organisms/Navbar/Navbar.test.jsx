@@ -2,7 +2,7 @@ import { describe, it, expect, vi, beforeEach } from "vitest";
 import { render, screen, fireEvent, waitFor } from "@testing-library/react";
 import { BrowserRouter } from "react-router-dom";
 import Navbar from "./Navbar";
-import { AppProvider } from "../../../../app/providers/AppContext";
+import { AppProvider } from "../../../../app/providers/contexts/AppContext";
 
 const renderNavbar = () => {
   return render(

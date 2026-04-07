@@ -4,6 +4,7 @@ import React, {
   useState,
   useCallback,
   useMemo,
+  useEffect,
   type ReactNode,
 } from "react";
 
@@ -74,11 +75,11 @@ export const NotificationProvider = ({
   });
   const [isNotificationOpen, setIsNotificationOpen] = useState(false);
 
-  useState(() => {
+  useEffect(() => {
     if (typeof window !== "undefined") {
       localStorage.setItem("notifications", JSON.stringify(notifications));
     }
-  });
+  }, [notifications]);
 
   const toggleNotification = useCallback(
     () => setIsNotificationOpen((prev) => !prev),

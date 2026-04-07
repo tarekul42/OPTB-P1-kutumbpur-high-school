@@ -29,6 +29,7 @@ const Events = lazy(() => import("../../features/events").then(m => ({ default: 
 const CuriosityCorner = lazy(() => import("../../features/curiosity-corner").then(m => ({ default: m.CuriosityCorner })));
 const EduAdventure = lazy(() => import("../../features/edu-adventure").then(m => ({ default: m.EduAdventure })));
 const Portals = lazy(() => import("../../features/portals").then(m => ({ default: m.Portals })));
+const NotFound = lazy(() => import("../router/NotFound"));
 
 const withSuspense = (Component: React.ComponentType): React.JSX.Element => (
   <Suspense fallback={<LoadingFallback />}>
@@ -141,6 +142,10 @@ export const router = createBrowserRouter([
       {
         path: "faq",
         element: withSuspense(FAQ as React.ComponentType),
+      },
+      {
+        path: "*",
+        element: withSuspense(NotFound as React.ComponentType),
       },
     ],
   },
