@@ -8,6 +8,7 @@ import {
   subjectOptions,
 } from "@/shared/lib/validationSchemas";
 import { z } from "zod";
+import { Hero, Card, Button } from "@/shared/ui";
 
 type ContactFormData = z.infer<typeof contactFormSchema>;
 
@@ -56,25 +57,14 @@ const Contact = () => {
     <div className="min-h-screen bg-linear-to-b from-slate-50 to-surface">
       <Toaster />
 
-      <div className="relative bg-primary-900 overflow-hidden py-20">
-        <div className="absolute inset-0 bg-linear-to-r from-primary-900 to-primary-800 animate-gradient"></div>
-        <div className="absolute top-0 right-0 w-1/3 h-full bg-accent-gold/5 blur-[120px] rounded-full"></div>
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-white">
-          <div className="text-center">
-            <h1 className="text-5xl font-serif font-bold mb-4 drop-shadow-lg">
-              Contact Us
-            </h1>
-            <p className="text-xl text-slate-100 max-w-3xl mx-auto font-medium drop-shadow-md">
-              Get in touch with us. We're here to help and answer any questions
-              you may have.
-            </p>
-          </div>
-        </div>
-      </div>
+      <Hero
+        title="Contact Us"
+        description="Get in touch with us. We're here to help and answer any questions you may have."
+      />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-          <div className="bg-white rounded-2xl shadow-lg p-8 border border-slate-200">
+          <Card className="p-8 border border-slate-200">
             <div className="mb-8">
               <h2 className="text-2xl font-serif font-bold text-primary-900 mb-2">
                 Send us a Message
@@ -145,63 +135,34 @@ const Contact = () => {
                 disabled={isSubmitting}
               />
 
-              <button
+              <Button
                 type="submit"
-                disabled={isSubmitting}
-                className={`w-full py-4 px-6 rounded-lg font-bold uppercase tracking-wider transition-all duration-300 flex items-center justify-center gap-3 ${
-                  isSubmitting
-                    ? "bg-slate-400 cursor-not-allowed"
-                    : "bg-primary-900 hover:bg-primary-950 hover:shadow-lg"
-                } text-white`}
+                isLoading={isSubmitting}
+                className="w-full uppercase tracking-wider gap-3"
+                size="lg"
               >
-                {isSubmitting ? (
-                  <>
-                    <svg
-                      className="animate-spin h-5 w-5"
-                      xmlns="http://www.w3.org/2000/svg"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                    >
-                      <circle
-                        className="opacity-25"
-                        cx="12"
-                        cy="12"
-                        r="10"
-                        stroke="currentColor"
-                        strokeWidth="4"
-                      ></circle>
-                      <path
-                        className="opacity-75"
-                        fill="currentColor"
-                        d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
-                      ></path>
-                    </svg>
-                    Sending...
-                  </>
-                ) : (
-                  <>
-                    <svg
-                      className="w-5 h-5"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth="2"
-                        d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
-                      />
-                    </svg>
-                    Send Message
-                  </>
+                {!isSubmitting && (
+                  <svg
+                    className="w-5 h-5"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2"
+                      d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+                    />
+                  </svg>
                 )}
-              </button>
+                {isSubmitting ? "Sending..." : "Send Message"}
+              </Button>
             </form>
-          </div>
+          </Card>
 
           <div className="space-y-8">
-            <div className="bg-white rounded-2xl shadow-lg p-8 border border-slate-200">
+            <Card className="p-8 border border-slate-200">
               <h2 className="text-2xl font-serif font-bold text-primary-900 mb-6">
                 Contact Information
               </h2>
@@ -290,7 +251,7 @@ const Contact = () => {
                   </div>
                 </div>
               </div>
-            </div>
+            </Card>
 
             <div className="bg-linear-to-br from-primary-900 to-primary-800 rounded-2xl shadow-lg p-8 text-white">
               <h2 className="text-xl font-serif font-bold mb-4">
@@ -319,7 +280,7 @@ const Contact = () => {
         </div>
 
         <div className="mt-16">
-          <div className="bg-white rounded-2xl shadow-lg overflow-hidden border border-slate-200 p-2">
+          <Card className="overflow-hidden p-2">
             <iframe
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14631.831575886072!2d91.02542575!3d23.48902585!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3754719f9bb6c4db%3A0xe5a3c9f280a9163b!2sKutumbapur%2C%20Chandina%2C%20Cumilla!5e0!3m2!1sen!2sbd!4v1709340000000!5m2!1sen!2sbd"
               width="100%"
@@ -330,7 +291,7 @@ const Contact = () => {
               referrerPolicy="no-referrer-when-downgrade"
               title="School Location"
             ></iframe>
-          </div>
+          </Card>
         </div>
       </div>
     </div>

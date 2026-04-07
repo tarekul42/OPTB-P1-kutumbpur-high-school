@@ -1,3 +1,6 @@
+import React from "react";
+import { Hero, SectionHeader, Card, Button } from "@/shared/ui";
+
 const Testimonials = () => {
   const testimonials = [
     {
@@ -55,25 +58,18 @@ const Testimonials = () => {
 
   return (
     <div className="min-h-screen bg-linear-to-b from-neutral-50 to-surface">
-      <div className="relative bg-linear-to-r from-primary-600 to-primary-800 text-white py-20">
-        <div className="absolute inset-0 bg-black opacity-20"></div>
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center">
-            <h1 className="text-5xl font-bold mb-6">Testimonials</h1>
-            <p className="text-xl text-primary-100 max-w-3xl mx-auto">
-              Hear what our students, parents, and alumni have to say about
-              their experience at Kutumbpur High School.
-            </p>
-          </div>
-        </div>
-      </div>
+      <Hero
+        title="Testimonials"
+        description="Hear what our students, parents, and alumni have to say about their experience at Kutumbpur High School."
+      />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {testimonials.map((testimonial, index) => (
-            <div
+            <Card
               key={index}
-              className="bg-surface rounded-xl shadow-lg p-8 transform transition duration-300 hover:scale-105 border border-neutral-200"
+              hoverable
+              className="p-8 border border-neutral-200"
             >
               <div className="flex items-center mb-6">
                 <img
@@ -90,21 +86,18 @@ const Testimonials = () => {
               </div>
               <div className="flex mb-4">{renderStars(testimonial.rating)}</div>
               <p className="text-neutral-600 italic">"{testimonial.quote}"</p>
-            </div>
+            </Card>
           ))}
         </div>
 
         <div className="mt-16 text-center">
-          <h2 className="text-3xl font-bold text-neutral-900 mb-4">
-            Share Your Experience
-          </h2>
-          <p className="text-neutral-600 mb-8 max-w-2xl mx-auto">
-            We'd love to hear about your experience at Kutumbpur High School.
-            Share your story and inspire others.
-          </p>
-          <button className="bg-primary-600 text-white py-3 px-8 rounded-md hover:bg-primary-700 transition duration-300">
+          <SectionHeader
+            title="Share Your Experience"
+            description="We'd love to hear about your experience at Kutumbpur High School. Share your story and inspire others."
+          />
+          <Button size="lg" onClick={() => window.alert('Testimonial submission feature coming soon!')}>
             Submit Your Testimonial
-          </button>
+          </Button>
         </div>
       </div>
     </div>

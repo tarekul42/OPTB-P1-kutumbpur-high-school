@@ -6,6 +6,7 @@ import {
   subjects,
   availabilityOptions,
 } from "@/shared/data/booksData";
+import { Hero, Card, Button } from "@/shared/ui";
 
 const Library = () => {
   const [searchQuery, setSearchQuery] = useState("");
@@ -96,38 +97,27 @@ const Library = () => {
 
   return (
     <div className="min-h-screen bg-linear-to-b from-slate-50 to-white">
-      <div className="relative bg-linear-to-r from-primary-900 via-primary-800 to-primary-900 py-24 overflow-hidden">
-        <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg%20width%3D%2260%22%20height%3D%2260%22%20viewBox%3D%220%200%2060%2060%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cg%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%3Cg%20fill%3D%22%23ffffff%22%20fill-opacity%3D%220.05%22%3E%3Cpath%20d%3D%22M36%2034v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6%2034v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6%204V0H4v4H0v2h4v4h2V6h4V4H6z%22%2F%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E')] opacity-30"></div>
-        <div className="absolute top-0 right-0 w-1/3 h-full bg-accent-gold/10 blur-[120px] rounded-full"></div>
-
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-10">
-          <div className="text-center">
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/10 rounded-full text-white/80 text-sm font-medium mb-6 backdrop-blur-sm">
-              <svg
-                className="w-5 h-5"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"
-                />
-              </svg>
-              Digital Library
-            </div>
-            <h1 className="text-5xl md:text-6xl font-serif font-bold text-white mb-6 drop-shadow-lg">
-              School Library
-            </h1>
-            <p className="text-xl text-slate-100 max-w-3xl mx-auto font-medium drop-shadow-md">
-              Discover a world of knowledge through our extensive collection of
-              books and digital resources at Kutumbpur High School.
-            </p>
-          </div>
+      <Hero
+        title="School Library"
+        description="Discover a world of knowledge through our extensive collection of books and digital resources at Kutumbpur High School."
+      >
+        <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/10 rounded-full text-white/80 text-sm font-medium mt-6 backdrop-blur-sm">
+          <svg
+            className="w-5 h-5"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
+              d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"
+            />
+          </svg>
+          Digital Library
         </div>
-      </div>
+      </Hero>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="mb-12">
@@ -157,7 +147,7 @@ const Library = () => {
                 {searchQuery && (
                   <button
                     onClick={() => setSearchQuery("")}
-                    className="absolute right-4 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600"
+                    className="absolute right-4 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600 cursor-pointer"
                   >
                     <svg
                       className="w-5 h-5"
@@ -178,9 +168,10 @@ const Library = () => {
             </div>
 
             <div className="flex gap-4 items-center">
-              <button
+              <Button
                 onClick={() => setShowFilters(!showFilters)}
-                className="lg:hidden flex items-center gap-2 px-4 py-3 bg-white border border-slate-200 rounded-xl text-slate-700 hover:bg-slate-50 transition-colors"
+                variant="outline"
+                className="lg:hidden flex items-center gap-2"
               >
                 <svg
                   className="w-5 h-5"
@@ -196,9 +187,9 @@ const Library = () => {
                   />
                 </svg>
                 Filters
-              </button>
+              </Button>
 
-              <div className="hidden lg:flex gap-4">
+              <div className={`hidden lg:flex gap-4 ${showFilters ? 'flex' : ''}`}>
                 <select
                   value={selectedSubject}
                   onChange={(e) => setSelectedSubject(e.target.value)}
@@ -227,10 +218,10 @@ const Library = () => {
           </div>
 
           <div className="flex items-center justify-between">
-            <div className="flex items-center gap-2 bg-white rounded-xl p-1 border border-slate-200 shadow-sm">
+            <div className="flex items-center gap-2 bg-white rounded-xl p-1 border border-slate-200 shadow-sm transition-all duration-300">
               <button
                 onClick={() => setViewMode("all")}
-                className={`px-6 py-3 rounded-lg font-medium transition-all ${
+                className={`px-6 py-3 rounded-lg font-medium transition-all cursor-pointer ${
                   viewMode === "all"
                     ? "bg-primary-600 text-white shadow-md"
                     : "text-slate-600 hover:bg-slate-100"
@@ -251,14 +242,14 @@ const Library = () => {
                     />
                   </svg>
                   View All
-                  <span className="bg-white/20 px-2 py-0.5 rounded-full text-xs">
+                  <span className={`px-2 py-0.5 rounded-full text-xs ${viewMode === 'all' ? 'bg-white/20' : 'bg-slate-100'}`}>
                     {booksData.length}
                   </span>
                 </span>
               </button>
               <button
                 onClick={() => setViewMode("favorites")}
-                className={`px-6 py-3 rounded-lg font-medium transition-all ${
+                className={`px-6 py-3 rounded-lg font-medium transition-all cursor-pointer ${
                   viewMode === "favorites"
                     ? "bg-primary-600 text-white shadow-md"
                     : "text-slate-600 hover:bg-slate-100"
@@ -279,7 +270,7 @@ const Library = () => {
                     />
                   </svg>
                   My Reading List
-                  <span className="bg-white/20 px-2 py-0.5 rounded-full text-xs">
+                  <span className={`px-2 py-0.5 rounded-full text-xs ${viewMode === 'favorites' ? 'bg-white/20' : 'bg-slate-100'}`}>
                     {favorites.length}
                   </span>
                 </span>
@@ -294,7 +285,7 @@ const Library = () => {
         </div>
 
         {filteredBooks.length > 0 ? (
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mb-20">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mb-20 animate-fade-in">
             {filteredBooks.map((book) => (
               <BookCard
                 key={book.id}
@@ -305,7 +296,7 @@ const Library = () => {
             ))}
           </div>
         ) : (
-          <div className="text-center py-16 mb-20">
+          <div className="text-center py-16 mb-20 bg-slate-50 rounded-2xl border border-slate-200">
             <div className="w-24 h-24 bg-slate-100 rounded-full mx-auto mb-6 flex items-center justify-center">
               <svg
                 className="w-12 h-12 text-slate-300"
@@ -333,20 +324,20 @@ const Library = () => {
             </p>
             <div className="flex gap-4 justify-center">
               {searchQuery && (
-                <button
+                <Button
                   onClick={() => setSearchQuery("")}
-                  className="px-6 py-3 bg-primary-600 text-white rounded-xl hover:bg-primary-700 transition-colors font-medium"
+                  variant="primary"
                 >
                   Clear Search
-                </button>
+                </Button>
               )}
               {viewMode === "favorites" && (
-                <button
+                <Button
                   onClick={() => setViewMode("all")}
-                  className="px-6 py-3 bg-primary-600 text-white rounded-xl hover:bg-primary-700 transition-colors font-medium"
+                  variant="primary"
                 >
                   Browse All Books
-                </button>
+                </Button>
               )}
             </div>
           </div>
@@ -370,50 +361,52 @@ const Library = () => {
                 href={resource.link}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group bg-white rounded-xl p-6 border border-slate-200 hover:border-primary-300 hover:shadow-lg transition-all duration-300"
+                className="group"
               >
-                <div className="flex items-start gap-4">
-                  <div
-                    className={`p-3 rounded-xl ${fileTypeColors[resource.fileType] || "text-slate-500 bg-slate-50"} group-hover:scale-110 transition-transform`}
-                  >
-                    {getFileIcon(resource.fileType)}
-                  </div>
-                  <div className="flex-1 min-w-0">
-                    <div className="flex items-center gap-2 mb-1">
-                      <h3 className="font-bold text-slate-900 group-hover:text-primary-700 transition-colors truncate">
-                        {resource.title}
-                      </h3>
-                      <span className="px-2 py-0.5 bg-slate-100 text-slate-500 text-xs font-medium rounded-full uppercase">
-                        {resource.fileType}
-                      </span>
+                <Card className="p-6 border border-slate-200 hover:border-primary-300 shadow-sm transition-all duration-300 h-full">
+                  <div className="flex items-start gap-4">
+                    <div
+                      className={`p-3 rounded-xl ${fileTypeColors[resource.fileType] || "text-slate-500 bg-slate-50"} group-hover:scale-110 transition-transform`}
+                    >
+                      {getFileIcon(resource.fileType)}
                     </div>
-                    <p className="text-sm text-slate-500 mb-3 line-clamp-2">
-                      {resource.description}
-                    </p>
-                    <div className="flex items-center text-primary-600 text-sm font-medium">
-                      <span>Access Resource</span>
-                      <svg
-                        className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth="2"
-                          d="M9 5l7 7-7 7"
-                        />
-                      </svg>
+                    <div className="flex-1 min-w-0">
+                      <div className="flex items-center gap-2 mb-1">
+                        <h3 className="font-bold text-slate-900 group-hover:text-primary-700 transition-colors truncate">
+                          {resource.title}
+                        </h3>
+                        <span className="px-2 py-0.5 bg-slate-100 text-slate-500 text-xs font-medium rounded-full uppercase">
+                          {resource.fileType}
+                        </span>
+                      </div>
+                      <p className="text-sm text-slate-500 mb-3 line-clamp-2">
+                        {resource.description}
+                      </p>
+                      <div className="flex items-center text-primary-600 text-sm font-medium">
+                        <span>Access Resource</span>
+                        <svg
+                          className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform"
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth="2"
+                            d="M9 5l7 7-7 7"
+                          />
+                        </svg>
+                      </div>
                     </div>
                   </div>
-                </div>
+                </Card>
               </a>
             ))}
           </div>
         </div>
 
-        <div className="mt-16 bg-gradient-to-r from-primary-50 to-primary-100 rounded-3xl p-12 border border-primary-200">
+        <Card className="mt-16 bg-linear-to-r from-primary-50 to-primary-100 p-12 border border-primary-200" shadow="none">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
               <h3 className="text-2xl md:text-3xl font-serif font-bold text-primary-900 mb-4">
@@ -443,7 +436,7 @@ const Library = () => {
               </div>
             </div>
             <div className="text-center lg:text-right">
-              <div className="inline-block bg-white rounded-2xl p-8 shadow-lg">
+              <Card className="inline-block bg-white p-8 shadow-lg text-left" shadow="lg" border={false}>
                 <div className="flex items-center gap-4 mb-4">
                   <div className="p-4 bg-primary-100 rounded-xl">
                     <svg
@@ -460,7 +453,7 @@ const Library = () => {
                       />
                     </svg>
                   </div>
-                  <div className="text-left">
+                  <div>
                     <p className="text-4xl font-bold text-primary-900">
                       {booksData.length}+
                     </p>
@@ -471,10 +464,10 @@ const Library = () => {
                   Visit us to explore our growing collection of academic and
                   fiction books
                 </p>
-              </div>
+              </Card>
             </div>
           </div>
-        </div>
+        </Card>
       </div>
     </div>
   );

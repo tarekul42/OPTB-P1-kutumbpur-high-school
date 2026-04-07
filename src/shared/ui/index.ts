@@ -11,3 +11,4 @@ export { default as Card } from './UI/Card';
 export { default as SectionHeader } from './UI/SectionHeader';
 export { default as Hero } from './UI/Hero';
 export { default as UpdateCard } from './UI/UpdateCard';
+export { default as ListItem } from './UI/ListItem';

@@ -14,6 +14,7 @@ import {
   bengaliDays,
 } from "@/shared/data/bangladeshHolidays";
 import type { SchoolEvent } from "@/shared/types/api";
+import { Hero, Card, Button } from "@/shared/ui";
 
 const EventsCalendar = () => {
   const [selectedDate, setSelectedDate] = useState(new Date());
@@ -123,53 +124,40 @@ const EventsCalendar = () => {
 
   return (
     <div className="min-h-screen bg-linear-to-b from-gray-50 to-white">
-      <div className="relative bg-linear-to-r from-rose-600 to-rose-800 text-white py-20">
-        <div className="absolute inset-0 bg-black opacity-20"></div>
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center">
-            <h1 className="text-5xl font-bold mb-6">
-              {language === "bn" ? "ইভেন্ট ক্যালেন্ডার" : "Events Calendar"}
-            </h1>
-            <p className="text-xl text-rose-100 max-w-3xl mx-auto">
-              {language === "bn"
-                ? "স্কুলের সকল ইভেন্ট, কার্যক্রম এবং গুরুত্বপূর্ণ তারিখ সম্পর্কে আপডেট থাকুন।"
-                : "Stay updated with all school events, activities, and important dates."}
-            </p>
-            <div className="mt-6 flex justify-center gap-4">
-              <button
-                onClick={() => setLanguage("en")}
-                className={`px-4 py-2 rounded-lg font-medium transition-all ${
-                  language === "en"
-                    ? "bg-white text-rose-700"
-                    : "bg-rose-700 text-white hover:bg-rose-600"
-                }`}
-              >
-                English
-              </button>
-              <button
-                onClick={() => setLanguage("bn")}
-                className={`px-4 py-2 rounded-lg font-medium transition-all ${
-                  language === "bn"
-                    ? "bg-white text-rose-700"
-                    : "bg-rose-700 text-white hover:bg-rose-600"
-                }`}
-              >
-                বাংলা
-              </button>
-            </div>
-          </div>
+      <Hero
+        accentColor="rose-600"
+        title={language === "bn" ? "ইভেন্ট ক্যালেন্ডার" : "Events Calendar"}
+        description={language === "bn"
+          ? "স্কুলের সকল ইভেন্ট, কার্যক্রম এবং গুরুত্বপূর্ণ তারিখ সম্পর্কে আপডেট থাকুন।"
+          : "Stay updated with all school events, activities, and important dates."}
+      >
+        <div className="mt-6 flex justify-center gap-4">
+          <Button
+            onClick={() => setLanguage("en")}
+            variant={language === "en" ? "primary" : "outline"}
+            className={language === "en" ? "bg-white text-rose-700 hover:bg-rose-50" : "border-rose-400 text-white hover:bg-rose-700"}
+          >
+            English
+          </Button>
+          <Button
+            onClick={() => setLanguage("bn")}
+            variant={language === "bn" ? "primary" : "outline"}
+            className={language === "bn" ? "bg-white text-rose-700 hover:bg-rose-50" : "border-rose-400 text-white hover:bg-rose-700"}
+          >
+            বাংলা
+          </Button>
         </div>
-      </div>
+      </Hero>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           <div className="lg:col-span-2 space-y-6">
-            <div className="bg-white rounded-xl shadow-lg p-6 lg:p-8">
+            <Card className="p-6 lg:p-8">
               <div className="flex flex-col sm:flex-row justify-between items-center mb-6 gap-4">
                 <div className="flex items-center gap-4">
                   <button
                     onClick={goToPreviousMonth}
-                    className="p-2 hover:bg-gray-100 rounded-lg transition-colors"
+                    className="p-2 hover:bg-gray-100 rounded-lg transition-colors cursor-pointer"
                     aria-label="Previous month"
                   >
                     <svg className="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -181,7 +169,7 @@ const EventsCalendar = () => {
                   </h2>
                   <button
                     onClick={goToNextMonth}
-                    className="p-2 hover:bg-gray-100 rounded-lg transition-colors"
+                    className="p-2 hover:bg-gray-100 rounded-lg transition-colors cursor-pointer"
                     aria-label="Next month"
                   >
                     <svg className="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -189,12 +177,9 @@ const EventsCalendar = () => {
                     </svg>
                   </button>
                 </div>
-                <button
-                  onClick={goToToday}
-                  className="px-4 py-2 bg-rose-600 text-white rounded-lg hover:bg-rose-700 transition-colors font-medium"
-                >
+                <Button onClick={goToToday} variant="secondary">
                   {language === "bn" ? "আজ" : "Today"}
-                </button>
+                </Button>
               </div>
 
               <div className="calendar-wrapper">
@@ -228,9 +213,9 @@ const EventsCalendar = () => {
                   ))}
                 </div>
               </div>
-            </div>
+            </Card>
 
-            <div className="bg-white rounded-xl shadow-lg p-6 lg:p-8">
+            <Card className="p-6 lg:p-8">
               <h2 className="text-2xl font-bold text-gray-900 mb-6">
                 {language === "bn" ? "আসন্ন ইভেন্ট" : "Upcoming Events"}
               </h2>
@@ -272,11 +257,11 @@ const EventsCalendar = () => {
                   </p>
                 )}
               </div>
-            </div>
+            </Card>
           </div>
 
           <div className="space-y-6">
-            <div className="bg-white rounded-xl shadow-lg p-6 lg:p-8 sticky top-8">
+            <Card className="p-6 lg:p-8 sticky top-8">
               <h2 className="text-2xl font-bold text-gray-900 mb-6">
                 {language === "bn" ? "নির্বাচিত তারিখ" : "Selected Date"}
               </h2>
@@ -349,9 +334,9 @@ const EventsCalendar = () => {
                     : "Friday is the official weekly holiday in Bangladesh. Schools remain closed."}
                 </p>
               </div>
-            </div>
+            </Card>
 
-            <div className="bg-white rounded-xl shadow-lg p-6">
+            <Card className="p-6">
               <h3 className="text-xl font-bold text-gray-900 mb-4">
                 {language === "bn" ? "প্রধান ছুটিসমূহ" : "Major Holidays"}
               </h3>
@@ -359,7 +344,7 @@ const EventsCalendar = () => {
                 {bangladeshHolidays.slice(0, 5).map((holiday) => (
                   <div
                     key={holiday.id}
-                    className="flex items-start gap-3 p-2 hover:bg-gray-50 rounded-lg transition-colors"
+                    className="flex items-start gap-3 p-2 hover:bg-gray-50 rounded-lg transition-colors cursor-pointer"
                   >
                     <div className="w-2 h-2 bg-red-500 rounded-full mt-2 shrink-0"></div>
                     <div className="flex-1 min-w-0">
@@ -371,7 +356,7 @@ const EventsCalendar = () => {
                   </div>
                 ))}
               </div>
-            </div>
+            </Card>
           </div>
         </div>
       </div>

@@ -1,3 +1,6 @@
+import React from "react";
+import { Hero, Card, Button, SectionHeader, ListItem } from "@/shared/ui";
+
 interface AlumniStory {
   name: string;
   year: string;
@@ -33,29 +36,21 @@ const alumniSectionAlumniStories: AlumniStory[] = [
 const AlumniSection: React.FC = () => {
   return (
     <div className="min-h-screen bg-linear-to-b from-gray-50 to-white">
-      <div className="relative bg-linear-to-r from-teal-600 to-teal-800 text-white py-20">
-        <div className="absolute inset-0 bg-black opacity-20"></div>
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center">
-            <h1 className="text-5xl font-bold mb-6">Alumni Network</h1>
-            <p className="text-xl text-teal-100 max-w-3xl mx-auto">
-              Stay connected with your alma mater and fellow alumni. Share your
-              success stories and inspire the next generation.
-            </p>
-          </div>
-        </div>
-      </div>
+      <Hero
+        accentColor="teal-600"
+        title="Alumni Network"
+        description="Stay connected with your alma mater and fellow alumni. Share your success stories and inspire the next generation."
+      />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="mb-16">
-          <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">
-            Alumni Success Stories
-          </h2>
+          <SectionHeader title="Alumni Success Stories" />
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {alumniSectionAlumniStories.map((story, index) => (
-              <div
+              <Card
                 key={index}
-                className="bg-white rounded-xl shadow-lg overflow-hidden"
+                hoverable
+                className="overflow-hidden shadow-lg border border-slate-100"
               >
                 <img
                   src={story.image}
@@ -69,125 +64,68 @@ const AlumniSection: React.FC = () => {
                   <p className="text-teal-600 font-semibold mb-2">
                     {story.year}
                   </p>
-                  <p className="text-gray-600 mb-4">{story.role}</p>
-                  <p className="text-gray-600 italic">"{story.story}"</p>
+                  <p className="text-gray-600 mb-4 font-medium">{story.role}</p>
+                  <p className="text-gray-600 italic leading-relaxed">"{story.story}"</p>
                 </div>
-              </div>
+              </Card>
             ))}
           </div>
         </div>
 
-        <div className="bg-white rounded-xl shadow-lg p-8 mb-16">
+        <Card className="p-12 mb-16 border border-teal-100 bg-teal-50/30" shadow="lg">
           <div className="text-center">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">
+            <h2 className="text-3xl font-bold text-gray-900 mb-4 font-serif">
               Join Our Alumni Network
             </h2>
-            <p className="text-gray-600 mb-8 max-w-2xl mx-auto">
+            <p className="text-gray-600 mb-8 max-w-2xl mx-auto text-lg">
               Connect with fellow alumni, share your experiences, and stay
               updated with school events and opportunities.
             </p>
-            <button className="bg-teal-600 text-white px-8 py-3 rounded-md hover:bg-teal-700 transition duration-300 cursor-pointer">
+            <Button size="lg" className="px-10 bg-teal-600 hover:bg-teal-700">
               Register as Alumni
-            </button>
+            </Button>
           </div>
-        </div>
+        </Card>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          <div className="bg-white rounded-xl shadow-lg p-8">
-            <h3 className="text-2xl font-bold text-gray-900 mb-4">
+          <Card className="p-8 border border-slate-100">
+            <h3 className="text-2xl font-bold text-gray-900 mb-6 font-serif">
               Upcoming Events
             </h3>
-            <div className="space-y-4">
-              <div className="border-l-4 border-teal-500 pl-4">
-                <h4 className="font-bold text-gray-900">Annual Alumni Meet</h4>
-                <p className="text-gray-600">December 15, 2024</p>
-                <p className="text-gray-600">School Auditorium</p>
-              </div>
-              <div className="border-l-4 border-teal-500 pl-4">
-                <h4 className="font-bold text-gray-900">Career Fair</h4>
-                <p className="text-gray-600">January 20, 2025</p>
-                <p className="text-gray-600">Main Campus</p>
-              </div>
+            <div className="space-y-6">
+              {[
+                { title: "Annual Alumni Meet", date: "December 15, 2024", location: "School Auditorium" },
+                { title: "Career Fair", date: "January 20, 2025", location: "Main Campus" }
+              ].map((event, idx) => (
+                <div key={idx} className="border-l-4 border-teal-500 pl-6 py-2 bg-teal-50/20 rounded-r-lg">
+                  <h4 className="font-bold text-gray-900 text-lg">{event.title}</h4>
+                  <p className="text-gray-600 font-medium">{event.date}</p>
+                  <p className="text-gray-500">{event.location}</p>
+                </div>
+              ))}
             </div>
-          </div>
+          </Card>
 
-          <div className="bg-white rounded-xl shadow-lg p-8">
-            <h3 className="text-2xl font-bold text-gray-900 mb-4">
+          <Card className="p-8 border border-slate-100">
+            <h3 className="text-2xl font-bold text-gray-900 mb-6 font-serif">
               Alumni Benefits
             </h3>
             <ul className="space-y-4">
-              <li className="flex items-start">
-                <svg
-                  className="w-6 h-6 text-teal-600 mr-2"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
+              {[
+                "Access to school facilities and resources",
+                "Networking opportunities with fellow alumni",
+                "Career development workshops",
+                "Mentorship opportunities"
+              ].map((benefit, idx) => (
+                <ListItem 
+                  key={idx} 
+                  iconClassName="text-teal-600"
                 >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="M5 13l4 4L19 7"
-                  />
-                </svg>
-                <span className="text-gray-600">
-                  Access to school facilities and resources
-                </span>
-              </li>
-              <li className="flex items-start">
-                <svg
-                  className="w-6 h-6 text-teal-600 mr-2"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="M5 13l4 4L19 7"
-                  />
-                </svg>
-                <span className="text-gray-600">
-                  Networking opportunities with fellow alumni
-                </span>
-              </li>
-              <li className="flex items-start">
-                <svg
-                  className="w-6 h-6 text-teal-600 mr-2"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="M5 13l4 4L19 7"
-                  />
-                </svg>
-                <span className="text-gray-600">
-                  Career development workshops
-                </span>
-              </li>
-              <li className="flex items-start">
-                <svg
-                  className="w-6 h-6 text-teal-600 mr-2"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="M5 13l4 4L19 7"
-                  />
-                </svg>
-                <span className="text-gray-600">Mentorship opportunities</span>
-              </li>
+                  <span className="text-gray-700 font-medium">{benefit}</span>
+                </ListItem>
+              ))}
             </ul>
-          </div>
+          </Card>
         </div>
       </div>
     </div>
