@@ -1,7 +1,6 @@
 import React, { lazy, Suspense, type ReactNode } from "react";
 import { createBrowserRouter } from "react-router-dom";
-import { LoadingFallback, SEO, SearchModal } from "../../shared/ui";
-import MainUserLayout from "../../shared/ui/layouts/MainUserLayout/MainUserLayout";
+import { LoadingFallback, SEO, SearchModal, MainLayout } from "../../shared/ui";
 
 const Home = lazy(() => import("../../features/home").then(m => ({ default: m.Home })));
 const AboutUs = lazy(() => import("../../features/home").then(m => ({ default: m.AboutUs })));
@@ -37,19 +36,18 @@ const withSuspense = (Component: React.ComponentType): React.JSX.Element => (
   </Suspense>
 );
 
-const LayoutWrapper = ({ children }: { children: ReactNode }): React.JSX.Element => (
+const LayoutWrapper = (): React.JSX.Element => (
   <>
     <SEO />
-    <MainUserLayout />
+    <MainLayout />
     <SearchModal />
-    {children}
   </>
 );
 
 export const router = createBrowserRouter([
   {
     path: "/",
-    element: <LayoutWrapper><></></LayoutWrapper>,
+    element: <LayoutWrapper />,
     children: [
       {
         path: "/",

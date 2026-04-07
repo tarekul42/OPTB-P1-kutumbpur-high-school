@@ -15,6 +15,7 @@ export { default as StatCard } from './molecules/StatCard';
 export { default as Navbar } from './organisms/Navbar/Navbar';
 export { default as Footer } from './organisms/Footer/Footer';
 export { default as SearchBar } from './organisms/SearchBar/SearchBar';
+export { default as SearchModal } from './organisms/SearchModal/SearchModal';
 
 // Templates
 export { default as MainLayout } from './templates/MainLayout';
