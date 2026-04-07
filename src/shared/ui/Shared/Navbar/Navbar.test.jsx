@@ -1,8 +1,8 @@
 import { describe, it, expect, vi, beforeEach, afterEach } from "vitest";
 import { render, screen, fireEvent, waitFor } from "@testing-library/react";
 import { BrowserRouter } from "react-router-dom";
-import Navbar from "../src/Components/Shared/Navbar/Navbar";
-import { AppProvider } from "../src/context/AppContext";
+import Navbar from "./Navbar";
+import { AppProvider } from "../../../../app/providers/AppContext";
 
 const renderNavbar = () => {
   return render(

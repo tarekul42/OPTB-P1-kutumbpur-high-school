@@ -1,7 +1,7 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest';
 import { render, screen, fireEvent, waitFor } from '@testing-library/react';
 import { BrowserRouter } from 'react-router-dom';
-import Library from '../src/Pages/CuriosityCorner/Library/Library';
+import Library from './Library';
 
 const renderLibrary = () => {
   return render(

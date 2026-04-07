@@ -1,138 +1,121 @@
-# Kutumbpur High School - Digital Platform
+# 🏫 Kutumbpur High School - Digital Excellence Platform
 
-![Build Status](https://img.shields.io/badge/build-passing-brightgreen)
-![License](https://img.shields.io/badge/license-MIT-blue)
-![Version](https://img.shields.io/badge/version-1.0.0-orange)
-![Tech Stack](https://img.shields.io/badge/stack-React%20%7C%20Vite%20%7C%20Tailwind-blueviolet)
+[![Bun](https://img.shields.io/badge/Runtime-Bun-black?style=for-the-badge&logo=bun)](https://bun.sh)
+[![React](https://img.shields.io/badge/React-19-blue?style=for-the-badge&logo=react)](https://react.dev)
+[![TypeScript](https://img.shields.io/badge/TypeScript-6.0-blue?style=for-the-badge&logo=typescript)](https://www.typescriptlang.org/)
+[![Vite](https://img.shields.io/badge/Vite-7-646CFF?style=for-the-badge&logo=vite)](https://vitejs.dev/)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-4.0-38B2AC?style=for-the-badge&logo=tailwind-css)](https://tailwindcss.com)
 
-A modern, responsive, and comprehensive digital platform for **Kutumbpur High School**, designed to bridge the gap between students, parents, and faculty. This application serves as the central hub for academic management, communication, and school updates.
+A premium, high-performance digital ecosystem for **Kutumbpur High School**. This platform provides a seamless bridge between administration, faculty, parents, and students, specifically optimized for the Bangladeshi educational context.
 
-## 🚀 Features
+Built with a modern stack emphasizing speed, reliability, and accessibility.
 
-### 🎓 For Students
-- **Academic Portal:** View grades, attendance, and class schedules.
-- **Resource Library:** Access digital textbooks, study materials, and past exam papers.
-- **Assignment Tracker:** Submit assignments and track deadlines with real-time status updates.
+---
 
-### 👨‍👩‍👧‍👦 For Parents
-- **Progress Monitoring:** Real-time access to child's academic performance and attendance.
-- **Communication:** Direct messaging with teachers and administration.
-- **Fee Management:** Digital fee structure viewing and payment history tracking.
+## ✨ Strategic Features
 
-### 🏫 For Administration & Faculty
-- **Content Management:** Manage news, events, and school announcements.
-- **Student Records:** Centralized database for student information.
-- **Faculty Portal:** Manage classes, grading, and resources.
+### 🏛️ Specialized Portals
+*   **Student Hub:** Personalized dashboards with academic tracking, schedules, and digital resources.
+*   **Faculty Control:** Advanced class management, grading systems, and resource distribution.
+*   **Parent Insights:** Real-time visibility into attendance, performance, and communication channels.
 
-## 🛠️ Technology Stack
+### 📅 Cultural Localization
+*   **Bangladesh-Tailored Calendar:** Fully localized in Bengali with Friday weekends and national holiday integration.
+*   **Holiday Service:** Automated tracking of national days (Victory Day, Independence Day, etc.) and educational holidays.
 
-- **Runtime:** [Bun](https://bun.sh) (v1.x)
-- **Framework:** [React](https://react.dev) (v19)
-- **Build Tool:** [Vite](https://vitejs.dev) (v7)
-- **Styling:** [Tailwind CSS](https://tailwindcss.com) (v4)
-- **State Management:** React Context API (with domain-based splitting)
-- **Routing:** React Router DOM (v7)
-- **Testing:** [Vitest](https://vitest.dev) & React Testing Library
-- **Linting:** ESLint
+### 🚀 Educational Innovation
+*   **Curiosity Corner:** A curated digital library for independent learning.
+*   **Edu-Adventure:** Engagement-focused learning modules designed for modern education.
+*   **FAQ System:** Instant answers to common administrative and academic queries.
 
-## 🏗️ Architecture & Decisions
+---
 
-### State Management Strategy
-We chose **React Context API** over external libraries (like Redux) to minimize boilerplate for this scale of application. To ensure performance and scalability:
-- **Context Splitting:** State is divided into domain-specific contexts (`ThemeContext`, `NotificationContext`, `StudentContext`) to prevent unnecessary re-renders.
-- **Service Layer:** Data fetching is abstracted into a `services/api.js` layer, simulating asynchronous API calls. This decouples the UI from the data source, allowing for easy integration with a real backend in the future.
+## 🛠️ Technical Excellence
 
-### Component Design
-- **Atomic Design Principles:** UI primitives (like Badges, Icons) are separated from feature components.
-- **Compound Components:** Complex dashboards are broken down into small, single-responsibility widgets (e.g., `DailySchedule`, `QuickStats`) for maintainability.
+Developing for longevity and performance, this project utilizes a **Feature-Based Architecture** (FSD-lite) to ensure scalability.
 
-## 📂 Project Structure
+-   **Runtime & Package Manager:** [Bun](https://bun.sh) for lightning-fast installations and builds.
+-   **Core Framework:** [React 19](https://react.dev) utilizing the latest concurrent features.
+-   **Styling Engine:** [Tailwind CSS 4.0](https://tailwindcss.com) for a modern, fluid design system.
+-   **Data Visualization:** [Recharts](https://recharts.org/) for intuitive student performance analytics.
+-   **State Management:** Optimized React Context patterns with domain isolation.
+-   **Testing:** [Vitest](https://vitest.dev) with a co-location strategy for maximum reliability.
+
+---
+
+## 📂 Project Architecture
 
 ```bash
 src/
-├── assets/             # Static assets (images, icons)
-├── Components/         # Reusable UI components
-│   ├── Shared/         # Global components (Navbar, Footer)
-│   ├── UI/             # Atomic UI primitives (Badge, Button)
-│   ├── Icons/          # SVG Icon library
-│   └── ...             # Feature-specific components
-├── context/            # Global state (Theme, Auth, Data)
-├── data/               # Static data & mock APIs
-├── services/           # API service layer (Mock async calls)
-├── Layouts/            # Page layouts (Main, Auth, Dashboard)
-├── Pages/              # Application views/routes
-│   ├── Home/           # Landing page & sub-sections
-│   ├── Portals/        # Student, Parent, & Faculty portals
+├── features/           # Domain-driven feature modules
+│   ├── home/           # Landing page & core identity
+│   ├── student-portal/ # Advanced student dashboard
+│   ├── faculty-portal/ # Faculty management tools
+│   ├── parent-portal/  # Parent engagement hub
+│   ├── events/         # Calendar & localization logic
 │   └── ...
-├── Routes/             # Router configuration
-├── styles/             # Global styles & Tailwind config
-└── utils/              # Helper functions & constants
+├── shared/             # Atomic cross-cutting concerns
+│   ├── ui/             # Premium design system components
+│   ├── hooks/          # Domain-agnostic logic
+│   ├── types/          # Global TypeScript definitions
+│   └── lib/            # Utility functions & generators
+├── docs/               # Detailed feature documentation
+└── ...
 ```
 
-## ⚡ Getting Started
+---
+
+## 🚀 Experience the Platform
 
 ### Prerequisites
-- [Bun](https://bun.sh) (latest version recommended)
+*   [Bun](https://bun.sh) (v1.x+)
 
-### Installation
-
-1.  **Clone the repository:**
+### Rapid Setup
+1.  **Clone the Vision:**
     ```bash
     git clone https://github.com/tarekul42/OPTB-P1-kutumbpur-high-school.git
     cd OPTB-P1-kutumbpur-high-school
     ```
-
-2.  **Install dependencies:**
+2.  **Initialize Environment:**
     ```bash
     bun install
     ```
-
-3.  **Start the development server:**
+3.  **Launch Production Sync:**
     ```bash
     bun run dev
     ```
-    The application will be available at `http://localhost:5173`.
+    Access the platform at `http://localhost:5173`.
 
-## 🧪 Testing
+---
 
-We use **Vitest** for unit and integration testing.
+## 🧪 Quality Assurance
 
-- **Run all tests:**
-    ```bash
-    bun run test
-    ```
-- **Run tests with UI:**
-    ```bash
-    bun run test:ui
-    ```
-- **Check coverage:**
-    ```bash
-    bun run test:coverage
-    ```
+We maintain a rigorous testing standard to ensure the platform's stability.
 
-## 🗺️ Roadmap
+```bash
+# Execute unit and integration tests
+bun run test
 
-- [x] **Core Portals:** Student and Faculty dashboards.
-- [x] **Event Management:** Interactive calendar with Bangladesh holidays.
-- [ ] **Backend Integration:** Connect to a Node.js/Express API.
-- [ ] **Real-time Chat:** Socket.io integration for Parent-Teacher communication.
-- [ ] **Payment Gateway:** Integration with SSLCommerz for fee payments.
+# Launch visual test suite
+bun run test:ui
 
-## 🤝 Contribution Guidelines
+# Generate comprehensive coverage reports
+bun run test:coverage
+```
 
-We welcome contributions! Please follow these steps to ensure a smooth workflow:
+---
 
-1.  **Fork the repository.**
-2.  **Create a feature branch:** `git checkout -b feature/amazing-feature`
-3.  **Commit your changes:** `git commit -m 'feat: Add amazing feature'` (Use [Conventional Commits](https://www.conventionalcommits.org/))
-4.  **Push to the branch:** `git push origin feature/amazing-feature`
-5.  **Open a Pull Request.**
+## 🤝 Roadmap & Vision
 
-## 📄 License
+- [x] **Phase 1:** Core Portal Architecture and localized events.
+- [x] **Phase 2:** Responsive Design and Feature-Based Restructuring.
+- [ ] **Phase 3:** Real-time parent-teacher socket integration.
+- [ ] **Phase 4:** National Result API integration and SSLCommerz payment gateway.
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+---
 
-## 📞 Support & Contact
+## 📄 License & Maintainers
 
-- **Email:** kutumbpurhighschool1996@gmail.com
-- **Maintainer:** [Tarekul Islam](https://github.com/tarekul42)
+This project is licensed under the **MIT License**.
+
+Developed and maintained with ❤️ by [Tarekul Islam](https://github.com/tarekul42) and the Kutumbpur High School Digital Team.

@@ -1,7 +1,7 @@
 import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
 import { render, screen, fireEvent, waitFor, act } from '@testing-library/react';
 import { BrowserRouter } from 'react-router-dom';
-import Contact from '../src/Pages/Home/Contact/Contact';
+import Contact from "./Contact";
 
 vi.mock('react-hot-toast', () => ({
   Toaster: () => <div data-testid="toaster" />,
