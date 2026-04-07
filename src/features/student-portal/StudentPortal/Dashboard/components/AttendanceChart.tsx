@@ -1,4 +1,4 @@
-import { ChartBarIcon } from "@/shared/ui/Icons";
+import { ChartBarIcon } from "@/shared/ui";
 import { AttendanceData } from "@/shared/types/user";
 
 interface AttendanceChartProps {

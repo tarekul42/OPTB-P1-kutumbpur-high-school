@@ -1,7 +1,7 @@
 import { useState, useMemo } from "react";
 import { format } from "date-fns";
 import { useStudent } from "@/app/providers/contexts/StudentContext";
-import Badge from "@/shared/ui/UI/Badge";
+import { Badge } from "@/shared/ui";
 import { subjects } from "@/shared/data/studentData";
 
 const Schedule = () => {

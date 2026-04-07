@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import SearchBar from "@/shared/ui/SearchBar/SearchBar";
+import { SearchBar } from "@/shared/ui";
 import heroImage from "@/shared/assets/school_hero_main.png";
 import { NewsItem } from "@/shared/types/common";
 

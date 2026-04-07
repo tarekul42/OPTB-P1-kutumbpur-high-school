@@ -6,7 +6,7 @@ import {
   ClipboardListIcon,
   DocumentTextIcon,
   CheckCircleIcon,
-} from "@/shared/ui/Icons";
+} from "@/shared/ui";
 import { Assignment } from "@/shared/types/user";
 
 interface PendingAssignmentsProps {

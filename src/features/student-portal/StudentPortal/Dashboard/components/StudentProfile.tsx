@@ -1,4 +1,4 @@
-import { UserCircleIcon } from "@/shared/ui/Icons";
+import { UserCircleIcon } from "@/shared/ui";
 import { Student } from "@/shared/types/user";
 
 interface StudentProfileProps {

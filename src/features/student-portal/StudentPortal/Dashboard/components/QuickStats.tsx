@@ -3,7 +3,7 @@ import { Badge, Card } from "@/shared/ui";
 import {
   CheckCircleIcon,
   ClipboardListIcon,
-} from "@/shared/ui/Icons";
+} from "@/shared/ui";
 
 interface QuickStatsProps {
   attendancePercentage: number;

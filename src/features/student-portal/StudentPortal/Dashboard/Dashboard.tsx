@@ -8,7 +8,7 @@ import PendingAssignments from "./components/PendingAssignments";
 import NoticeBoard from "./components/NoticeBoard";
 import StudentProfile from "./components/StudentProfile";
 import AttendanceChart from "./components/AttendanceChart";
-import LoadingFallback from "@/shared/ui/LoadingFallback/LoadingFallback";
+import { LoadingFallback } from "@/shared/ui";
 
 const Dashboard = () => {
   const {

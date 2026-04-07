@@ -1,5 +1,5 @@
 import { format, isPast, isToday, isTomorrow, addDays } from "date-fns";
-import Badge from "@/shared/ui/UI/Badge";
+import { Badge } from "@/shared/ui";
 import type { Assignment } from "@/shared/types/user";
 
 interface AssignmentCardProps {

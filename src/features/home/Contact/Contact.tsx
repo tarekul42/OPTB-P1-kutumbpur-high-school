@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Toaster, toast } from "react-hot-toast";
-import FormInput from "@/shared/ui/FormInput/FormInput";
+import { FormInput } from "@/shared/ui";
 import {
   contactFormSchema,
   subjectOptions,

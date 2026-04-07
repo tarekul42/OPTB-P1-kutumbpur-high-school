@@ -1,4 +1,4 @@
-import FormInput from "@/shared/ui/FormInput/FormInput";
+import { FormInput } from "@/shared/ui";
 import { classOptions } from "@/shared/lib/validationSchemas";
 import type { UseFormRegister, FieldErrors } from "react-hook-form";
 

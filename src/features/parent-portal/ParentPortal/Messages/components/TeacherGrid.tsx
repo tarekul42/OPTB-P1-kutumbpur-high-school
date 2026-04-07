@@ -1,4 +1,4 @@
-import Badge from "@/shared/ui/UI/Badge";
+import { Badge } from "@/shared/ui";
 import { Subject } from "@/shared/types/user";
 
 interface TeacherGridProps {

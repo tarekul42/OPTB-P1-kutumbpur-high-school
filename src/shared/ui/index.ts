@@ -2,6 +2,10 @@
 export { default as Button } from './atoms/Button';
 export { default as Badge } from './atoms/Badge';
 export { default as Card } from './atoms/Card';
+export { default as Dropdown } from './atoms/Dropdown';
+export { default as FormInput } from './atoms/FormInput';
+export * from './atoms/Icons';
+
 
 // Molecules
 export { default as SectionHeader } from './molecules/SectionHeader';

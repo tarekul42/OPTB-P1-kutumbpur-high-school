@@ -4,7 +4,7 @@ import { Badge, Card } from "@/shared/ui";
 import {
   CalendarCheckIcon,
   CalendarClockIcon,
-} from "@/shared/ui/Icons";
+} from "@/shared/ui";
 import { ClassSchedule } from "@/shared/types/user";
 
 interface DailyScheduleProps {

@@ -1,5 +1,5 @@
 import { format } from "date-fns";
-import { SpeakerphoneIcon } from "@/shared/ui/Icons";
+import { SpeakerphoneIcon } from "@/shared/ui";
 import { Notice } from "@/shared/types/user";
 
 interface NoticeBoardProps {
