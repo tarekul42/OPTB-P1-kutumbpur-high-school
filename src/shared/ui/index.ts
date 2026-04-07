@@ -6,3 +6,8 @@ export { default as ScrollToTop } from './ScrollToTop';
 export { default as SearchBar } from './SearchBar/SearchBar';
 export { default as SearchModal } from './SearchModal/SearchModal';
 export { default as Badge } from './UI/Badge';
+export { default as Button } from './UI/Button';
+export { default as Card } from './UI/Card';
+export { default as SectionHeader } from './UI/SectionHeader';
+export { default as Hero } from './UI/Hero';
+export { default as UpdateCard } from './UI/UpdateCard';

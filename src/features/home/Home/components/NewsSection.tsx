@@ -1,6 +1,8 @@
+import React from "react";
 import NewsCard from "@/features/home/components/NewsCard";
 import { newsCategories } from "@/shared/data/homeData";
 import { NewsItem } from "@/shared/types/common";
+import { SectionHeader, Button } from "@/shared/ui";
 
 interface NewsSectionProps {
   selectedCategory: string;
@@ -26,14 +28,10 @@ const NewsSection: React.FC<NewsSectionProps> = ({
   return (
     <div className="py-20 bg-neutral-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-12">
-          <h2 className="text-4xl font-bold text-neutral-900 mb-4">
-            Latest News
-          </h2>
-          <p className="text-xl text-neutral-600 max-w-3xl mx-auto">
-            Stay updated with our latest events and achievements
-          </p>
-        </div>
+        <SectionHeader
+          title="Latest News"
+          description="Stay updated with our latest events and achievements"
+        />
 
         <div className="flex flex-wrap justify-center gap-3 mb-12">
           {newsCategories.map((category) => (
@@ -62,12 +60,9 @@ const NewsSection: React.FC<NewsSectionProps> = ({
 
         {hasMore && (
           <div className="text-center mt-12">
-            <button
-              onClick={handleLoadMore}
-              className="px-8 py-3 bg-primary-900 text-white rounded-lg font-semibold hover:bg-primary-800 transition-all duration-300 transform hover:scale-105 hover:shadow-xl cursor-pointer"
-            >
+            <Button onClick={handleLoadMore} size="lg">
               Load More News
-            </button>
+            </Button>
           </div>
         )}
       </div>
