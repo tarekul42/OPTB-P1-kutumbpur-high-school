@@ -1,5 +1,6 @@
 import React from "react";
 import { Hero, SectionHeader, Card, Button } from "@/shared/ui";
+import { toast } from "react-hot-toast";
 
 const Testimonials = () => {
   const testimonials = [
@@ -95,7 +96,7 @@ const Testimonials = () => {
             title="Share Your Experience"
             description="We'd love to hear about your experience at Kutumbpur High School. Share your story and inspire others."
           />
-          <Button size="lg" onClick={() => window.alert('Testimonial submission feature coming soon!')}>
+          <Button size="lg" onClick={() => toast.success('Testimonial submission form coming soon!')}>
             Submit Your Testimonial
           </Button>
         </div>
